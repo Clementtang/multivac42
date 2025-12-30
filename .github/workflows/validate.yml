@@ -1,0 +1,34 @@
+name: 驗證內容
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['docs/**/*.md']
+  push:
+    branches: [main]
+    paths: ['docs/**/*.md']
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: node scripts/validate-filenames.js
+      - run: npx markdownlint-cli2 'docs/**/*.md' --config .markdownlint.yml || true
+
+  build:
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run docs:build
