@@ -1,6 +1,6 @@
 ---
 title: 研究
-layout: page
+sidebar: false
 ---
 
 <script setup>
