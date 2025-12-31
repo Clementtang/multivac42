@@ -1,13 +1,20 @@
 ---
-title: "Anthropic 併購 Bun：AI 編碼巨頭的基礎設施豪賭"
-description: "Claude Code 在 6 個月內衝破 10 億美元營收後,Anthropic 用首次併購展現野心——收購全球最快的 JavaScript runtime Bun,為 AI 原生開發工具打造專屬引擎。"
+title: Anthropic 併購 Bun：AI 編碼巨頭的基礎設施豪賭
+description: Claude Code 在 6 個月內衝破 10 億美元營收後,Anthropic 用首次併購展現野心——收購全球最快的 JavaScript runtime Bun,為 AI 原生開發工具打造專屬引擎。
 date: 2025-12-03
-tags: ["Anthropic", "Bun", "併購", "AI編碼", "Claude", "JavaScript", "開發工具"]
+author: Clement Tang
+tags: ["Anthropic","Bun","併購","AI編碼","Claude","JavaScript","開發工具"]
+category: articles
+publish: true
+lastModified: 2025-12-31
 ---
 
 # Anthropic 併購 Bun：AI 編碼巨頭的基礎設施豪賭
 
 > Claude Code 在 6 個月內衝破 10 億美元營收後,Anthropic 用首次併購展現野心——收購全球最快的 JavaScript runtime Bun,為 AI 原生開發工具打造專屬引擎。
+
+
+---
 
 ## The Big Picture
 
@@ -626,4 +633,8 @@ Anthropic 能否成功整合 Bun,同時維持開源社群的信任和活力？�
 
 ---
 
-*發布日期：2025-12-03*
+## 更新記錄
+
+- **2025-12-03：** 建立文章,完整分析 Anthropic 併購 Bun 的背景、戰略意義與產業影響
+
+---

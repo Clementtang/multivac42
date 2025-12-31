@@ -1,8 +1,8 @@
 ---
 layout: home
-title: Multivac42
+title: Multivac 42
 hero:
-  name: Multivac42
+  name: Multivac 42
   text: 研究與寫作
   tagline: 探索商業、科技與產業的深度分析
   actions:

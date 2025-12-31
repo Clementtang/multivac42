@@ -2,7 +2,7 @@
 title: 關於
 ---
 
-# 關於 Multivac42
+# 關於 Multivac 42
 
 ## 名稱由來
 
