@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Multivac42',
+  title: 'Multivac 42',
   description: '研究與寫作',
   lang: 'zh-TW',
   srcDir: 'docs',
+  cleanUrls: true,
 
   themeConfig: {
     nav: [
