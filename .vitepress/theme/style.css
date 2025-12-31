@@ -443,7 +443,7 @@ html {
 }
 
 .VPDoc:not(.has-sidebar) .content {
-  max-width: 1400px !important;
+  max-width: 1200px !important;
   margin: 0 auto;
   padding: 0 2rem;
 }

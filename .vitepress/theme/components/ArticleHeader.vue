@@ -46,6 +46,12 @@ const author = computed(() => frontmatter.value.author || 'Clement Tang')
 
 // Get title
 const title = computed(() => frontmatter.value.title || '')
+
+// Get feature image
+const featureImage = computed(() => frontmatter.value.image || frontmatter.value.featureImage || null)
+
+// Get image alt text
+const imageAlt = computed(() => frontmatter.value.imageAlt || title.value)
 </script>
 
 <template>
@@ -72,6 +78,11 @@ const title = computed(() => frontmatter.value.title || '')
         {{ tag }}
       </span>
     </div>
+
+    <!-- Feature Image -->
+    <figure v-if="featureImage" class="feature-image">
+      <img :src="featureImage" :alt="imageAlt" loading="lazy" />
+    </figure>
   </div>
 </template>
 
@@ -148,5 +159,27 @@ const title = computed(() => frontmatter.value.title || '')
 
 .header-tag:hover {
   background: rgba(245, 158, 11, 0.2);
+}
+
+/* Feature Image */
+.feature-image {
+  margin: 1.5rem 0 0 0;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+}
+
+.feature-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.feature-image:hover img {
+  transform: scale(1.02);
 }
 </style>
