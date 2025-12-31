@@ -214,6 +214,14 @@ html {
   padding-bottom: 0.5rem;
 }
 
+/* Horizontal rule - single line style */
+.vp-doc hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--vp-c-divider);
+  height: 0;
+}
+
 /* Links */
 .vp-doc a {
   color: var(--vp-c-brand-1);
