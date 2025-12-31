@@ -43,81 +43,110 @@ const tags = computed(() => frontmatter.value.tags || [])
 
 // Get author
 const author = computed(() => frontmatter.value.author || 'Clement Tang')
+
+// Get title
+const title = computed(() => frontmatter.value.title || '')
 </script>
 
 <template>
   <div v-if="isArticlePage && formattedDate" class="article-header">
-    <!-- Tags first (like category labels) -->
+    <!-- Title -->
+    <h1 class="article-title">{{ title }}</h1>
+
+    <!-- Byline: Author · Date · Reading Time -->
+    <div class="header-byline">
+      <span class="byline-author">{{ author }}</span>
+      <span class="byline-separator">·</span>
+      <span class="byline-date">{{ formattedDate }}</span>
+      <span class="byline-separator">·</span>
+      <span class="byline-reading-time">{{ readingTime }} 分鐘閱讀</span>
+      <template v-if="formattedLastModified">
+        <span class="byline-separator">·</span>
+        <span class="byline-modified">更新於 {{ formattedLastModified }}</span>
+      </template>
+    </div>
+
+    <!-- Tags -->
     <div v-if="tags.length" class="header-tags">
       <span v-for="tag in tags" :key="tag" class="header-tag">
         {{ tag }}
       </span>
-    </div>
-
-    <!-- Meta line: Author · Date · Reading Time -->
-    <div class="header-meta">
-      <span class="meta-author">{{ author }}</span>
-      <span class="meta-separator">·</span>
-      <span class="meta-date">{{ formattedDate }}</span>
-      <span class="meta-separator">·</span>
-      <span class="meta-reading-time">{{ readingTime }} 分鐘閱讀</span>
-      <template v-if="formattedLastModified">
-        <span class="meta-separator">·</span>
-        <span class="meta-modified">更新於 {{ formattedLastModified }}</span>
-      </template>
     </div>
   </div>
 </template>
 
 <style scoped>
 .article-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--vp-c-divider);
 }
 
-/* Tags - small labels */
-.header-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+/* Title */
+.article-title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 0 0 0.75rem 0;
+  color: var(--vp-c-text-1);
 }
 
-.header-tag {
-  display: inline-block;
-  padding: 0.15rem 0.5rem;
-  font-size: 0.75rem;
-  font-family: var(--vp-font-family-mono);
-  color: var(--vp-c-brand-1);
-  background: var(--vp-c-brand-soft);
-  border-radius: 3px;
-}
-
-/* Meta line */
-.header-meta {
+/* Byline: Author · Date · Reading Time */
+.header-byline {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.85rem;
-  color: var(--vp-c-text-3);
-}
-
-.meta-author {
+  font-size: 0.9rem;
   color: var(--vp-c-text-2);
+  margin-bottom: 0.75rem;
 }
 
-.meta-separator {
+.byline-author {
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+}
+
+.byline-separator {
   color: var(--vp-c-text-3);
+  margin: 0 0.1rem;
 }
 
-.meta-date {
+.byline-date {
   font-family: var(--vp-font-family-mono);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
 }
 
-.meta-reading-time,
-.meta-modified {
+.byline-reading-time {
   color: var(--vp-c-text-3);
-  font-size: 0.8rem;
+}
+
+.byline-modified {
+  color: var(--vp-c-text-3);
+  font-size: 0.85rem;
+}
+
+/* Tags */
+.header-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.header-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-family: var(--vp-font-family-mono);
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.header-tag:hover {
+  background: rgba(245, 158, 11, 0.2);
 }
 </style>

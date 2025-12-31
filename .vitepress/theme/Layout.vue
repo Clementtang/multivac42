@@ -19,11 +19,10 @@ const isArticlePage = computed(() => {
 
 <template>
   <Layout>
-    <!-- Insert ArticleHeader - using doc-top which renders after the title -->
-    <template #doc-top>
-      <ArticleHeader v-if="isArticlePage" />
+    <!-- Insert ArticleHeader before doc content (will render our title + byline) -->
+    <template #doc-before>
+      <ArticleHeader />
     </template>
-
     <!-- Insert ArticleNav at bottom of doc -->
     <template #doc-after>
       <ArticleNav v-if="isArticlePage" />

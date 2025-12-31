@@ -1,6 +1,7 @@
 ---
 title: 公司研究
 sidebar: false
+aside: false
 ---
 
 <script setup>

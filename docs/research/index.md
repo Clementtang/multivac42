@@ -1,6 +1,7 @@
 ---
 title: 主題研究
 sidebar: false
+aside: false
 ---
 
 <script setup>

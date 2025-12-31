@@ -1,6 +1,7 @@
 ---
 title: 文章
 sidebar: false
+aside: false
 ---
 
 <script setup>

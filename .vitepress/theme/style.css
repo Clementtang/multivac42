@@ -217,9 +217,10 @@ html {
 /* Horizontal rule - single line style */
 .vp-doc hr {
   margin: 2rem 0;
-  border: none;
-  border-top: 1px solid var(--vp-c-divider);
+  border: none !important;
+  border-top: 1px solid var(--vp-c-divider) !important;
   height: 0;
+  background: transparent !important;
 }
 
 /* Links */
@@ -414,4 +415,18 @@ html {
   background: var(--vp-c-bg-soft);
   border-left: 3px solid var(--vp-c-brand-1);
   border-radius: 0 8px 8px 0;
+}
+
+/* ========================================
+   Article Header - Hide original h1
+   ======================================== */
+/* When ArticleHeader is present, hide the original markdown h1 */
+.vp-doc .article-header + div > h1:first-child,
+.vp-doc > div:has(.article-header) > h1:first-of-type {
+  display: none !important;
+}
+
+/* More specific: hide h1 that follows ArticleHeader in content */
+.article-header ~ h1:first-of-type {
+  display: none !important;
 }
