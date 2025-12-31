@@ -211,31 +211,7 @@ html {
 .vp-doc h1 {
   font-size: 2rem;
   border-bottom: none;
-  padding-bottom: 0;
-}
-
-/* ========================================
-   Article Byline - Flex Order Reordering
-   ======================================== */
-/* 讓 doc 容器使用 flex column，以便重新排序 */
-.vp-doc > div {
-  display: flex;
-  flex-direction: column;
-}
-
-/* h1 標題保持最前 */
-.vp-doc > div > h1:first-of-type {
-  order: 0;
-}
-
-/* ArticleHeader (Byline) 排在 h1 之後 */
-.vp-doc > div > .article-header {
-  order: 1;
-}
-
-/* 其他所有內容排在後面 */
-.vp-doc > div > *:not(h1:first-of-type):not(.article-header) {
-  order: 2;
+  padding-bottom: 0.5rem;
 }
 
 /* Links */

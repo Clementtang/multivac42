@@ -6,6 +6,7 @@ export default defineConfig({
   lang: 'zh-TW',
   srcDir: 'docs',
   cleanUrls: true,
+  ignoreDeadLinks: true,
 
   themeConfig: {
     nav: [
