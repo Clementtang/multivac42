@@ -1,5 +1,5 @@
 ---
-title: 研究
+title: 主題研究
 sidebar: false
 ---
 
@@ -7,8 +7,8 @@ sidebar: false
 import ArticleList from '../../.vitepress/theme/components/ArticleList.vue'
 </script>
 
-# 研究報告
+# 主題研究
 
-企業研究與議題探討，系統化的深度分析報告。
+產業趨勢與特定議題的系統化深度分析。
 
 <ArticleList category="research" />
