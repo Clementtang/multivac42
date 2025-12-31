@@ -71,7 +71,8 @@ const author = computed(() => frontmatter.value.author || 'Clement Tang')
 
 <style scoped>
 .article-header {
-  margin-bottom: 2rem;
+  margin-top: 0.75rem;
+  margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--vp-c-divider);
 }
@@ -84,7 +85,7 @@ const author = computed(() => frontmatter.value.author || 'Clement Tang')
   gap: 0.5rem;
   font-size: 0.9rem;
   color: var(--vp-c-text-2);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .byline-author {
@@ -97,6 +98,8 @@ const author = computed(() => frontmatter.value.author || 'Clement Tang')
 }
 
 .byline-date {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.85rem;
   color: var(--vp-c-text-2);
 }
 
@@ -106,9 +109,10 @@ const author = computed(() => frontmatter.value.author || 'Clement Tang')
 
 /* Last modified */
 .header-last-modified {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  font-family: var(--vp-font-family-mono);
   color: var(--vp-c-text-3);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Tags */
@@ -116,17 +120,17 @@ const author = computed(() => frontmatter.value.author || 'Clement Tang')
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
 }
 
 .header-tag {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  font-family: var(--vp-font-family-mono);
   color: var(--vp-c-brand-1);
-  cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .header-tag:hover {
-  opacity: 0.8;
+  color: var(--vp-c-brand-2);
 }
 </style>
