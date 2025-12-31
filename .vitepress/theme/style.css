@@ -420,13 +420,30 @@ html {
 /* ========================================
    Article Header - Hide original h1
    ======================================== */
-/* When ArticleHeader is present, hide the original markdown h1 */
-.vp-doc .article-header + div > h1:first-child,
-.vp-doc > div:has(.article-header) > h1:first-of-type {
+/* Hide the first h1 in article content when ArticleHeader renders title */
+.vp-doc > div > h1:first-child {
   display: none !important;
 }
 
-/* More specific: hide h1 that follows ArticleHeader in content */
-.article-header ~ h1:first-of-type {
-  display: none !important;
+/* ========================================
+   h2 - Remove default border-top
+   ======================================== */
+.vp-doc h2 {
+  border-top: none !important;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+/* ========================================
+   Full-width content for pages without sidebar
+   ======================================== */
+/* When sidebar is disabled, expand content width */
+.VPDoc:not(.has-sidebar) .container {
+  max-width: 100% !important;
+}
+
+.VPDoc:not(.has-sidebar) .content {
+  max-width: 1400px !important;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
