@@ -34,7 +34,8 @@ const isArticlePage = computed(() => {
     return true
   }
   const path = page.value.relativePath
-  return (path.startsWith('articles/') || path.startsWith('research/')) && !path.endsWith('index.md')
+  const isInContentDir = path.startsWith('articles/') || path.startsWith('research/') || path.startsWith('company-research/')
+  return isInContentDir && !path.endsWith('index.md')
 })
 
 // Get tags

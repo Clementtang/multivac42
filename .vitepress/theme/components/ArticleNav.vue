@@ -13,8 +13,9 @@ const navigation = computed(() => {
   // Determine category from current path
   const isArticle = currentPath.startsWith('/articles/')
   const isResearch = currentPath.startsWith('/research/')
+  const isCompanyResearch = currentPath.startsWith('/company-research/')
 
-  if (!isArticle && !isResearch) {
+  if (!isArticle && !isResearch && !isCompanyResearch) {
     return { prev: null, next: null }
   }
 
@@ -22,6 +23,7 @@ const navigation = computed(() => {
   const categoryPosts = posts.filter(post => {
     if (isArticle) return post.url.startsWith('/articles/')
     if (isResearch) return post.url.startsWith('/research/')
+    if (isCompanyResearch) return post.url.startsWith('/company-research/')
     return false
   })
 
