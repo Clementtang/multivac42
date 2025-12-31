@@ -330,3 +330,80 @@ html {
 .DocSearch-Button:hover {
   border-color: var(--vp-c-brand-1) !important;
 }
+
+/* ========================================
+   Article Page Styles
+   ======================================== */
+/* Article header tags */
+.vp-doc .article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.vp-doc .article-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-family: var(--vp-font-family-mono);
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.vp-doc .article-tag:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: var(--vp-c-brand-1);
+}
+
+/* Article meta info */
+.vp-doc .article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc .article-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.vp-doc .article-meta-separator {
+  color: var(--vp-c-text-3);
+}
+
+.vp-doc .article-author {
+  font-weight: 500;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc .article-date {
+  font-family: var(--vp-font-family-mono);
+}
+
+.vp-doc .article-reading-time {
+  color: var(--vp-c-text-3);
+}
+
+/* Article description/excerpt */
+.vp-doc .article-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--vp-c-text-2);
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: var(--vp-c-bg-soft);
+  border-left: 3px solid var(--vp-c-brand-1);
+  border-radius: 0 8px 8px 0;
+}
