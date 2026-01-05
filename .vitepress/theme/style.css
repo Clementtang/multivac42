@@ -461,6 +461,11 @@ html {
   margin: 0 !important; /* Left-align instead of center */
 }
 
+.VPDoc.has-aside .vp-doc {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
 /*
  * List pages (no aside): full width content
  */
