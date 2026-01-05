@@ -438,27 +438,39 @@ html {
    Layout Adjustments
    ======================================== */
 
+/* Override VitePress default max-width */
+:root {
+  --vp-layout-max-width: 1400px;
+}
+
 /*
  * List pages (no sidebar, no aside): full-width grid layout
  * These pages have both sidebar:false and aside:false in frontmatter
  */
+.VPDoc:not(.has-sidebar):not(.has-aside) .VPContent,
 .VPDoc:not(.has-sidebar):not(.has-aside) .container {
   max-width: 1400px !important;
-  margin: 0 auto;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
 }
 
 .VPDoc:not(.has-sidebar):not(.has-aside) .content {
   max-width: 100% !important;
-  padding: 0 1.5rem;
+  padding: 0 !important;
+}
+
+.VPDoc:not(.has-sidebar):not(.has-aside) .content-container {
+  max-width: 100% !important;
 }
 
 /*
  * Article pages (no sidebar, has aside): balanced reading layout
  * Wider container for better aside positioning
  */
+.VPDoc:not(.has-sidebar).has-aside .VPContent,
 .VPDoc:not(.has-sidebar).has-aside .container {
   max-width: 1400px !important;
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 
 .VPDoc:not(.has-sidebar).has-aside .content {
