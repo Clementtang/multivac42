@@ -443,7 +443,7 @@ html {
  * These pages have both sidebar:false and aside:false in frontmatter
  */
 .VPDoc:not(.has-sidebar):not(.has-aside) .container {
-  max-width: 1200px !important;
+  max-width: 1400px !important;
   margin: 0 auto;
 }
 
@@ -454,10 +454,11 @@ html {
 
 /*
  * Article pages (no sidebar, has aside): balanced reading layout
- * Keep VitePress default behavior for proper aside positioning
+ * Wider container for better aside positioning
  */
 .VPDoc:not(.has-sidebar).has-aside .container {
-  max-width: 1152px;
+  max-width: 1400px !important;
+  margin: 0 auto;
 }
 
 .VPDoc:not(.has-sidebar).has-aside .content {
