@@ -429,50 +429,54 @@ html {
    h2 - Remove default border-top
    ======================================== */
 .vp-doc h2 {
-  border-top: none !important;
+  border-top: none;
   margin-top: 2rem;
   padding-top: 1rem;
 }
 
 /* ========================================
    Layout Adjustments
+
+   VitePress default layout calculation (1440px max):
+   - Sidebar: 240px
+   - Aside (TOC): 224px
+   - Content padding: 112px each side
+   - Content: 688px
+
+   Our custom layout (1400px max):
+   - No sidebar
+   - Aside: ~280px
+   - Content: ~800px (left-aligned)
    ======================================== */
 
-/* Override VitePress default max-width */
 :root {
+  /* Primary layout variable - controls overall max width */
   --vp-layout-max-width: 1400px;
-}
 
-/* Force all doc containers to use 1400px max-width */
-.VPContent .container {
-  max-width: 1400px !important;
+  /* Sidebar width (we don't use sidebar, but set for consistency) */
+  --vp-sidebar-width: 0px;
 }
 
 /*
- * Article pages with aside: content left-aligned, aside on right
+ * Article pages with aside (TOC): left-aligned content
  */
-.VPDoc.has-aside .content {
-  max-width: 100% !important;
-  padding-right: 300px !important; /* Space for aside */
-}
-
 .VPDoc.has-aside .content-container {
-  max-width: 800px !important;
-  margin: 0 !important; /* Left-align instead of center */
+  max-width: 840px;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .VPDoc.has-aside .vp-doc {
-  max-width: 100% !important;
-  width: 100% !important;
+  max-width: 100%;
 }
 
 /*
- * List pages (no aside): full width content
+ * List pages (no aside): full width for card grids
  */
-.VPDoc:not(.has-aside) .content {
-  max-width: 100% !important;
+.VPDoc:not(.has-aside) .content-container {
+  max-width: 100%;
 }
 
-.VPDoc:not(.has-aside) .content-container {
-  max-width: 100% !important;
+.VPDoc:not(.has-aside) .vp-doc {
+  max-width: 100%;
 }
