@@ -448,17 +448,26 @@ html {
   max-width: 1400px !important;
 }
 
-.VPContent .content {
+/*
+ * Article pages with aside: content left-aligned, aside on right
+ */
+.VPDoc.has-aside .content {
   max-width: 100% !important;
+  padding-right: 300px !important; /* Space for aside */
 }
 
-.VPContent .content-container {
-  max-width: 100% !important;
+.VPDoc.has-aside .content-container {
+  max-width: 800px !important;
+  margin: 0 !important; /* Left-align instead of center */
 }
 
 /*
- * Article pages with aside: limit content width for readability
+ * List pages (no aside): full width content
  */
-.VPDoc.has-aside .vp-doc {
-  max-width: 752px;
+.VPDoc:not(.has-aside) .content {
+  max-width: 100% !important;
+}
+
+.VPDoc:not(.has-aside) .content-container {
+  max-width: 100% !important;
 }
