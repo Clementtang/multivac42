@@ -129,11 +129,14 @@ html {
  * VitePress uses hardcoded values, so we need calc() for dynamic padding
  * Reference: https://github.com/vuejs/vitepress/issues/1147
  */
-@media (min-width: 1440px) {
-  .VPNavBar .wrapper {
-    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
-    padding-right: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
-  }
+.VPNavBar {
+  padding-left: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2)) !important;
+  padding-right: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2)) !important;
+}
+
+.VPNavBar .wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
 }
 
 /* ========================================
