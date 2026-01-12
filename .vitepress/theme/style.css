@@ -124,6 +124,17 @@ html {
   color: var(--vp-c-brand-1);
 }
 
+/* Align nav content with page content (1400px) */
+.VPNav .VPNavBar .wrapper {
+  max-width: var(--vp-layout-max-width) !important;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.VPNav .VPNavBar .container {
+  max-width: 100% !important;
+}
+
 /* ========================================
    Hero Section
    ======================================== */
