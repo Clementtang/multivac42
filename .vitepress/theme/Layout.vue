@@ -4,9 +4,10 @@ import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import ArticleHeader from './components/ArticleHeader.vue'
 import ArticleNav from './components/ArticleNav.vue'
+import LatestPosts from './components/LatestPosts.vue'
 
 const { Layout } = DefaultTheme
-const { page } = useData()
+const { page, frontmatter } = useData()
 
 // Check if current page is an article (not index)
 const isArticlePage = computed(() => {
@@ -15,6 +16,9 @@ const isArticlePage = computed(() => {
   const isNotIndex = !path.endsWith('index.md')
   return isInArticleDir && isNotIndex
 })
+
+// Check if current page is home
+const isHomePage = computed(() => frontmatter.value.layout === 'home')
 </script>
 
 <template>
@@ -26,6 +30,10 @@ const isArticlePage = computed(() => {
     <!-- Insert ArticleNav at bottom of doc -->
     <template #doc-after>
       <ArticleNav v-if="isArticlePage" />
+    </template>
+    <!-- Insert LatestPosts after home features -->
+    <template #home-features-after>
+      <LatestPosts v-if="isHomePage" :limit="4" />
     </template>
   </Layout>
 </template>

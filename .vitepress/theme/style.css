@@ -164,7 +164,6 @@ html {
 
 .VPButton.brand:hover {
   box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
-  transform: translateY(-2px);
 }
 
 .VPButton.alt {
@@ -185,12 +184,12 @@ html {
   border: 1px solid var(--vp-c-border);
   border-radius: 12px;
   transition: all 0.3s ease;
+  cursor: default;
 }
 
 .VPFeature:hover {
   border-color: var(--vp-c-brand-1);
   box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
-  transform: translateY(-2px);
 }
 
 .VPFeature .title {
@@ -488,4 +487,34 @@ html {
 
 .VPDoc:not(.has-aside) .vp-doc {
   max-width: 100% !important;
+}
+
+/*
+ * Home page sections: align with NavBar width (1088px)
+ */
+@media (min-width: 1280px) {
+  .VPHero .container {
+    max-width: 1088px !important;
+    margin: 0 auto;
+  }
+
+  .VPFeatures .container {
+    max-width: 1088px !important;
+    margin: 0 auto;
+  }
+}
+
+/* ========================================
+   Table of Contents (Outline) Fix
+   ======================================== */
+.VPDocAsideOutline .outline-title {
+  padding-left: 12px;
+}
+
+.VPDocAsideOutline .outline-link {
+  padding-left: 12px;
+}
+
+.VPDocAsideOutline .outline-link.nested {
+  padding-left: 24px;
 }

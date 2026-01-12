@@ -47,8 +47,8 @@ const author = computed(() => frontmatter.value.author || 'Clement Tang')
 // Get title
 const title = computed(() => frontmatter.value.title || '')
 
-// Get feature image
-const featureImage = computed(() => frontmatter.value.image || frontmatter.value.featureImage || null)
+// Get feature image (support cover, image, featureImage)
+const featureImage = computed(() => frontmatter.value.cover || frontmatter.value.image || frontmatter.value.featureImage || null)
 
 // Get image alt text
 const imageAlt = computed(() => frontmatter.value.imageAlt || title.value)

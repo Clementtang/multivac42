@@ -21,6 +21,10 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/Clementtang/multivac42' }
     ],
 
+    outline: {
+      label: '本頁目錄'
+    },
+
     search: {
       provider: 'local'
     },

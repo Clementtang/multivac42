@@ -78,7 +78,6 @@ const readingTimeText = computed(() => {
 .article-card:hover {
   border-color: var(--vp-c-brand-1);
   box-shadow: 0 0 24px rgba(245, 158, 11, 0.15);
-  transform: translateY(-4px);
 }
 
 .card-cover {
