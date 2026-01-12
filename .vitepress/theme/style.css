@@ -126,9 +126,9 @@ html {
 
 /* Align nav content with page content (1400px) */
 .VPNav .VPNavBar .wrapper {
-  max-width: var(--vp-layout-max-width) !important;
+  max-width: calc(var(--vp-layout-max-width) + 64px) !important;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 .VPNav .VPNavBar .container {
