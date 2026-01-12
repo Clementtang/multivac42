@@ -6,12 +6,11 @@ const { isDark, page } = useData()
 const container = ref<HTMLElement | null>(null)
 
 // Giscus configuration
-// To set up: visit https://giscus.app and fill in your repo details
 const giscusConfig = {
   repo: 'Clementtang/multivac42',
-  repoId: '', // Get from giscus.app
-  category: 'Comments',
-  categoryId: '', // Get from giscus.app
+  repoId: 'R_kgDOQxCoZQ',
+  category: 'General',
+  categoryId: 'DIC_kwDOQxCoZc4C02yn',
   mapping: 'pathname',
   strict: '0',
   reactionsEnabled: '1',
