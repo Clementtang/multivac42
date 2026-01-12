@@ -136,14 +136,19 @@ html {
  *   = 32px (VPDoc) + container-margin + 32px (.content)
  *   = on 1530px viewport: 32 + 33 + 32 = 97px
  *
- * Navbar must match this position:
- *   padding = (viewport - 1400) / 2 + 32px
+ * Solution: Apply padding to VPNavBar itself (bypasses scoped wrapper styles)
  *
  * Reference: https://github.com/vuejs/vitepress/issues/1147
  */
-.VPNavBar .wrapper {
+.VPNavBar {
   padding-left: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2 + 32px)) !important;
   padding-right: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2 + 32px)) !important;
+}
+
+.VPNavBar .wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: 100% !important;
 }
 
 .VPNavBar .container {
