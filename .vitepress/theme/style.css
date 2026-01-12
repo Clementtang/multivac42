@@ -127,22 +127,23 @@ html {
 /*
  * Align nav with content (1400px)
  *
- * VitePress navbar structure:
- *   .VPNavBar > .wrapper (padding: 32px) > .container (max-width: layout - 64px)
+ * VitePress content structure:
+ *   .VPDoc (padding: 32px)
+ *     └─ .container (max-width: 1400px, centered)
+ *          └─ .content (padding: 32px)
  *
- * Problem: Default padding/max-width don't match our 1400px content width
- * Solution: Dynamic wrapper padding + full-width container
+ * Content position from viewport edge:
+ *   = 32px (VPDoc) + container-margin + 32px (.content)
+ *   = on 1530px viewport: 32 + 33 + 32 = 97px
  *
- * On viewport 1500px:
- *   - Content: 1400px centered → 50px margin each side
- *   - Navbar wrapper: padding = max(32px, (1500-1400)/2) = 50px each side
- *   - Container fills remaining space (1400px)
+ * Navbar must match this position:
+ *   padding = (viewport - 1400) / 2 + 32px
  *
  * Reference: https://github.com/vuejs/vitepress/issues/1147
  */
 .VPNavBar .wrapper {
-  padding-left: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2)) !important;
-  padding-right: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2)) !important;
+  padding-left: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2 + 32px)) !important;
+  padding-right: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2 + 32px)) !important;
 }
 
 .VPNavBar .container {
