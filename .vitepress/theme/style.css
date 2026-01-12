@@ -124,37 +124,6 @@ html {
   color: var(--vp-c-brand-1);
 }
 
-/*
- * Align nav with content (1400px)
- *
- * VitePress content structure:
- *   .VPDoc (padding: 32px)
- *     └─ .container (max-width: 1400px, centered)
- *          └─ .content (padding: 32px)
- *
- * Content position from viewport edge:
- *   = 32px (VPDoc) + container-margin + 32px (.content)
- *   = on 1530px viewport: 32 + 33 + 32 = 97px
- *
- * Solution: Apply padding to VPNavBar itself (bypasses scoped wrapper styles)
- *
- * Reference: https://github.com/vuejs/vitepress/issues/1147
- */
-.VPNavBar {
-  padding-left: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2 + 32px)) !important;
-  padding-right: max(32px, calc((100vw - var(--vp-layout-max-width)) / 2 + 32px)) !important;
-}
-
-.VPNavBar .wrapper {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  max-width: 100% !important;
-}
-
-.VPNavBar .container {
-  max-width: 100% !important;
-}
-
 /* ========================================
    Hero Section
    ======================================== */
@@ -468,55 +437,19 @@ html {
 /* ========================================
    Layout Adjustments
 
-   VitePress default layout (1440px max):
-   - Sidebar: 240px, Aside: 224px, Content: 688px
-
-   Our custom layout (1400px max):
-   - No sidebar, Aside: ~280px, Content: ~840px (left-aligned)
+   Use VitePress default layout values for navbar/content alignment.
+   Only customize content-container width for better readability.
 
    NOTE: !important is used intentionally to override VitePress's
    scoped styles (data-v-xxx). This is documented and necessary
    because VitePress uses component-scoped CSS with high specificity.
    ======================================== */
 
-:root {
-  /* Primary layout variable */
-  --vp-layout-max-width: 1400px;
-  --vp-sidebar-width: 0px;
-}
-
 /*
- * All pages: expand container to use CSS variable
- *
- * VitePress default at >=1440px:
- *   .VPDoc:not(.has-sidebar) .container { max-width: 1104px }
- *   .VPDoc .container { justify-content: center } ← causes content to be pushed right!
- *
- * We override to 1400px and left-align content
- */
-.VPContent .container,
-.VPDoc .container,
-.VPDoc:not(.has-sidebar) .container {
-  max-width: var(--vp-layout-max-width) !important;
-}
-
-.VPDoc.has-aside .container {
-  justify-content: flex-start !important;
-}
-
-/*
- * Article pages with aside (TOC): left-aligned content
- * VitePress aside is position:fixed, so no padding needed
+ * Article pages with aside (TOC): wider content for readability
  */
 .VPDoc.has-aside .content-container {
   max-width: 840px !important; /* Override scoped 688px limit */
-  margin-left: 0 !important; /* Left-align instead of center */
-  margin-right: auto;
-}
-
-.VPDoc.has-aside .vp-doc {
-  max-width: 100% !important; /* Fill parent width */
-  width: 100%;
 }
 
 /*
