@@ -463,12 +463,8 @@ html {
 
 /*
  * Article pages with aside (TOC): left-aligned content
+ * VitePress aside is position:fixed, so no padding needed
  */
-.VPDoc.has-aside .content {
-  max-width: 100% !important; /* Override scoped 948px limit */
-  padding-right: 300px !important; /* Space for aside */
-}
-
 .VPDoc.has-aside .content-container {
   max-width: 840px !important; /* Override scoped 688px limit */
   margin-left: 0 !important; /* Left-align instead of center */
