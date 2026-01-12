@@ -490,13 +490,18 @@ html {
  *
  * VitePress default at >=1440px:
  *   .VPDoc:not(.has-sidebar) .container { max-width: 1104px }
+ *   .VPDoc .container { justify-content: center } ← causes content to be pushed right!
  *
- * We override to 1400px for all cases
+ * We override to 1400px and left-align content
  */
 .VPContent .container,
 .VPDoc .container,
 .VPDoc:not(.has-sidebar) .container {
   max-width: var(--vp-layout-max-width) !important;
+}
+
+.VPDoc.has-aside .container {
+  justify-content: flex-start !important;
 }
 
 /*
