@@ -124,17 +124,16 @@ html {
   color: var(--vp-c-brand-1);
 }
 
-/* Align nav content with page content (1400px) */
-.VPNavBar > .wrapper {
-  max-width: var(--vp-layout-max-width) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.VPNavBar > .wrapper > .container {
-  max-width: 100% !important;
+/*
+ * Align nav with content (1400px)
+ * VitePress uses hardcoded values, so we need calc() for dynamic padding
+ * Reference: https://github.com/vuejs/vitepress/issues/1147
+ */
+@media (min-width: 1440px) {
+  .VPNavBar .wrapper {
+    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
+    padding-right: calc((100vw - var(--vp-layout-max-width)) / 2) !important;
+  }
 }
 
 /* ========================================
