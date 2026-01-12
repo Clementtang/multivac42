@@ -438,45 +438,43 @@ html {
    Layout Adjustments
 
    Layout goal (from user sketch):
-   - Total width: 1000~1200px (using 1100px)
+   - Total width: ~1120px
    - Content: 800px
-   - TOC: ~256px (VitePress default)
+   - TOC: 256px (VitePress default)
    - Logo aligns with Content left edge
    - Right icons align with TOC right edge
 
-   NOTE: !important overrides VitePress scoped styles (data-v-xxx).
+   Key insight: Both NavBar and VPDoc have 32px horizontal padding by default.
+   We keep this padding and only constrain the inner container width.
    ======================================== */
 
 :root {
-  /* Total layout width: content (800px) + gap (32px) + TOC (256px) + content-padding (32px) = 1120px */
-  --content-area-width: 1120px;
+  /* Content area width = content-container (800px) + aside-padding (32px) + aside (256px) = 1088px */
+  --content-area-width: 1088px;
 }
 
 /*
- * Navbar: match content area width, remove extra padding
+ * Navbar container: constrain to content area width
+ * VPNavBar > .wrapper (padding 32px) > .container (this one)
  */
 @media (min-width: 1280px) {
-  .VPNavBar:not(.has-sidebar) .container {
+  .VPNavBar .container {
     max-width: var(--content-area-width) !important;
-  }
-
-  /* Remove wrapper padding so navbar container edges align with content */
-  .VPNavBar:not(.has-sidebar) .wrapper {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
   }
 }
 
 /*
- * Content area: match navbar width
+ * VPDoc container: constrain to same width
+ * VPDoc (padding 32px) > .container (this one)
  */
 @media (min-width: 1280px) {
-  .VPDoc:not(.has-sidebar) .container {
+  .VPDoc .container {
     max-width: var(--content-area-width) !important;
+    justify-content: flex-start !important; /* Left align instead of center */
   }
 
-  /* Remove content padding so edges align with navbar */
-  .VPDoc:not(.has-sidebar) .content {
+  /* Content doesn't need extra padding since container is constrained */
+  .VPDoc .content {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
