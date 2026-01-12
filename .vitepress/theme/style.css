@@ -437,41 +437,56 @@ html {
 /* ========================================
    Layout Adjustments
 
-   Align navbar and content by using the same max-width.
-   Content area = content (840px) + padding (64px) + aside (256px) + aside-padding (32px) = 1192px
+   Layout goal (from user sketch):
+   - Total width: 1000~1200px (using 1100px)
+   - Content: 800px
+   - TOC: ~256px (VitePress default)
+   - Logo aligns with Content left edge
+   - Right icons align with TOC right edge
 
-   NOTE: !important is used intentionally to override VitePress's
-   scoped styles (data-v-xxx). This is documented and necessary
-   because VitePress uses component-scoped CSS with high specificity.
+   NOTE: !important overrides VitePress scoped styles (data-v-xxx).
    ======================================== */
 
 :root {
-  --content-area-width: 1192px;
+  /* Total layout width: content (800px) + gap (32px) + TOC (256px) + content-padding (32px) = 1120px */
+  --content-area-width: 1120px;
 }
 
 /*
- * Navbar: match content area width
+ * Navbar: match content area width, remove extra padding
  */
 @media (min-width: 1280px) {
   .VPNavBar:not(.has-sidebar) .container {
     max-width: var(--content-area-width) !important;
   }
+
+  /* Remove wrapper padding so navbar container edges align with content */
+  .VPNavBar:not(.has-sidebar) .wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 /*
- * Content area: use consistent max-width
+ * Content area: match navbar width
  */
 @media (min-width: 1280px) {
   .VPDoc:not(.has-sidebar) .container {
     max-width: var(--content-area-width) !important;
   }
+
+  /* Remove content padding so edges align with navbar */
+  .VPDoc:not(.has-sidebar) .content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 /*
- * Article pages with aside (TOC): wider content for readability
+ * Article pages with aside (TOC): 800px content width
  */
 .VPDoc.has-aside .content-container {
-  max-width: 840px !important; /* Override scoped 688px limit */
+  max-width: 800px !important;
 }
 
 /*
