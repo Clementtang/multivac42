@@ -437,43 +437,31 @@ html {
 /* ========================================
    Layout Adjustments
 
-   Layout goal (from user sketch):
-   - Total width: ~1120px
+   Goal: Navbar and content area alignment
    - Content: 800px
-   - TOC: 256px (VitePress default)
-   - Logo aligns with Content left edge
-   - Right icons align with TOC right edge
-
-   Key insight: Both NavBar and VPDoc have 32px horizontal padding by default.
-   We keep this padding and only constrain the inner container width.
+   - TOC: 256px
+   - Gap: 32px
+   - Total: 1088px
    ======================================== */
 
-:root {
-  /* Content area width = content-container (800px) + aside-padding (32px) + aside (256px) = 1088px */
-  --content-area-width: 1088px;
-}
-
 /*
- * Navbar container: constrain to content area width
- * VPNavBar > .wrapper (padding 32px) > .container (this one)
+ * Both NavBar and VPDoc containers: same max-width for alignment
  */
 @media (min-width: 1280px) {
-  .VPNavBar .container {
-    max-width: var(--content-area-width) !important;
-  }
-}
-
-/*
- * VPDoc container: constrain to same width
- * VPDoc (padding 32px) > .container (this one)
- */
-@media (min-width: 1280px) {
-  .VPDoc .container {
-    max-width: var(--content-area-width) !important;
-    justify-content: flex-start !important; /* Left align instead of center */
+  /* NavBar container */
+  .VPNavBar .wrapper > .container {
+    max-width: 1088px !important;
   }
 
-  /* Content doesn't need extra padding since container is constrained */
+  /* VPDoc container - use multiple selectors for specificity */
+  .VPDoc > .container,
+  .VPDoc.has-aside > .container,
+  .VPDoc:not(.has-sidebar) > .container {
+    max-width: 1088px !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Remove content padding to align edges */
   .VPDoc .content {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -481,7 +469,7 @@ html {
 }
 
 /*
- * Article pages with aside (TOC): 800px content width
+ * Content container: 800px for readability
  */
 .VPDoc.has-aside .content-container {
   max-width: 800px !important;
