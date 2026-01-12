@@ -5,8 +5,8 @@ date: 2025-11-21
 author: Clement Tang
 tags: ["Workday","Pipedream","AI","併購","企業軟體","自動化"]
 category: articles
-publish: true
-lastModified: 2025-12-31
+status: published
+lastModified: 2026-01-12
 ---
 
 # Workday 併購 Pipedream：強化「可行動 AI」布局

@@ -5,8 +5,8 @@ date: 2025-12-19
 author: Clement Tang
 tags: ["企業研究","和泰汽車","日野汽車","商用車","海外投資","日本市場"]
 category: company-research
-publish: true
-lastModified: 2025-12-31
+status: published
+lastModified: 2026-01-12
 ---
 
 # 和泰汽車日本商用車投資案 - 企業策略研究分析

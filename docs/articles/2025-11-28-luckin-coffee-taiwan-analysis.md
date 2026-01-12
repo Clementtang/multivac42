@@ -5,8 +5,8 @@ date: 2025-11-28
 author: Clement Tang
 tags: ["瑞幸咖啡","台灣市場","便利商店咖啡","商業分析","社群貼文"]
 category: articles
-publish: true
-lastModified: 2025-12-31
+status: published
+lastModified: 2026-01-12
 ---
 
 # 瑞幸咖啡12月登台：中國咖啡巨頭能否攻下台灣超商咖啡的鐵壁？

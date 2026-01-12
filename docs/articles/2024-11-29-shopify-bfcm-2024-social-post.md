@@ -5,8 +5,8 @@ date: 2024-11-29
 author: Clement Tang
 tags: ["Shopify","BFCM","電商","社群貼文"]
 category: articles
-publish: true
-lastModified: 2025-12-31
+status: published
+lastModified: 2026-01-12
 ---
 
 # Shopify BFCM 2024 社群短文

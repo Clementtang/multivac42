@@ -5,8 +5,8 @@ date: 2025-12-11
 author: Clement Tang
 tags: ["levelsio","獨立開發","SaaS","創業","社群貼文"]
 category: articles
-publish: true
-lastModified: 2025-12-31
+status: published
+lastModified: 2026-01-12
 ---
 
 # 認識新朋友 5 分鐘後，這位年收百萬美元的獨立開發者會跟你說什麼

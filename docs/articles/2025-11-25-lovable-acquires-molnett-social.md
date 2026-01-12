@@ -5,8 +5,8 @@ date: 2025-11-25
 author: Clement Tang
 tags: ["Lovable","Molnett","AI編碼","併購","社群貼文"]
 category: articles
-publish: true
-lastModified: 2025-12-31
+status: published
+lastModified: 2026-01-12
 ---
 
 # 18 人團隊、800 萬用戶、18 億美元估值：Lovable 為何要買一家雲端公司？

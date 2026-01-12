@@ -5,8 +5,8 @@ date: 2025-12-22
 author: Clement Tang
 tags: ["自動駕駛","Uber","Lyft","百度","Robotaxi","地緣政治","社群貼文"]
 category: articles
-publish: true
-lastModified: 2025-12-31
+status: published
+lastModified: 2026-01-12
 ---
 
 # 美中科技冷戰下的破冰合作：為何 Uber、Lyft 願意把自動駕駛夢託付給中國百度？
