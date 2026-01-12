@@ -437,13 +437,35 @@ html {
 /* ========================================
    Layout Adjustments
 
-   Use VitePress default layout values for navbar/content alignment.
-   Only customize content-container width for better readability.
+   Align navbar and content by using the same max-width.
+   Content area = content (840px) + padding (64px) + aside (256px) + aside-padding (32px) = 1192px
 
    NOTE: !important is used intentionally to override VitePress's
    scoped styles (data-v-xxx). This is documented and necessary
    because VitePress uses component-scoped CSS with high specificity.
    ======================================== */
+
+:root {
+  --content-area-width: 1192px;
+}
+
+/*
+ * Navbar: match content area width
+ */
+@media (min-width: 1280px) {
+  .VPNavBar:not(.has-sidebar) .container {
+    max-width: var(--content-area-width) !important;
+  }
+}
+
+/*
+ * Content area: use consistent max-width
+ */
+@media (min-width: 1280px) {
+  .VPDoc:not(.has-sidebar) .container {
+    max-width: var(--content-area-width) !important;
+  }
+}
 
 /*
  * Article pages with aside (TOC): wider content for readability
