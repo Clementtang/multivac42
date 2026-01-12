@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import ArticleHeader from './components/ArticleHeader.vue'
 import ArticleNav from './components/ArticleNav.vue'
 import LatestPosts from './components/LatestPosts.vue'
+import ShareButtons from './components/ShareButtons.vue'
 
 const { Layout } = DefaultTheme
 const { page, frontmatter } = useData()
@@ -27,8 +28,9 @@ const isHomePage = computed(() => frontmatter.value.layout === 'home')
     <template #doc-before>
       <ArticleHeader />
     </template>
-    <!-- Insert ArticleNav at bottom of doc -->
+    <!-- Insert ShareButtons and ArticleNav at bottom of doc -->
     <template #doc-after>
+      <ShareButtons v-if="isArticlePage" />
       <ArticleNav v-if="isArticlePage" />
     </template>
     <!-- Insert LatestPosts after home features -->

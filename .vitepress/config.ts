@@ -1,37 +1,82 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, type HeadConfig } from "vitepress";
+import { generateRssFeed } from "./rss";
+
+const siteUrl = "https://multivac42.com";
 
 export default defineConfig({
-  title: 'Multivac 42',
-  description: '研究與寫作',
-  lang: 'zh-TW',
-  srcDir: 'docs',
+  buildEnd: generateRssFeed,
+  title: "Multivac 42",
+  description: "研究與寫作 - 探索商業、科技與產業的深度分析",
+  lang: "zh-TW",
+  srcDir: "docs",
   cleanUrls: true,
   ignoreDeadLinks: true,
 
+  head: [
+    [
+      "link",
+      {
+        rel: "alternate",
+        type: "application/rss+xml",
+        title: "Multivac 42 RSS",
+        href: "/feed.xml",
+      },
+    ],
+    ["meta", { property: "og:site_name", content: "Multivac 42" }],
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:locale", content: "zh_TW" }],
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
+  ],
+
+  transformPageData(pageData) {
+    // Generate dynamic meta tags for each page
+    const title = pageData.frontmatter.title || pageData.title;
+    const description =
+      pageData.frontmatter.description || "探索商業、科技與產業的深度分析";
+    const cover = pageData.frontmatter.cover;
+    const url = `${siteUrl}/${pageData.relativePath.replace(/\.md$/, "").replace(/index$/, "")}`;
+
+    const head: HeadConfig[] = [
+      ["meta", { property: "og:title", content: title }],
+      ["meta", { property: "og:description", content: description }],
+      ["meta", { property: "og:url", content: url }],
+      ["meta", { name: "twitter:title", content: title }],
+      ["meta", { name: "twitter:description", content: description }],
+    ];
+
+    if (cover) {
+      const imageUrl = cover.startsWith("http") ? cover : `${siteUrl}${cover}`;
+      head.push(["meta", { property: "og:image", content: imageUrl }]);
+      head.push(["meta", { name: "twitter:image", content: imageUrl }]);
+    }
+
+    pageData.frontmatter.head = [...(pageData.frontmatter.head || []), ...head];
+  },
+
   themeConfig: {
     nav: [
-      { text: '首頁', link: '/' },
-      { text: '文章', link: '/articles/' },
-      { text: '公司研究', link: '/company-research/' },
-      { text: '主題研究', link: '/research/' },
-      { text: '關於', link: '/about' }
+      { text: "首頁", link: "/" },
+      { text: "文章", link: "/articles/" },
+      { text: "公司研究", link: "/company-research/" },
+      { text: "主題研究", link: "/research/" },
+      { text: "關於", link: "/about" },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Clementtang/multivac42' }
+      { icon: "github", link: "https://github.com/Clementtang/multivac42" },
     ],
 
     outline: {
-      label: '本頁目錄'
+      label: "本頁目錄",
     },
 
     search: {
-      provider: 'local'
+      provider: "local",
     },
 
     footer: {
-      message: '以 VitePress 建置',
-      copyright: '© 2025 Clement Tang'
-    }
-  }
-})
+      message: "以 VitePress 建置",
+      copyright: "© 2025 Clement Tang",
+    },
+  },
+});

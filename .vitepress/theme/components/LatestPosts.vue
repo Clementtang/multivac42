@@ -11,9 +11,15 @@ const props = withDefaults(defineProps<Props>(), {
   limit: 4
 })
 
-// Get latest posts sorted by date
+// Get posts with featured ones first, then by date
 const latestPosts = computed(() => {
-  return posts.slice(0, props.limit)
+  // Separate featured and non-featured posts
+  const featured = posts.filter(p => p.featured)
+  const nonFeatured = posts.filter(p => !p.featured)
+
+  // Combine: featured first, then non-featured
+  const combined = [...featured, ...nonFeatured]
+  return combined.slice(0, props.limit)
 })
 </script>
 
@@ -36,6 +42,7 @@ const latestPosts = computed(() => {
           :author="post.author"
           :cover="post.cover"
           :reading-time="post.readingTime"
+          :featured="post.featured"
         />
       </div>
     </div>

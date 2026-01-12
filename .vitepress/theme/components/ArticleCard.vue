@@ -10,6 +10,7 @@ interface Props {
   author?: string
   cover?: string
   readingTime?: number
+  featured?: boolean
 }
 
 const props = defineProps<Props>()
@@ -34,8 +35,9 @@ const readingTimeText = computed(() => {
 </script>
 
 <template>
-  <a :href="url" class="article-card">
+  <a :href="url" class="article-card" :class="{ featured }">
     <div class="card-cover">
+      <span v-if="featured" class="featured-badge">Featured</span>
       <img
         v-if="cover"
         :src="cover"
@@ -181,6 +183,27 @@ const readingTimeText = computed(() => {
   color: var(--vp-c-brand-1);
   background: var(--vp-c-brand-soft);
   border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 4px;
+}
+
+/* Featured article styles */
+.article-card.featured {
+  border-color: var(--vp-c-brand-1);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+  font-family: var(--vp-font-family-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #000;
+  background: var(--vp-c-brand-1);
   border-radius: 4px;
 }
 </style>
