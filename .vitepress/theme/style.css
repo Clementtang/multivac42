@@ -437,46 +437,60 @@ html {
 /* ========================================
    Layout Adjustments
 
-   VitePress default layout calculation (1440px max):
-   - Sidebar: 240px
-   - Aside (TOC): 224px
-   - Content padding: 112px each side
-   - Content: 688px
+   VitePress default layout (1440px max):
+   - Sidebar: 240px, Aside: 224px, Content: 688px
 
    Our custom layout (1400px max):
-   - No sidebar
-   - Aside: ~280px
-   - Content: ~800px (left-aligned)
+   - No sidebar, Aside: ~280px, Content: ~840px (left-aligned)
+
+   NOTE: !important is used intentionally to override VitePress's
+   scoped styles (data-v-xxx). This is documented and necessary
+   because VitePress uses component-scoped CSS with high specificity.
    ======================================== */
 
 :root {
-  /* Primary layout variable - controls overall max width */
+  /* Primary layout variable */
   --vp-layout-max-width: 1400px;
-
-  /* Sidebar width (we don't use sidebar, but set for consistency) */
   --vp-sidebar-width: 0px;
+}
+
+/*
+ * All pages: expand container to use CSS variable
+ */
+.VPContent .container {
+  max-width: var(--vp-layout-max-width) !important; /* Override scoped style */
 }
 
 /*
  * Article pages with aside (TOC): left-aligned content
  */
+.VPDoc.has-aside .content {
+  max-width: 100% !important; /* Override scoped 948px limit */
+  padding-right: 300px !important; /* Space for aside */
+}
+
 .VPDoc.has-aside .content-container {
-  max-width: 840px;
-  margin-left: 0;
+  max-width: 840px !important; /* Override scoped 688px limit */
+  margin-left: 0 !important; /* Left-align instead of center */
   margin-right: auto;
 }
 
 .VPDoc.has-aside .vp-doc {
-  max-width: 100%;
+  max-width: 100% !important; /* Fill parent width */
+  width: 100%;
 }
 
 /*
  * List pages (no aside): full width for card grids
  */
+.VPDoc:not(.has-aside) .content {
+  max-width: 100% !important;
+}
+
 .VPDoc:not(.has-aside) .content-container {
-  max-width: 100%;
+  max-width: 100% !important;
 }
 
 .VPDoc:not(.has-aside) .vp-doc {
-  max-width: 100%;
+  max-width: 100% !important;
 }
