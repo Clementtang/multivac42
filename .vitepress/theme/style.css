@@ -481,9 +481,16 @@ html {
 
 /*
  * All pages: expand container to use CSS variable
+ *
+ * VitePress default at >=1440px:
+ *   .VPDoc:not(.has-sidebar) .container { max-width: 1104px }
+ *
+ * We override to 1400px for all cases
  */
-.VPContent .container {
-  max-width: var(--vp-layout-max-width) !important; /* Override scoped style */
+.VPContent .container,
+.VPDoc .container,
+.VPDoc:not(.has-sidebar) .container {
+  max-width: var(--vp-layout-max-width) !important;
 }
 
 /*
