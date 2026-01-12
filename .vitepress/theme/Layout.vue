@@ -6,6 +6,9 @@ import ArticleHeader from './components/ArticleHeader.vue'
 import ArticleNav from './components/ArticleNav.vue'
 import LatestPosts from './components/LatestPosts.vue'
 import ShareButtons from './components/ShareButtons.vue'
+import ReadingProgress from './components/ReadingProgress.vue'
+import RelatedPosts from './components/RelatedPosts.vue'
+import BackToTop from './components/BackToTop.vue'
 
 const { Layout } = DefaultTheme
 const { page, frontmatter } = useData()
@@ -24,18 +27,27 @@ const isHomePage = computed(() => frontmatter.value.layout === 'home')
 
 <template>
   <Layout>
+    <!-- Reading progress bar for articles -->
+    <template #layout-top>
+      <ReadingProgress v-if="isArticlePage" />
+    </template>
     <!-- Insert ArticleHeader before doc content (will render our title + byline) -->
     <template #doc-before>
       <ArticleHeader />
     </template>
-    <!-- Insert ShareButtons and ArticleNav at bottom of doc -->
+    <!-- Insert ShareButtons, RelatedPosts and ArticleNav at bottom of doc -->
     <template #doc-after>
       <ShareButtons v-if="isArticlePage" />
+      <RelatedPosts v-if="isArticlePage" :limit="3" />
       <ArticleNav v-if="isArticlePage" />
     </template>
     <!-- Insert LatestPosts after home features -->
     <template #home-features-after>
       <LatestPosts v-if="isHomePage" :limit="4" />
+    </template>
+    <!-- Global back to top button -->
+    <template #layout-bottom>
+      <BackToTop />
     </template>
   </Layout>
 </template>

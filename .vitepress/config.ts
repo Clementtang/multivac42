@@ -34,6 +34,8 @@ export default defineConfig({
     const description =
       pageData.frontmatter.description || "探索商業、科技與產業的深度分析";
     const cover = pageData.frontmatter.cover;
+    const date = pageData.frontmatter.date;
+    const author = pageData.frontmatter.author || "Clement Tang";
     const url = `${siteUrl}/${pageData.relativePath.replace(/\.md$/, "").replace(/index$/, "")}`;
 
     const head: HeadConfig[] = [
@@ -50,6 +52,45 @@ export default defineConfig({
       head.push(["meta", { name: "twitter:image", content: imageUrl }]);
     }
 
+    // Add Article Schema for article pages
+    const isArticle =
+      pageData.relativePath.startsWith("articles/") ||
+      pageData.relativePath.startsWith("research/") ||
+      pageData.relativePath.startsWith("company-research/");
+
+    if (isArticle && !pageData.relativePath.endsWith("index.md") && date) {
+      const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description: description,
+        author: {
+          "@type": "Person",
+          name: author,
+        },
+        datePublished: date,
+        dateModified: pageData.frontmatter.lastModified || date,
+        publisher: {
+          "@type": "Organization",
+          name: "Multivac 42",
+          url: siteUrl,
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": url,
+        },
+        ...(cover && {
+          image: cover.startsWith("http") ? cover : `${siteUrl}${cover}`,
+        }),
+      };
+
+      head.push([
+        "script",
+        { type: "application/ld+json" },
+        JSON.stringify(articleSchema),
+      ]);
+    }
+
     pageData.frontmatter.head = [...(pageData.frontmatter.head || []), ...head];
   },
 
@@ -59,6 +100,7 @@ export default defineConfig({
       { text: "文章", link: "/articles/" },
       { text: "公司研究", link: "/company-research/" },
       { text: "主題研究", link: "/research/" },
+      { text: "標籤", link: "/tags" },
       { text: "關於", link: "/about" },
     ],
 
