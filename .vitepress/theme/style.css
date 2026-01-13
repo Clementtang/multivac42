@@ -574,6 +574,8 @@ html {
 }
 
 .vp-doc .header-anchor {
+  position: relative !important;
+  top: auto !important;
   order: -1;
   margin-right: 0.5em;
   margin-left: -1.5em;
