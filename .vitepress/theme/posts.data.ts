@@ -4,6 +4,7 @@ export interface Post {
   title: string;
   description: string;
   date: string;
+  lastModified?: string;
   url: string;
   tags: string[];
   author: string;
@@ -36,6 +37,7 @@ export default createContentLoader(
             title: frontmatter.title || "Untitled",
             description: frontmatter.description || "",
             date: frontmatter.date || new Date().toISOString().split("T")[0],
+            lastModified: frontmatter.lastModified,
             url: page.url,
             tags: frontmatter.tags || [],
             author: frontmatter.author || "Clement Tang",

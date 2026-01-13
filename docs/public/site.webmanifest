@@ -1,0 +1,14 @@
+{
+  "name": "Multivac 42",
+  "short_name": "M42",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "theme_color": "#f59e0b",
+  "background_color": "#1a1a1a",
+  "display": "standalone"
+}

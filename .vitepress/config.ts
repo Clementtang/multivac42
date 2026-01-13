@@ -12,7 +12,18 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
 
+  // P-01: 圖片懶載入
+  markdown: {
+    image: {
+      lazyLoading: true,
+    },
+  },
+
   head: [
+    // B-01: Favicon 完整組
+    ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+    ["link", { rel: "manifest", href: "/site.webmanifest" }],
+    ["meta", { name: "theme-color", content: "#f59e0b" }],
     [
       "link",
       {

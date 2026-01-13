@@ -47,6 +47,27 @@ const author = computed(() => frontmatter.value.author || 'Clement Tang')
 // Get title
 const title = computed(() => frontmatter.value.title || '')
 
+// Check if article is new (within last 7 days)
+const isNew = computed(() => {
+  const date = frontmatter.value.date
+  if (!date) return false
+  const publishDate = new Date(date)
+  const now = new Date()
+  const diffDays = Math.floor((now.getTime() - publishDate.getTime()) / (1000 * 60 * 60 * 24))
+  return diffDays <= 7
+})
+
+// Check if article was recently updated (within last 14 days)
+const isRecentlyUpdated = computed(() => {
+  const lastModified = frontmatter.value.lastModified
+  const date = frontmatter.value.date
+  if (!lastModified || lastModified === date) return false
+  const modifiedDate = new Date(lastModified)
+  const now = new Date()
+  const diffDays = Math.floor((now.getTime() - modifiedDate.getTime()) / (1000 * 60 * 60 * 24))
+  return diffDays <= 14
+})
+
 // Get feature image (support cover, image, featureImage)
 const featureImage = computed(() => frontmatter.value.cover || frontmatter.value.image || frontmatter.value.featureImage || null)
 
@@ -56,6 +77,12 @@ const imageAlt = computed(() => frontmatter.value.imageAlt || title.value)
 
 <template>
   <div v-if="isArticlePage && formattedDate" class="article-header">
+    <!-- Status Badges -->
+    <div v-if="isNew || isRecentlyUpdated" class="article-badges">
+      <span v-if="isNew" class="status-badge new-badge">新文章</span>
+      <span v-if="isRecentlyUpdated" class="status-badge updated-badge">近期更新</span>
+    </div>
+
     <!-- Title -->
     <h1 class="article-title">{{ title }}</h1>
 
@@ -181,5 +208,31 @@ const imageAlt = computed(() => frontmatter.value.imageAlt || title.value)
 
 .feature-image:hover img {
   transform: scale(1.02);
+}
+
+/* Status Badges */
+.article-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-family: var(--vp-font-family-mono);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.new-badge {
+  color: #fff;
+  background: #10b981;
+}
+
+.updated-badge {
+  color: #fff;
+  background: #3b82f6;
 }
 </style>

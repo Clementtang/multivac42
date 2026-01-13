@@ -10,6 +10,8 @@ import ReadingProgress from './components/ReadingProgress.vue'
 import RelatedPosts from './components/RelatedPosts.vue'
 import BackToTop from './components/BackToTop.vue'
 import Comments from './components/Comments.vue'
+import FloatingToc from './components/FloatingToc.vue'
+import NotFound from './components/NotFound.vue'
 
 const { Layout } = DefaultTheme
 const { page, frontmatter } = useData()
@@ -47,9 +49,14 @@ const isHomePage = computed(() => frontmatter.value.layout === 'home')
     <template #home-features-after>
       <LatestPosts v-if="isHomePage" :limit="4" />
     </template>
-    <!-- Global back to top button -->
+    <!-- Global back to top button and floating TOC -->
     <template #layout-bottom>
+      <FloatingToc v-if="isArticlePage" />
       <BackToTop />
+    </template>
+    <!-- Custom 404 page -->
+    <template #not-found>
+      <NotFound />
     </template>
   </Layout>
 </template>

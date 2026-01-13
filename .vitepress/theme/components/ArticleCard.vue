@@ -5,6 +5,7 @@ interface Props {
   title: string
   description?: string
   date: string
+  lastModified?: string
   url: string
   tags?: string[]
   author?: string
@@ -14,6 +15,23 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+// Check if article is new (within last 7 days)
+const isNew = computed(() => {
+  const publishDate = new Date(props.date)
+  const now = new Date()
+  const diffDays = Math.floor((now.getTime() - publishDate.getTime()) / (1000 * 60 * 60 * 24))
+  return diffDays <= 7
+})
+
+// Check if article was recently updated (within last 14 days, and different from publish date)
+const isUpdated = computed(() => {
+  if (!props.lastModified || props.lastModified === props.date) return false
+  const modifiedDate = new Date(props.lastModified)
+  const now = new Date()
+  const diffDays = Math.floor((now.getTime() - modifiedDate.getTime()) / (1000 * 60 * 60 * 24))
+  return diffDays <= 14
+})
 
 // Format date to readable string
 const formattedDate = computed(() => {
@@ -37,7 +55,11 @@ const readingTimeText = computed(() => {
 <template>
   <a :href="url" class="article-card" :class="{ featured }">
     <div class="card-cover">
-      <span v-if="featured" class="featured-badge">Featured</span>
+      <div class="card-badges">
+        <span v-if="featured" class="badge featured-badge">Featured</span>
+        <span v-else-if="isNew" class="badge new-badge">新</span>
+        <span v-if="isUpdated" class="badge updated-badge">更新</span>
+      </div>
       <img
         v-if="cover"
         :src="cover"
@@ -191,19 +213,37 @@ const readingTimeText = computed(() => {
   border-color: var(--vp-c-brand-1);
 }
 
-.featured-badge {
+.card-badges {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
   z-index: 1;
-  padding: 0.25rem 0.75rem;
+  display: flex;
+  gap: 0.375rem;
+}
+
+.badge {
+  padding: 0.25rem 0.6rem;
   font-size: 0.7rem;
   font-family: var(--vp-font-family-mono);
   font-weight: 600;
+  border-radius: 4px;
+}
+
+.featured-badge {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: #000;
   background: var(--vp-c-brand-1);
-  border-radius: 4px;
+}
+
+.new-badge {
+  color: #fff;
+  background: #10b981;
+}
+
+.updated-badge {
+  color: #fff;
+  background: #3b82f6;
 }
 </style>
