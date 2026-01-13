@@ -559,3 +559,34 @@ html {
 .VPDocAsideOutline .outline-link.nested {
   padding-left: 24px;
 }
+
+/* ========================================
+   Header Anchor (#) Alignment Fix
+   ======================================== */
+.vp-doc .header-anchor {
+  float: left;
+  margin-left: -0.87em;
+  padding-right: 0.23em;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.vp-doc h1:hover .header-anchor,
+.vp-doc h2:hover .header-anchor,
+.vp-doc h3:hover .header-anchor,
+.vp-doc h4:hover .header-anchor,
+.vp-doc h5:hover .header-anchor,
+.vp-doc h6:hover .header-anchor {
+  opacity: 1;
+}
+
+.vp-doc h1 .header-anchor {
+  top: 0;
+}
+
+.vp-doc h2 .header-anchor,
+.vp-doc h3 .header-anchor,
+.vp-doc h4 .header-anchor {
+  top: 0;
+}
