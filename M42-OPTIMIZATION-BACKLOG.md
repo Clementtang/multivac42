@@ -168,7 +168,7 @@
 
 ## 完成進度
 
-**已完成：25 項** / 總計 46 項 (54%)
+**已完成：31 項** / 總計 52 項 (60%)
 
 ### ✅ Phase 1 - 高影響力 + 低難度（已完成）
 
@@ -199,6 +199,13 @@
 - F-03 - 程式碼複製按鈕（VitePress 內建）
 - S-01 - 搜尋快捷鍵（VitePress 內建）
 
+### ✅ Phase 4 - 基礎建設（已完成）
+
+- IF-01, IF-02, IF-03 - 自訂網域 multivac42.com（Cloudflare + Vercel）
+- AN-01 - Google Analytics 4 整合
+- AN-02 - Google Search Console 驗證
+- AN-03 - Sitemap 生成
+
 ### 📋 待處理 - Newsletter Epic
 
 - NL-01, NL-02, NL-03, NL-04 - Newsletter 訂閱功能
@@ -221,6 +228,26 @@
 
 ---
 
+## 六、基礎建設 (Infrastructure)
+
+### 6.1 網域與部署
+
+| ID    | 項目     | 說明                              | 影響力 | 難度 | 狀態 |
+| ----- | -------- | --------------------------------- | ------ | ---- | ---- |
+| IF-01 | 自訂網域 | 設定 multivac42.com（Cloudflare） | 高     | 低   | ✅   |
+| IF-02 | DNS 設定 | Vercel 自動偵測 Cloudflare 並配置 | 高     | 低   | ✅   |
+| IF-03 | SSL 憑證 | Vercel 自動配置 HTTPS             | 高     | 低   | ✅   |
+
+### 6.2 分析與 SEO 工具
+
+| ID    | 項目                  | 說明                              | 影響力 | 難度 | 狀態 |
+| ----- | --------------------- | --------------------------------- | ------ | ---- | ---- |
+| AN-01 | Google Analytics 4    | 整合 GA4 追蹤碼 (G-XX4BDZCE2H)    | 高     | 低   | ✅   |
+| AN-02 | Google Search Console | DNS 驗證完成，已提交 sitemap      | 高     | 低   | ✅   |
+| AN-03 | Sitemap 生成          | VitePress 內建 sitemap 功能已啟用 | 高     | 低   | ✅   |
+
+---
+
 ## 參考資源
 
 - [Substack 平台功能](https://on.substack.com/p/guide-website-customization-organization)
@@ -231,3 +258,14 @@
 ---
 
 _最後更新：2026-01-13_
+
+---
+
+## 更新紀錄
+
+| 日期       | 更新內容                                         |
+| ---------- | ------------------------------------------------ |
+| 2026-01-13 | 新增 Phase 4 基礎建設：網域、GA4、Search Console |
+| 2026-01-13 | 完成 Phase 3：圖片懶載入、浮動目錄、404 頁面等   |
+| 2026-01-12 | 完成 Phase 2：進度條、標籤、留言系統、SEO 等     |
+| 2026-01-11 | 完成 Phase 1：排版優化、分享按鈕、RSS 等         |
