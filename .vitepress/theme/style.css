@@ -564,12 +564,21 @@ html {
    Header Anchor (#) Alignment Fix
    ======================================== */
 .vp-doc .header-anchor {
-  float: left;
-  margin-left: -0.87em;
-  padding-right: 0.23em;
+  position: absolute;
+  left: -1em;
   font-weight: 500;
   opacity: 0;
   transition: opacity 0.25s;
+  line-height: inherit;
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+  position: relative;
 }
 
 .vp-doc h1:hover .header-anchor,
@@ -579,14 +588,4 @@ html {
 .vp-doc h5:hover .header-anchor,
 .vp-doc h6:hover .header-anchor {
   opacity: 1;
-}
-
-.vp-doc h1 .header-anchor {
-  top: 0;
-}
-
-.vp-doc h2 .header-anchor,
-.vp-doc h3 .header-anchor,
-.vp-doc h4 .header-anchor {
-  top: 0;
 }
