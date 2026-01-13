@@ -12,6 +12,11 @@ export default defineConfig({
   cleanUrls: true,
   ignoreDeadLinks: true,
 
+  // Sitemap for Search Console
+  sitemap: {
+    hostname: siteUrl,
+  },
+
   // P-01: 圖片懶載入
   markdown: {
     image: {
@@ -20,6 +25,22 @@ export default defineConfig({
   },
 
   head: [
+    // Google Analytics 4
+    [
+      "script",
+      {
+        async: "",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-XX4BDZCE2H",
+      },
+    ],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XX4BDZCE2H');`,
+    ],
     // B-01: Favicon 完整組
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     ["link", { rel: "manifest", href: "/site.webmanifest" }],
