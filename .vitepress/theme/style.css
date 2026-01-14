@@ -107,6 +107,43 @@
 }
 
 /* ========================================
+   T-04: 中文標點優化
+   ======================================== */
+body {
+  /* 中文標點符號優化 */
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1,
+    "calt" 1,
+    "palt" 1,
+    "halt" 1;
+  /* 優化文字渲染 */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   T-05: 字體載入優化
+   ======================================== */
+/* 防止 FOUT - 字體載入時的視覺穩定性 */
+@font-face {
+  font-family: "Noto Sans TC Fallback";
+  src: local("PingFang TC"), local("Microsoft JhengHei"), local("Heiti TC");
+  font-display: swap;
+  ascent-override: 100%;
+  descent-override: 20%;
+  line-gap-override: 0%;
+}
+
+/* 確保中文字體載入順序正確 */
+:root {
+  --vp-font-family-base:
+    "Noto Sans TC", "Noto Sans TC Fallback", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* ========================================
    Global Styles
    ======================================== */
 html {
