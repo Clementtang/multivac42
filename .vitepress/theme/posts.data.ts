@@ -11,6 +11,9 @@ export interface Post {
   cover?: string;
   readingTime: number;
   featured?: boolean;
+  series?: string;
+  seriesTitle?: string;
+  seriesIndex?: number;
 }
 
 declare const data: Post[];
@@ -44,6 +47,9 @@ export default createContentLoader(
             cover: frontmatter.cover,
             readingTime,
             featured: frontmatter.featured || false,
+            series: frontmatter.series,
+            seriesTitle: frontmatter.seriesTitle,
+            seriesIndex: frontmatter.seriesIndex,
           };
         })
         .sort(

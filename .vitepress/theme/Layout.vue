@@ -10,6 +10,7 @@ import PopularTags from './components/PopularTags.vue'
 import ShareButtons from './components/ShareButtons.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
 import RelatedPosts from './components/RelatedPosts.vue'
+import SeriesNav from './components/SeriesNav.vue'
 import BackToTop from './components/BackToTop.vue'
 import Comments from './components/Comments.vue'
 import FloatingToc from './components/FloatingToc.vue'
@@ -40,9 +41,10 @@ const isHomePage = computed(() => frontmatter.value.layout === 'home')
     <template #doc-before>
       <ArticleHeader />
     </template>
-    <!-- Insert ShareButtons, RelatedPosts, Comments and ArticleNav at bottom of doc -->
+    <!-- Insert ShareButtons, SeriesNav, RelatedPosts, Comments and ArticleNav at bottom of doc -->
     <template #doc-after>
       <ShareButtons v-if="isArticlePage" />
+      <SeriesNav v-if="isArticlePage" />
       <RelatedPosts v-if="isArticlePage" :limit="3" />
       <Comments v-if="isArticlePage" />
       <ArticleNav v-if="isArticlePage" />
