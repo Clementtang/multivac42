@@ -282,7 +282,7 @@ html {
 .vp-doc h2,
 .vp-doc h3,
 .vp-doc h4 {
-  display: block;
+  display: block !important;
   font-weight: 600;
 }
 
