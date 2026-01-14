@@ -277,12 +277,13 @@ html {
   max-width: 720px;
 }
 
+/* 覆蓋 VitePress 預設的負 letter-spacing */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
 .vp-doc h4 {
   font-weight: 600;
-  letter-spacing: 0.04em; /* 覆蓋 VitePress 預設的負值 */
+  letter-spacing: 0.04em !important;
 }
 
 .vp-doc h1 {
