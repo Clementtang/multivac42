@@ -5,6 +5,8 @@ import DefaultTheme from 'vitepress/theme'
 import ArticleHeader from './components/ArticleHeader.vue'
 import ArticleNav from './components/ArticleNav.vue'
 import LatestPosts from './components/LatestPosts.vue'
+import FeaturedPosts from './components/FeaturedPosts.vue'
+import PopularTags from './components/PopularTags.vue'
 import ShareButtons from './components/ShareButtons.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
 import RelatedPosts from './components/RelatedPosts.vue'
@@ -45,9 +47,11 @@ const isHomePage = computed(() => frontmatter.value.layout === 'home')
       <Comments v-if="isArticlePage" />
       <ArticleNav v-if="isArticlePage" />
     </template>
-    <!-- Insert LatestPosts after home features -->
+    <!-- Insert featured posts, latest posts and popular tags after home features -->
     <template #home-features-after>
+      <FeaturedPosts v-if="isHomePage" :limit="3" />
       <LatestPosts v-if="isHomePage" :limit="4" />
+      <PopularTags v-if="isHomePage" :limit="10" />
     </template>
     <!-- Global back to top button and floating TOC -->
     <template #layout-bottom>

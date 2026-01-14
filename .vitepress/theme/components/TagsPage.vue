@@ -1,8 +1,17 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { data as tags } from '../tags.data'
 
 const selectedTag = ref<string | null>(null)
+
+// 監聽 URL query 參數，支援從熱門標籤跳轉時自動選中
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search)
+  const tagParam = urlParams.get('tag')
+  if (tagParam && tags.some(t => t.name === tagParam)) {
+    selectedTag.value = tagParam
+  }
+})
 
 const sortedTags = computed(() => tags)
 
