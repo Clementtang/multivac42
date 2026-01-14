@@ -628,3 +628,169 @@ html {
 .vp-doc h6:hover .header-anchor {
   opacity: 1;
 }
+
+/* ========================================
+   F-02: 列印樣式
+   ======================================== */
+@media print {
+  /* 隱藏不需要列印的元素 */
+  .VPNav,
+  .VPSidebar,
+  .VPLocalNav,
+  .VPDocAside,
+  .VPFooter,
+  .VPBackdrop,
+  .reading-progress,
+  .back-to-top,
+  .floating-toc,
+  .share-buttons,
+  .related-posts,
+  .article-nav,
+  .series-nav,
+  .comments,
+  .header-anchor,
+  .VPDocFooter {
+    display: none !important;
+  }
+
+  /* 重設背景和顏色 */
+  body,
+  .VPContent,
+  .VPDoc,
+  .vp-doc {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* 文章內容全寬 */
+  .VPDoc .container,
+  .VPDoc .content,
+  .VPDoc .content-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 標題樣式 */
+  .vp-doc h1,
+  .vp-doc h2,
+  .vp-doc h3 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  .vp-doc h1 {
+    font-size: 24pt !important;
+    margin-bottom: 12pt !important;
+  }
+
+  .vp-doc h2 {
+    font-size: 18pt !important;
+    margin-top: 18pt !important;
+    border-top: none !important;
+  }
+
+  .vp-doc h3 {
+    font-size: 14pt !important;
+  }
+
+  /* 段落樣式 */
+  .vp-doc p {
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* 連結 - 顯示網址 */
+  .vp-doc a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+
+  .vp-doc a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+
+  /* 內部連結不顯示網址 */
+  .vp-doc a[href^="#"]::after,
+  .vp-doc a[href^="/"]::after {
+    content: none;
+  }
+
+  /* 程式碼區塊 */
+  .vp-doc pre,
+  .vp-doc code {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    font-size: 9pt !important;
+  }
+
+  .vp-doc pre {
+    page-break-inside: avoid;
+    padding: 8pt !important;
+    overflow: visible !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+  }
+
+  /* 圖片 */
+  .vp-doc img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* 表格 */
+  .vp-doc table {
+    page-break-inside: avoid;
+    border-collapse: collapse !important;
+  }
+
+  .vp-doc th,
+  .vp-doc td {
+    border: 1px solid #ddd !important;
+    padding: 6pt !important;
+  }
+
+  /* 引用區塊 */
+  .vp-doc blockquote {
+    border-left: 3pt solid #ccc !important;
+    padding-left: 12pt !important;
+    color: #333 !important;
+    page-break-inside: avoid;
+  }
+
+  /* 列表 */
+  .vp-doc ul,
+  .vp-doc ol {
+    page-break-inside: avoid;
+  }
+
+  /* 文章標頭 */
+  .article-header {
+    border-bottom: 1pt solid #ddd !important;
+    padding-bottom: 12pt !important;
+    margin-bottom: 18pt !important;
+  }
+
+  .article-title {
+    font-size: 28pt !important;
+    color: black !important;
+  }
+
+  .header-byline {
+    color: #666 !important;
+    font-size: 10pt !important;
+  }
+
+  .header-tags {
+    display: none !important;
+  }
+
+  /* 頁面邊距 */
+  @page {
+    margin: 2cm;
+  }
+}
