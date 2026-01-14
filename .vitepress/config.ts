@@ -103,7 +103,141 @@ export default defineConfig({
       head.push(["meta", { name: "twitter:image", content: imageUrl }]);
     }
 
-    // Add Article Schema for article pages
+    // ============================================
+    // SD-04: WebSite Schema（僅首頁）
+    // ============================================
+    const isHomePage = pageData.relativePath === "index.md";
+
+    if (isHomePage) {
+      const websiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Multivac 42",
+        alternateName: "研究與寫作",
+        url: siteUrl,
+        description: "探索商業、科技與產業的深度分析",
+        inLanguage: "zh-TW",
+        publisher: {
+          "@type": "Organization",
+          name: "Multivac 42",
+          url: siteUrl,
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${siteUrl}/?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
+      };
+
+      head.push([
+        "script",
+        { type: "application/ld+json" },
+        JSON.stringify(websiteSchema),
+      ]);
+    }
+
+    // ============================================
+    // SD-03: BreadcrumbList Schema（所有頁面）
+    // ============================================
+    const pathNameMap: Record<string, string> = {
+      articles: "文章",
+      "company-research": "公司研究",
+      research: "主題研究",
+      "topic-research": "主題研究",
+      tags: "標籤",
+      about: "關於",
+    };
+
+    const companyNameMap: Record<string, string> = {
+      "luckin-coffee": "瑞幸咖啡",
+      toast: "Toast",
+      airwallex: "Airwallex",
+      hotai: "和泰汽車",
+      "manus-ai": "Manus AI",
+    };
+
+    function generateBreadcrumbItems() {
+      const items: Array<{
+        "@type": string;
+        position: number;
+        name: string;
+        item: string;
+      }> = [];
+
+      // 首頁永遠是第一項
+      items.push({
+        "@type": "ListItem",
+        position: 1,
+        name: "首頁",
+        item: siteUrl,
+      });
+
+      // 處理路徑
+      const cleanPath = pageData.relativePath
+        .replace(/\.md$/, "")
+        .replace(/\/index$/, "")
+        .replace(/^index$/, "");
+
+      if (!cleanPath) {
+        return items;
+      }
+
+      const segments = cleanPath.split("/");
+      let currentPath = "";
+      let position = 2;
+
+      for (let i = 0; i < segments.length; i++) {
+        const segment = segments[i];
+        currentPath += `/${segment}`;
+        const isLastSegment = i === segments.length - 1;
+
+        let displayName: string;
+
+        if (pathNameMap[segment]) {
+          displayName = pathNameMap[segment];
+        } else if (
+          i === 1 &&
+          segments[0] === "company-research" &&
+          companyNameMap[segment]
+        ) {
+          displayName = companyNameMap[segment];
+        } else if (isLastSegment) {
+          displayName = title;
+        } else {
+          displayName = segment;
+        }
+
+        items.push({
+          "@type": "ListItem",
+          position: position,
+          name: displayName,
+          item: `${siteUrl}${currentPath}`,
+        });
+
+        position++;
+      }
+
+      return items;
+    }
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: generateBreadcrumbItems(),
+    };
+
+    head.push([
+      "script",
+      { type: "application/ld+json" },
+      JSON.stringify(breadcrumbSchema),
+    ]);
+
+    // ============================================
+    // SD-01: Article Schema（文章頁面）
+    // ============================================
     const isArticle =
       pageData.relativePath.startsWith("articles/") ||
       pageData.relativePath.startsWith("research/") ||
