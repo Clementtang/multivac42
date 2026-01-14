@@ -188,6 +188,8 @@ const imageAlt = computed(() => frontmatter.value.imageAlt || title.value)
 }
 
 .byline-reading-time {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.85rem;
   color: var(--vp-c-text-3);
 }
 
@@ -198,8 +200,9 @@ const imageAlt = computed(() => frontmatter.value.imageAlt || title.value)
 }
 
 .byline-modified {
-  color: var(--vp-c-text-3);
+  font-family: var(--vp-font-family-mono);
   font-size: 0.85rem;
+  color: var(--vp-c-text-3);
 }
 
 /* Tags */
