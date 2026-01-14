@@ -279,9 +279,10 @@ html {
 
 .vp-doc h1,
 .vp-doc h2,
-.vp-doc h3 {
+.vp-doc h3,
+.vp-doc h4 {
   font-weight: 600;
-  /* letter-spacing 繼承自 .vp-doc (0.04em)，確保對齊 */
+  letter-spacing: 0.04em; /* 覆蓋 VitePress 預設的負值 */
 }
 
 .vp-doc h1 {
