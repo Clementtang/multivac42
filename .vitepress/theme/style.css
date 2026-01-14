@@ -278,12 +278,13 @@ html {
 }
 
 /* 覆蓋 VitePress 預設的負 letter-spacing */
+/* 使用固定像素值確保與段落對齊 (16px × 0.04em = 0.64px) */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
 .vp-doc h4 {
   font-weight: 600;
-  letter-spacing: 0.04em !important;
+  letter-spacing: 0.64px !important;
 }
 
 .vp-doc h1 {
