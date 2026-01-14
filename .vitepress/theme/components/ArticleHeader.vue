@@ -7,8 +7,14 @@ const { frontmatter, page } = useData()
 
 // Get current post data from posts.data.ts
 const currentPost = computed(() => {
-  const currentPath = '/' + page.value.relativePath.replace(/\.md$/, '')
-  return posts.find(post => post.url === currentPath || post.url === currentPath + '/')
+  const currentPath = page.value.relativePath.replace(/\.md$/, '').replace(/\/index$/, '')
+  const normalizedCurrentPath = currentPath.replace(/^\//, '')
+
+  return posts.find(post => {
+    // Normalize URLs for comparison - handle with/without leading slash and trailing slash
+    const normalizedPostUrl = post.url.replace(/^\//, '').replace(/\/$/, '')
+    return normalizedPostUrl === normalizedCurrentPath
+  })
 })
 
 // Format date to Chinese format (2025 年 12 月 3 日)
