@@ -17,14 +17,31 @@ export default defineConfig({
     hostname: siteUrl,
   },
 
-  // P-01: 圖片懶載入
+  // P-01: 圖片懶載入 + F-05: 深色程式碼主題
   markdown: {
     image: {
       lazyLoading: true,
     },
+    theme: {
+      light: "github-light",
+      dark: "github-dark-dimmed",
+    },
   },
 
   head: [
+    // P-03: Preconnect to Google Fonts
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+    [
+      "link",
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
+    ],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap",
+      },
+    ],
     // Google Analytics 4
     [
       "script",
@@ -71,6 +88,8 @@ export default defineConfig({
     const url = `${siteUrl}/${pageData.relativePath.replace(/\.md$/, "").replace(/index$/, "")}`;
 
     const head: HeadConfig[] = [
+      // SEO-04: Canonical URL
+      ["link", { rel: "canonical", href: url }],
       ["meta", { property: "og:title", content: title }],
       ["meta", { property: "og:description", content: description }],
       ["meta", { property: "og:url", content: url }],
@@ -96,9 +115,12 @@ export default defineConfig({
         "@type": "Article",
         headline: title,
         description: description,
+        // SD-02: 完整 Person Schema
         author: {
           "@type": "Person",
           name: author,
+          url: `${siteUrl}/about`,
+          sameAs: ["https://github.com/Clementtang"],
         },
         datePublished: date,
         dateModified: pageData.frontmatter.lastModified || date,
