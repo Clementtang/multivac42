@@ -107,17 +107,14 @@
 }
 
 /* ========================================
-   T-04: 中文標點優化
+   T-04: 中文排版優化
    ======================================== */
 body {
-  /* 中文標點符號優化 */
+  /* 字體渲染優化 - 移除 palt/halt（日文專用，會壓縮中文字距） */
   font-feature-settings:
     "kern" 1,
     "liga" 1,
-    "calt" 1,
-    "palt" 1,
-    "halt" 1;
-  /* 優化文字渲染 */
+    "calt" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -261,21 +258,20 @@ html {
 
 /* T-01~03: 排版優化 - 行高、段距、最大寬度 */
 .vp-doc {
-  line-height: 1.85; /* 中文閱讀最佳行高 */
-  letter-spacing: 0.02em; /* 中文字元間距，避免擠在一起 */
+  line-height: 1.9; /* 中文閱讀最佳行高 */
+  letter-spacing: 0.05em; /* 中文字元間距 */
   word-spacing: 0.05em; /* 詞間距 */
   font-size: 16px; /* 確保基礎字體大小 */
 }
 
 .vp-doc p {
   margin: 1.5em 0; /* 增加段落間距 */
-  text-align: justify; /* 兩端對齊 */
-  text-justify: inter-ideograph; /* 中文對齊優化 */
+  letter-spacing: 0.05em; /* 段落字距 */
 }
 
 .vp-doc li {
   margin: 0.5em 0;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
 }
 
 /* 確保文章內容最大寬度適合閱讀 */
@@ -287,7 +283,7 @@ html {
 .vp-doc h2,
 .vp-doc h3 {
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em; /* 中文標題用正值 */
 }
 
 .vp-doc h1 {
