@@ -10,6 +10,7 @@ export interface Post {
   author: string;
   cover?: string;
   readingTime: number;
+  wordCount: number;
   featured?: boolean;
   series?: string;
   seriesTitle?: string;
@@ -46,6 +47,7 @@ export default createContentLoader(
             author: frontmatter.author || "Clement Tang",
             cover: frontmatter.cover,
             readingTime,
+            wordCount: totalWords,
             featured: frontmatter.featured || false,
             series: frontmatter.series,
             seriesTitle: frontmatter.seriesTitle,
