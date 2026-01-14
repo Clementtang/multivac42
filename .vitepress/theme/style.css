@@ -277,14 +277,13 @@ html {
   max-width: 720px;
 }
 
-/* 覆蓋 VitePress 預設的負 letter-spacing */
-/* 使用固定像素值確保與段落對齊 (16px × 0.04em = 0.64px) */
+/* 修復標題對齊 - VitePress 預設 flex 會導致偏移 */
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3,
 .vp-doc h4 {
+  display: block;
   font-weight: 600;
-  letter-spacing: 0.64px !important;
 }
 
 .vp-doc h1 {
