@@ -283,7 +283,28 @@ html {
 .vp-doc h3,
 .vp-doc h4 {
   display: block !important;
+  position: relative !important;
   font-weight: 600;
+}
+
+/* h2 anchor 需要考慮 padding-top: 16px */
+.vp-doc h2 .header-anchor {
+  position: absolute !important;
+  left: 0 !important;
+  top: 16px !important;
+  transform: translateX(-100%) !important;
+  margin-left: -8px !important;
+}
+
+/* h1, h3, h4 anchor */
+.vp-doc h1 .header-anchor,
+.vp-doc h3 .header-anchor,
+.vp-doc h4 .header-anchor {
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  transform: translateX(-100%) !important;
+  margin-left: -8px !important;
 }
 
 .vp-doc h1 {
