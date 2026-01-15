@@ -29,9 +29,6 @@ function formatDateChinese(dateStr: string | Date | undefined): string | null {
 
 const formattedDate = computed(() => formatDateChinese(frontmatter.value.date))
 
-// Format last modified date
-const formattedLastModified = computed(() => formatDateChinese(frontmatter.value.lastModified))
-
 // Get reading time and word count from post data
 const readingTime = computed(() => {
   if (currentPost.value?.readingTime) {
@@ -124,10 +121,6 @@ const imageAlt = computed(() => frontmatter.value.imageAlt || title.value)
         <span class="byline-separator">·</span>
         <span class="byline-word-count">{{ formattedWordCount }} 字</span>
       </template>
-      <template v-if="formattedLastModified">
-        <span class="byline-separator">·</span>
-        <span class="byline-modified">更新於 {{ formattedLastModified }}</span>
-      </template>
     </div>
 
     <!-- Tags -->
@@ -194,12 +187,6 @@ const imageAlt = computed(() => frontmatter.value.imageAlt || title.value)
 }
 
 .byline-word-count {
-  font-family: var(--vp-font-family-mono);
-  font-size: 0.85rem;
-  color: var(--vp-c-text-3);
-}
-
-.byline-modified {
   font-family: var(--vp-font-family-mono);
   font-size: 0.85rem;
   color: var(--vp-c-text-3);

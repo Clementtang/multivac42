@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import ArticleHeader from './components/ArticleHeader.vue'
+import ArticleFooter from './components/ArticleFooter.vue'
 import ArticleNav from './components/ArticleNav.vue'
 import LatestPosts from './components/LatestPosts.vue'
 import FeaturedPosts from './components/FeaturedPosts.vue'
@@ -41,8 +42,9 @@ const isHomePage = computed(() => frontmatter.value.layout === 'home')
     <template #doc-before>
       <ArticleHeader />
     </template>
-    <!-- Insert ShareButtons, SeriesNav, RelatedPosts, Comments and ArticleNav at bottom of doc -->
+    <!-- Insert ArticleFooter, ShareButtons, SeriesNav, RelatedPosts, Comments and ArticleNav at bottom of doc -->
     <template #doc-after>
+      <ArticleFooter v-if="isArticlePage" />
       <ShareButtons v-if="isArticlePage" />
       <SeriesNav v-if="isArticlePage" />
       <RelatedPosts v-if="isArticlePage" :limit="3" />

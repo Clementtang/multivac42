@@ -31,12 +31,15 @@ export default createContentLoader(
         .map((page) => {
           const frontmatter = page.frontmatter;
 
-          // Calculate reading time
+          // Calculate reading time (中文 400 字/分鐘，英文 200 字/分鐘)
           const content = page.src || "";
           const chineseChars = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
           const englishWords = (content.match(/[a-zA-Z]+/g) || []).length;
           const totalWords = chineseChars + englishWords;
-          const readingTime = Math.max(1, Math.ceil(totalWords / 200));
+          const readingTime = Math.max(
+            1,
+            Math.ceil(chineseChars / 400 + englishWords / 200),
+          );
 
           return {
             title: frontmatter.title || "Untitled",
