@@ -1,0 +1,11 @@
+# Multivac 42 - robots.txt
+# https://multivac42.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://multivac42.com/sitemap.xml
+
+# RSS Feed
+# https://multivac42.com/feed.xml

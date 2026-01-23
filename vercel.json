@@ -5,5 +5,18 @@
   "installCommand": "npm ci",
   "framework": null,
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.multivac42.com"
+        }
+      ],
+      "destination": "https://multivac42.com/:path*",
+      "permanent": true
+    }
+  ]
 }
