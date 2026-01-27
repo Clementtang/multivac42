@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["企業研究","Toast","POS系統","餐飲科技","SaaS","金融科技"]
 category: company-research
 status: published
-lastModified: 2026-01-12
+lastModified: 2026-01-27
 ---
 
 # Toast Inc：從餐廳 POS 到金融科技平台的雲端革命

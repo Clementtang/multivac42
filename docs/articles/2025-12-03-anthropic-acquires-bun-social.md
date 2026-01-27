@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["Anthropic","Bun","AI編碼","Claude","社群貼文"]
 category: articles
 status: published
-lastModified: 2026-01-12
+lastModified: 2026-01-27
 ---
 
 # 6 個月衝破 10 億美元後，Anthropic 用首次併購買了什麼？

@@ -98,5 +98,3 @@ LEGO 已宣布將把 Smart Play 擴展到 City 和 Technic 系列。但真正有
 - [Brickset: SMART Play Fact Sheet](https://brickset.com/article/128822/smart-play-fact-sheet)
 
 ---
-
-_最後更新：2026-01-07_

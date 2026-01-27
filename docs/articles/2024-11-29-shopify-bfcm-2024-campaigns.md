@@ -137,5 +137,3 @@ lastModified: 2026-01-27
 - [Tobi Lütke BFCM 2024 announcement](https://x.com/tobi/status/1863935229620363693) - Twitter/X
 
 ---
-
-_最後更新：2025-01-22_

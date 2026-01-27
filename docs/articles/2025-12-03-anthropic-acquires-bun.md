@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["Anthropic","Bun","併購","AI編碼","Claude","JavaScript","開發工具"]
 category: articles
 status: published
-lastModified: 2026-01-12
+lastModified: 2026-01-27
 ---
 
 # Anthropic 併購 Bun：AI 編碼巨頭的基礎設施豪賭

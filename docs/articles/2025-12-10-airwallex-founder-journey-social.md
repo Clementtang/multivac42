@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["Airwallex","Jack Zhang","金融科技","跨境支付","創業故事","社群貼文"]
 category: articles
 status: published
-lastModified: 2026-01-12
+lastModified: 2026-01-27
 ---
 
 # 從咖啡廳老闆到 80 億美元獨角獸：這位華人創業家拒絕 Stripe 12 億收購的豪賭

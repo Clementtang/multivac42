@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["Claude","AI","編碼","Agents","社群貼文"]
 category: articles
 status: published
-lastModified: 2026-01-12
+lastModified: 2026-01-27
 ---
 
 # Claude Opus 4.5 發布：三大突破重新定義企業 AI

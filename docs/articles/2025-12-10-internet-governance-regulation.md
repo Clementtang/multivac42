@@ -756,5 +756,3 @@ DMA 要求守門人：
 48. [What is digital sovereignty? | World Economic Forum](https://www.weforum.org/stories/2025/01/europe-digital-sovereignty/)
 
 ---
-
-_最後更新：2025-12-10_

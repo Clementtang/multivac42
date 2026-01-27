@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["Amazon","衛星網路","Starlink","社群貼文"]
 category: articles
 status: published
-lastModified: 2026-01-12
+lastModified: 2026-01-27
 ---
 
 # Amazon Leo Ultra 社群貼文精簡版
