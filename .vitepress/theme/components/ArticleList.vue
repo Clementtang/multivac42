@@ -4,7 +4,7 @@ import { data as posts } from '../posts.data'
 import ArticleCard from './ArticleCard.vue'
 
 interface Props {
-  category?: 'articles' | 'research' | 'company-research'
+  category?: 'articles' | 'research' | 'company-research' | 'topic-research'
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -22,6 +22,8 @@ const filteredPosts = computed(() => {
         return post.url.startsWith('/research/')
       } else if (props.category === 'company-research') {
         return post.url.startsWith('/company-research/')
+      } else if (props.category === 'topic-research') {
+        return post.url.startsWith('/topic-research/')
       }
       return true
     })
