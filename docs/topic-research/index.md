@@ -12,4 +12,4 @@ import ArticleList from '../../.vitepress/theme/components/ArticleList.vue'
 
 產業趨勢與特定議題的系統化深度分析。
 
-<ArticleList category="research" />
+<ArticleList category="topic-research" />
