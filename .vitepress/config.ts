@@ -287,7 +287,7 @@ export default defineConfig({
       { text: "首頁", link: "/" },
       { text: "文章", link: "/articles/" },
       { text: "公司研究", link: "/company-research/" },
-      { text: "主題研究", link: "/research/" },
+      { text: "主題研究", link: "/topic-research/" },
       { text: "標籤", link: "/tags" },
       { text: "歸檔", link: "/archive" },
       { text: "關於", link: "/about" },
