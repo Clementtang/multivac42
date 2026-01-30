@@ -21,7 +21,7 @@ declare const data: Post[];
 export { data };
 
 export default createContentLoader(
-  ["articles/*.md", "research/*.md", "company-research/**/*.md"],
+  ["articles/*.md", "topic-research/*.md", "company-research/**/*.md"],
   {
     excerpt: true,
     includeSrc: true, // Required for word count calculation
