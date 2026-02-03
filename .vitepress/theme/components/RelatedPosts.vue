@@ -15,9 +15,13 @@ const { page, frontmatter } = useData()
 
 const currentUrl = computed(() => page.value.relativePath.replace(/\.md$/, ''))
 const currentTags = computed(() => frontmatter.value.tags || [])
+// 使用 Set 優化 tag 查詢效能 (O(1) vs O(n))
+const currentTagsSet = computed(() => new Set(currentTags.value))
 
 const relatedPosts = computed(() => {
   if (currentTags.value.length === 0) return []
+
+  const tagSet = currentTagsSet.value
 
   // Score posts by number of matching tags
   const scored = posts
@@ -27,13 +31,12 @@ const relatedPosts = computed(() => {
       return postUrl !== `/${currentUrl.value}` && postUrl !== currentUrl.value
     })
     .map(post => {
-      const matchingTags = post.tags.filter(tag =>
-        currentTags.value.includes(tag)
-      )
-      return {
-        ...post,
-        score: matchingTags.length
+      // 使用 Set.has() 進行 O(1) 查詢
+      let score = 0
+      for (const tag of post.tags) {
+        if (tagSet.has(tag)) score++
       }
+      return { ...post, score }
     })
     .filter(post => post.score > 0)
     .sort((a, b) => {
@@ -77,7 +80,7 @@ function formatDate(dateStr: string) {
             v-for="tag in post.tags.slice(0, 2)"
             :key="tag"
             class="related-tag"
-            :class="{ matched: currentTags.includes(tag) }"
+            :class="{ matched: currentTagsSet.has(tag) }"
           >
             {{ tag }}
           </span>
