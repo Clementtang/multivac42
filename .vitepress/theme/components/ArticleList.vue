@@ -29,16 +29,6 @@ const filteredPosts = computed(() => {
       return new Date(b.date).getTime() - new Date(a.date).getTime()
     })
 })
-
-// Calculate reading time from content
-function calculateReadingTime(content: string): number {
-  const wordsPerMinute = 200
-  // Count Chinese characters and English words
-  const chineseChars = (content.match(/[\u4e00-\u9fa5]/g) || []).length
-  const englishWords = (content.match(/[a-zA-Z]+/g) || []).length
-  const totalWords = chineseChars + englishWords
-  return Math.ceil(totalWords / wordsPerMinute)
-}
 </script>
 
 <template>
