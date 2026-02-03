@@ -11,7 +11,7 @@ hero:
       link: /articles/
     - theme: alt
       text: 研究報告
-      link: /research/
+      link: /topic-research/
 features:
   - title: 深度文章
     details: 科技趨勢、產業分析、商業觀察
