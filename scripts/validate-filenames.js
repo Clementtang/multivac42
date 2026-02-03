@@ -11,7 +11,8 @@ import { join, basename } from "path";
 
 const DOCS_DIR = join(process.cwd(), "docs");
 
-// 需要驗證的目錄（與 posts.data.ts 的載入路徑保持一致）
+// 需要驗證的目錄
+// 注意：新增類別時請同步更新 .vitepress/theme/config/categories.ts
 const VALIDATE_DIRS = ["articles", "topic-research", "company-research"];
 
 // 允許的特殊文件（不需要遵循日期命名規範）

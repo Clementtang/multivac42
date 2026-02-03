@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import { data as posts } from '../posts.data'
+import { ARTICLE_CATEGORIES, isArticlePage as checkIsArticlePage } from '../config/categories'
 
 const { frontmatter, page } = useData()
 
@@ -52,14 +53,15 @@ const formattedWordCount = computed(() => {
 })
 
 // Check if this is an article page (by category or path)
+// 使用集中管理的類別設定
 const isArticlePage = computed(() => {
   const category = frontmatter.value.category
-  if (category === 'articles' || category === 'company-research' || category === 'research' || category === 'topic-research') {
+  // 檢查 frontmatter category 是否為有效類別
+  if (category && ARTICLE_CATEGORIES.includes(category)) {
     return true
   }
-  const path = page.value.relativePath
-  const isInContentDir = path.startsWith('articles/') || path.startsWith('research/') || path.startsWith('company-research/') || path.startsWith('topic-research/')
-  return isInContentDir && !path.endsWith('index.md')
+  // 檢查路徑
+  return checkIsArticlePage(page.value.relativePath)
 })
 
 // Get tags

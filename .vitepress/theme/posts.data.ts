@@ -35,6 +35,9 @@ export interface Post {
 declare const data: Post[];
 export { data };
 
+// 文章載入路徑 - 新增類別時需同步更新
+// 注意：glob patterns 必須為靜態字串，無法從 categories.ts 動態載入
+// 請同時更新 config/categories.ts 的 ARTICLE_CATEGORIES
 export default createContentLoader(
   ["articles/*.md", "topic-research/*.md", "company-research/**/*.md"],
   {

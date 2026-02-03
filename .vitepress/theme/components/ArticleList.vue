@@ -2,9 +2,10 @@
 import { computed } from 'vue'
 import { data as posts } from '../posts.data'
 import ArticleCard from './ArticleCard.vue'
+import { type ArticleCategory, getCategoryUrlPrefix } from '../config/categories'
 
 interface Props {
-  category?: 'articles' | 'company-research' | 'topic-research'
+  category?: ArticleCategory
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -12,22 +13,12 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // Filter and sort posts by category and date
+// 使用集中管理的類別設定
 const filteredPosts = computed(() => {
+  const urlPrefix = getCategoryUrlPrefix(props.category)
   return posts
-    .filter(post => {
-      // Filter by category based on URL path
-      if (props.category === 'articles') {
-        return post.url.startsWith('/articles/')
-      } else if (props.category === 'company-research') {
-        return post.url.startsWith('/company-research/')
-      } else if (props.category === 'topic-research') {
-        return post.url.startsWith('/topic-research/')
-      }
-      return true
-    })
-    .sort((a, b) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime()
-    })
+    .filter(post => post.url.startsWith(urlPrefix))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 })
 </script>
 

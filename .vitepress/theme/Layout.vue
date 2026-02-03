@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { isArticlePage as checkIsArticlePage } from './config/categories'
 import ArticleHeader from './components/ArticleHeader.vue'
 import ArticleFooter from './components/ArticleFooter.vue'
 import ArticleNav from './components/ArticleNav.vue'
@@ -23,12 +24,8 @@ const { Layout } = DefaultTheme
 const { page, frontmatter } = useData()
 
 // Check if current page is an article (not index)
-const isArticlePage = computed(() => {
-  const path = page.value.relativePath
-  const isInArticleDir = path.startsWith('articles/') || path.startsWith('research/') || path.startsWith('company-research/') || path.startsWith('topic-research/')
-  const isNotIndex = !path.endsWith('index.md')
-  return isInArticleDir && isNotIndex
-})
+// 使用集中管理的類別設定
+const isArticlePage = computed(() => checkIsArticlePage(page.value.relativePath))
 
 // Check if current page is home
 const isHomePage = computed(() => frontmatter.value.layout === 'home')
