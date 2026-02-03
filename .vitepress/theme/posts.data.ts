@@ -1,5 +1,20 @@
 import { createContentLoader } from "vitepress";
 
+// Frontmatter 欄位型別定義
+interface Frontmatter {
+  title?: string;
+  description?: string;
+  date?: string;
+  lastModified?: string;
+  tags?: string[];
+  author?: string;
+  cover?: string;
+  featured?: boolean;
+  series?: string;
+  seriesTitle?: string;
+  seriesIndex?: number;
+}
+
 export interface Post {
   title: string;
   description: string;
@@ -29,7 +44,7 @@ export default createContentLoader(
       return rawData
         .filter((page) => !page.url.endsWith("/")) // Filter out index pages
         .map((page) => {
-          const frontmatter = page.frontmatter;
+          const frontmatter = page.frontmatter as Frontmatter;
 
           // Calculate reading time (中文 400 字/分鐘，英文 200 字/分鐘)
           const content = page.src || "";
@@ -47,7 +62,7 @@ export default createContentLoader(
             date: frontmatter.date || new Date().toISOString().split("T")[0],
             lastModified: frontmatter.lastModified,
             url: page.url,
-            tags: frontmatter.tags || [],
+            tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
             author: frontmatter.author || "Clement Tang",
             cover: frontmatter.cover,
             readingTime,
