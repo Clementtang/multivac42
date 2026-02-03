@@ -16,6 +16,7 @@ import BackToTop from './components/BackToTop.vue'
 import Comments from './components/Comments.vue'
 import FloatingToc from './components/FloatingToc.vue'
 import NotFound from './components/NotFound.vue'
+import PageTransition from './components/PageTransition.vue'
 
 const { Layout } = DefaultTheme
 const { page, frontmatter } = useData()
@@ -33,6 +34,8 @@ const isHomePage = computed(() => frontmatter.value.layout === 'home')
 </script>
 
 <template>
+  <!-- B-03: 頁面載入動畫 -->
+  <PageTransition />
   <Layout>
     <!-- Reading progress bar for articles -->
     <template #layout-top>
