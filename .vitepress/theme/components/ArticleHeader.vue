@@ -54,11 +54,11 @@ const formattedWordCount = computed(() => {
 // Check if this is an article page (by category or path)
 const isArticlePage = computed(() => {
   const category = frontmatter.value.category
-  if (category === 'articles' || category === 'company-research' || category === 'research') {
+  if (category === 'articles' || category === 'company-research' || category === 'research' || category === 'topic-research') {
     return true
   }
   const path = page.value.relativePath
-  const isInContentDir = path.startsWith('articles/') || path.startsWith('research/') || path.startsWith('company-research/')
+  const isInContentDir = path.startsWith('articles/') || path.startsWith('research/') || path.startsWith('company-research/') || path.startsWith('topic-research/')
   return isInContentDir && !path.endsWith('index.md')
 })
 

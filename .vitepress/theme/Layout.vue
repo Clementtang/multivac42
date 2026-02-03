@@ -25,7 +25,7 @@ const { page, frontmatter } = useData()
 // Check if current page is an article (not index)
 const isArticlePage = computed(() => {
   const path = page.value.relativePath
-  const isInArticleDir = path.startsWith('articles/') || path.startsWith('research/') || path.startsWith('company-research/')
+  const isInArticleDir = path.startsWith('articles/') || path.startsWith('research/') || path.startsWith('company-research/') || path.startsWith('topic-research/')
   const isNotIndex = !path.endsWith('index.md')
   return isInArticleDir && isNotIndex
 })
