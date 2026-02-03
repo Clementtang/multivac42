@@ -17,6 +17,7 @@ import Comments from './components/Comments.vue'
 import FloatingToc from './components/FloatingToc.vue'
 import NotFound from './components/NotFound.vue'
 import PageTransition from './components/PageTransition.vue'
+import TextSelectionShare from './components/TextSelectionShare.vue'
 
 const { Layout } = DefaultTheme
 const { page, frontmatter } = useData()
@@ -36,6 +37,8 @@ const isHomePage = computed(() => frontmatter.value.layout === 'home')
 <template>
   <!-- B-03: 頁面載入動畫 -->
   <PageTransition />
+  <!-- SH-03: 文字選取分享 -->
+  <TextSelectionShare />
   <Layout>
     <!-- Reading progress bar for articles -->
     <template #layout-top>
