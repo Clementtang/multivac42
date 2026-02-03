@@ -301,8 +301,39 @@ export default defineConfig({
       label: "本頁目錄",
     },
 
+    // S-01, S-02: 搜尋功能增強
     search: {
       provider: "local",
+      options: {
+        // 預設顯示詳細搜尋結果（含上下文預覽）
+        detailedView: true,
+        // 中文化搜尋介面
+        translations: {
+          button: {
+            buttonText: "搜尋",
+            buttonAriaLabel: "搜尋文章",
+          },
+          modal: {
+            displayDetails: "顯示詳細內容",
+            resetButtonTitle: "清除搜尋",
+            backButtonTitle: "關閉搜尋",
+            noResultsText: "找不到相關結果",
+            footer: {
+              selectText: "選擇",
+              navigateText: "切換",
+              closeText: "關閉",
+            },
+          },
+        },
+        // MiniSearch 設定優化中文搜尋
+        miniSearch: {
+          searchOptions: {
+            fuzzy: 0.2,
+            prefix: true,
+            boost: { title: 4, text: 2, titles: 1 },
+          },
+        },
+      },
     },
 
     footer: {
