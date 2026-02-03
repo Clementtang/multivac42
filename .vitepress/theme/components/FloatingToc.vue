@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useData } from 'vitepress'
 
 interface TocItem {
@@ -66,7 +66,9 @@ function handleClickOutside(e: MouseEvent) {
   }
 }
 
-onMounted(() => {
+onMounted(async () => {
+  // 等待 DOM 完全渲染後再解析 headers，避免 race condition
+  await nextTick()
   parseHeaders()
   window.addEventListener('scroll', handleScroll, { passive: true })
   document.addEventListener('click', handleClickOutside)
@@ -79,9 +81,11 @@ onUnmounted(() => {
 })
 
 // Re-parse headers when page changes
-watch(() => page.value.relativePath, () => {
-  setTimeout(parseHeaders, 100)
+watch(() => page.value.relativePath, async () => {
   isOpen.value = false
+  // 等待新頁面 DOM 渲染完成
+  await nextTick()
+  parseHeaders()
 })
 </script>
 
