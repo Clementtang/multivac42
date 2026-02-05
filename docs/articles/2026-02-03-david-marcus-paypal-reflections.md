@@ -44,7 +44,7 @@ Chriss 於 2023 年 9 月從財務軟體公司 Intuit 加入 PayPal，原本被�
 
 就在同一天，PayPal 前總裁 David Marcus 打破了十二年的沉默，在 Twitter 上發表長文。
 
-<blockquote class="twitter-tweet"><a href="https://x.com/davidmarcus/status/2018809762708873443"></a></blockquote>
+<XEmbed tweetId="2018809762708873443" />
 
 ---
 
