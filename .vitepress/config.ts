@@ -42,6 +42,15 @@ export default defineConfig({
         href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap",
       },
     ],
+    // X (Twitter) embeds
+    [
+      "script",
+      {
+        async: "",
+        src: "https://platform.twitter.com/widgets.js",
+        charset: "utf-8",
+      },
+    ],
     // Google Analytics 4
     [
       "script",
