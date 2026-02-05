@@ -3,7 +3,16 @@ title: 十二年後打破沉默，David Marcus 談 PayPal 的衰落
 description: PayPal 前總裁 David Marcus 在公司再度換帥之際首度發聲，剖析這家支付巨頭如何從產品驅動走向財務優化，一步步失去產業領先地位。
 date: 2026-02-03
 author: Clement Tang
-tags: 
+tags:
+  [
+    "金融科技",
+    "PayPal",
+    "產品策略",
+    "企業治理",
+    "支付",
+    "David Marcus",
+    "企業轉型",
+  ]
 category: articles
 status: published
 original_author: David Marcus
