@@ -4,9 +4,9 @@ description: 分享如何讓 Claude Code 分析本地專案，客製化設計 su
 date: 2026-01-27
 category: articles
 status: published
-tags: [Claude Code, AI, subagents, workflow, automation, 開發工具]
+tags: ["Claude Code","AI","subagents","workflow","automation","開發工具"]
 author: Clement Tang
-lastModified: 2026-01-27
+lastModified: 2026-02-05
 ---
 
 # 讓 Claude Code 幫你設計專案專屬的 Agents
