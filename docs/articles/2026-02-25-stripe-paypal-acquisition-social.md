@@ -3,7 +3,17 @@ title: 從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的
 description: Bloomberg 報導 Stripe 正考慮收購 PayPal，兩天後遭 PayPal 否認。但從市值 3,500 億到 430 億美元，從支付霸主到被收購的話題對象，PayPal 的故事是一堂關於產品信念與財務優化的殘酷教訓。
 date: 2026-02-28
 author: Clement Tang
-tags: ["社群貼文","Stripe","PayPal","併購","金融科技","支付","Venmo","David Marcus"]
+tags:
+  [
+    "社群貼文",
+    "Stripe",
+    "PayPal",
+    "併購",
+    "金融科技",
+    "支付",
+    "Venmo",
+    "David Marcus",
+  ]
 category: articles
 status: published
 related: ../company-research/2026-02-25-stripe-paypal-acquisition-research.md
@@ -107,7 +117,3 @@ PayPal 的前瞻本益比目前僅約 8.3 倍，遠低於 Visa 的 23.2 倍和 M
 你覺得 Stripe 會真的收購 PayPal 嗎？如果你是 Stripe，你會買 PayPal 的哪一塊？歡迎留言分享你的看法。
 
 **#Stripe #PayPal #金融科技 #併購 #支付產業 #Venmo #FinTech #DavidMarcus**
-
----
-
-_基於研究：[Stripe 探詢收購 PayPal 企業研究](../company-research/2026-02-25-stripe-paypal-acquisition-research.md)_
