@@ -257,6 +257,13 @@ export default defineConfig({
       pageData.relativePath.startsWith("company-research/");
 
     if (isArticle && !pageData.relativePath.endsWith("index.md") && date) {
+      // P2: Markdown alternate link for AI discoverability
+      const mdUrl = `${url}.md`;
+      head.push([
+        "link",
+        { rel: "alternate", type: "text/markdown", href: mdUrl },
+      ]);
+
       const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -279,6 +286,12 @@ export default defineConfig({
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id": url,
+        },
+        // P2: Markdown encoding for AI agents
+        encoding: {
+          "@type": "MediaObject",
+          contentUrl: mdUrl,
+          encodingFormat: "text/markdown",
         },
         ...(cover && {
           image: cover.startsWith("http") ? cover : `${siteUrl}${cover}`,
