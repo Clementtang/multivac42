@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["越南","經濟分析","東南亞","投資","房地產"]
 category: articles
 status: published
-lastModified: 2026-03-12
+lastModified: 2026-03-13
 ---
 
 # 越南經濟的真相：一場閉門會議上的震撼發言

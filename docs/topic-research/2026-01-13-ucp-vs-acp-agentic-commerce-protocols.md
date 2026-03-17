@@ -7,7 +7,7 @@ tags: ["議題研究","AI","代理商務","協議標準","電子商務"]
 category: topic-research
 status: published
 version: 1.2
-lastModified: 2026-03-12
+lastModified: 2026-03-13
 ---
 
 # Google UCP vs OpenAI/Stripe ACP 代理商務協議比較
