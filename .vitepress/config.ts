@@ -1,10 +1,14 @@
 import { defineConfig, type HeadConfig } from "vitepress";
 import { generateRssFeed } from "./rss";
+import { generateLlmsTxt } from "./llms-generator";
 
 const siteUrl = "https://multivac42.com";
 
 export default defineConfig({
-  buildEnd: generateRssFeed,
+  buildEnd: async (config) => {
+    await generateRssFeed(config);
+    await generateLlmsTxt(config);
+  },
   title: "Multivac 42",
   description: "研究與寫作 - 探索商業、科技與產業的深度分析",
   lang: "zh-TW",
