@@ -1,5 +1,5 @@
 import { createContentLoader, type SiteConfig } from "vitepress";
-import { writeFileSync, readFileSync } from "fs";
+import { writeFileSync, readFileSync, mkdirSync } from "fs";
 import path from "path";
 
 const siteUrl = "https://multivac42.com";
@@ -118,8 +118,19 @@ export async function generateLlmsTxt(config: SiteConfig) {
     writeFileSync(path.join(outDir, "llms.txt"), llmsTxt.trim());
     writeFileSync(path.join(outDir, "llms-full.txt"), llmsFullTxt.trim());
 
+    // --- P1: Article-level .md files ---
+    let mdCount = 0;
+    for (const a of articles) {
+      if (!a.rawContent) continue;
+      const mdPath = path.join(outDir, a.url.replace(/\/$/, "") + ".md");
+      mkdirSync(path.dirname(mdPath), { recursive: true });
+      writeFileSync(mdPath, a.rawContent.trim());
+      mdCount++;
+    }
+
     console.log(`✓ llms.txt generated: ${articles.length} articles indexed`);
     console.log(`✓ llms-full.txt generated`);
+    console.log(`✓ ${mdCount} article .md files generated`);
   } catch (error) {
     console.error("✗ Failed to generate llms files:", error);
     throw error;
