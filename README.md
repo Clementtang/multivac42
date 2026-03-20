@@ -27,8 +27,9 @@ multivac42/
 │   ├── topic-research/      # 主題研究
 │   └── company-research/    # 公司研究
 ├── .vitepress/
-│   ├── config.ts            # VitePress 配置
+│   ├── config.ts            # VitePress 配置（含 Structured Data、SEO）
 │   ├── rss.ts               # RSS feed 生成
+│   ├── llms-generator.ts    # llms.txt / llms-full.txt / article .md 生成
 │   └── theme/
 │       ├── components/      # Vue 元件
 │       ├── posts.data.ts    # 文章資料載入器
@@ -72,12 +73,35 @@ seriesIndex: 1 # 選填，系列順序
 ---
 ```
 
+## Build 產出
+
+除了標準 HTML 之外，`buildEnd` hook 會自動生成：
+
+- `feed.xml` — RSS 2.0 feed（最新 20 篇）
+- `llms.txt` — AI 可讀的文章摘要索引（[llmstxt.org](https://llmstxt.org) 標準）
+- `llms-full.txt` — 所有文章的完整 Markdown 內容
+- `{article-url}.md` — 每篇文章的獨立 Markdown 檔案
+
+## 效能優化
+
+- **字型自託管**：Noto Sans TC + JetBrains Mono 透過 `@fontsource` 本地載入，消除 Google Fonts 外部請求
+- **Twitter widgets.js 按需載入**：僅在使用 `<XEmbed>` 的頁面載入
+- **GA4 閱讀深度追蹤**：在 25%/50%/75%/100% 捲動時觸發 `scroll_depth` 事件
+
+## Structured Data
+
+- **Article Schema**：含 Person author、encoding（指向 .md）
+- **BreadcrumbList Schema**：所有頁面
+- **WebSite Schema**：首頁（含 SearchAction）
+- **Markdown alternate link**：文章頁 `<link rel="alternate" type="text/markdown">`
+
 ## 部署
 
 網站透過 Vercel 自動部署：
 
 - **Production**: [multivac42.com](https://multivac42.com)
 - 推送到 `main` 分支會自動觸發部署
+- www.multivac42.com 已設定 301 redirect 至 multivac42.com
 
 ## 授權
 
