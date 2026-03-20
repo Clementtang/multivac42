@@ -1,4 +1,6 @@
 import DefaultTheme from "vitepress/theme";
+import "@fontsource-variable/noto-sans-tc";
+import "@fontsource-variable/jetbrains-mono";
 import "./style.css";
 import Layout from "./Layout.vue";
 import ArticleList from "./components/ArticleList.vue";

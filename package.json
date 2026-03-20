@@ -11,8 +11,12 @@
     "lint": "markdownlint-cli2 'docs/**/*.md'"
   },
   "devDependencies": {
+    "markdownlint-cli2": "^0.17.0",
     "vitepress": "^1.5.0",
-    "vue": "^3.5.13",
-    "markdownlint-cli2": "^0.17.0"
+    "vue": "^3.5.13"
+  },
+  "dependencies": {
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource-variable/noto-sans-tc": "^5.2.10"
   }
 }

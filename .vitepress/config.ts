@@ -33,28 +33,8 @@ export default defineConfig({
   },
 
   head: [
-    // P-03: Preconnect to Google Fonts
-    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
-    [
-      "link",
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
-    ],
-    [
-      "link",
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap",
-      },
-    ],
-    // X (Twitter) embeds
-    [
-      "script",
-      {
-        async: "",
-        src: "https://platform.twitter.com/widgets.js",
-        charset: "utf-8",
-      },
-    ],
+    // Fonts: self-hosted via @fontsource (imported in theme/index.ts)
+    // Twitter widgets.js: on-demand in XEmbed.vue
     // Google Analytics 4
     [
       "script",

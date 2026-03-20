@@ -1,21 +1,32 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
 const props = defineProps<{
-  tweetId: string
-}>()
+  tweetId: string;
+}>();
 
-const container = ref<HTMLElement>()
+const container = ref<HTMLElement>();
 
-onMounted(() => {
-  const win = window as any
-  if (win.twttr?.widgets) {
-    win.twttr.widgets.createTweet(props.tweetId, container.value, {
-      align: 'center',
-      lang: 'en',
-    })
-  }
-})
+function loadWidgets(): Promise<void> {
+  const win = window as any;
+  if (win.twttr?.widgets) return Promise.resolve();
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://platform.twitter.com/widgets.js";
+    script.async = true;
+    script.onload = () => resolve();
+    document.head.appendChild(script);
+  });
+}
+
+onMounted(async () => {
+  await loadWidgets();
+  const win = window as any;
+  win.twttr?.widgets?.createTweet(props.tweetId, container.value, {
+    align: "center",
+    lang: "en",
+  });
+});
 </script>
 
 <template>
