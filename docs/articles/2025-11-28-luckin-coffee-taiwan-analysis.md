@@ -6,7 +6,10 @@ author: Clement Tang
 tags: ["瑞幸咖啡","台灣市場","便利商店咖啡","商業分析","社群貼文"]
 category: articles
 status: published
-lastModified: 2026-01-27
+series: luckin-coffee
+seriesTitle: 瑞幸咖啡系列
+seriesIndex: 2
+lastModified: 2026-03-20
 ---
 
 # 瑞幸咖啡12月登台：中國咖啡巨頭能否攻下台灣超商咖啡的鐵壁？
@@ -320,7 +323,7 @@ lastModified: 2026-01-27
 - 打敗星巴克的5大核心競爭優勢
 - 台灣市場詳細分析與數據
 
-完整2.5萬字深度研究報告：[瑞幸咖啡企業研究](../company-research/luckin-coffee/2025-11-28-luckin-coffee-research.md)
+完整2.5萬字深度研究報告：[瑞幸咖啡企業研究](../company-research/2025-11-28-luckin-coffee-research.md)
 
 ---
 

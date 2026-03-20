@@ -1,24 +1,43 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from "vue";
 
-const progress = ref(0)
+const progress = ref(0);
+const milestones = new Set<number>();
+
+function sendScrollEvent(depth: number) {
+  const win = window as any;
+  if (win.gtag) {
+    win.gtag("event", "scroll_depth", {
+      percent_scrolled: depth,
+      page_path: window.location.pathname,
+    });
+  }
+}
 
 function updateProgress() {
-  const scrollTop = window.scrollY
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   if (docHeight > 0) {
-    progress.value = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100))
+    progress.value = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+  }
+
+  for (const threshold of [25, 50, 75, 100]) {
+    if (progress.value >= threshold && !milestones.has(threshold)) {
+      milestones.add(threshold);
+      sendScrollEvent(threshold);
+    }
   }
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', updateProgress, { passive: true })
-  updateProgress()
-})
+  milestones.clear();
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  updateProgress();
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', updateProgress)
-})
+  window.removeEventListener("scroll", updateProgress);
+});
 </script>
 
 <template>
