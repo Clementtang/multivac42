@@ -14,7 +14,7 @@ declare const data: TagInfo[];
 export { data };
 
 export default createContentLoader(
-  ["articles/*.md", "research/*.md", "company-research/**/*.md"],
+  ["articles/*.md", "topic-research/*.md", "company-research/**/*.md"],
   {
     transform(rawData) {
       const tagMap = new Map<string, TagInfo>();

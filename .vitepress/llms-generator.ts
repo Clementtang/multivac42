@@ -27,12 +27,7 @@ export async function generateLlmsTxt(config: SiteConfig) {
     const articles: Article[] = [];
 
     const loader = createContentLoader(
-      [
-        "articles/*.md",
-        "company-research/**/*.md",
-        "topic-research/*.md",
-        "research/*.md",
-      ],
+      ["articles/*.md", "company-research/**/*.md", "topic-research/*.md"],
       { excerpt: false, render: false },
     );
 

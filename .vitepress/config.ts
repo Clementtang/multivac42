@@ -145,11 +145,14 @@ export default defineConfig({
     };
 
     const companyNameMap: Record<string, string> = {
+      base: "BASE",
       "luckin-coffee": "瑞幸咖啡",
       toast: "Toast",
       airwallex: "Airwallex",
       hotai: "和泰汽車",
+      urbox: "UrBox",
       "manus-ai": "Manus AI",
+      anta: "安踏",
     };
 
     function generateBreadcrumbItems() {
@@ -344,7 +347,7 @@ export default defineConfig({
 
     footer: {
       message: "以 VitePress 建置",
-      copyright: "© 2025 Clement Tang",
+      copyright: `© 2025-${new Date().getFullYear()} Clement Tang`,
     },
   },
 });

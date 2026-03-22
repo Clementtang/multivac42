@@ -33,7 +33,7 @@ export async function generateRssFeed(config: SiteConfig) {
 
     // Load articles
     const loader = createContentLoader(
-      ["articles/*.md", "research/*.md", "company-research/**/*.md"],
+      ["articles/*.md", "topic-research/*.md", "company-research/**/*.md"],
       {
         excerpt: true,
         render: false,
