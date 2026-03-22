@@ -13,7 +13,7 @@ export default defineConfig({
   lang: "zh-TW",
   srcDir: "docs",
   cleanUrls: true,
-  ignoreDeadLinks: true,
+  ignoreDeadLinks: "localhostLinks",
 
   // Sitemap for Search Console
   sitemap: {
