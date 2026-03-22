@@ -45,6 +45,7 @@ export async function generateRssFeed(config: SiteConfig) {
 
       const frontmatter = post.frontmatter || {};
       if (!frontmatter.title || !frontmatter.date) continue;
+      if (frontmatter.draft) continue;
 
       posts.push({
         title: frontmatter.title,

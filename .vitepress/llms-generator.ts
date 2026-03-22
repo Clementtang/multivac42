@@ -34,6 +34,7 @@ export async function generateLlmsTxt(config: SiteConfig) {
       if (post.url.endsWith("/")) continue;
       const fm = post.frontmatter || {};
       if (!fm.title || !fm.date) continue;
+      if (fm.draft) continue;
 
       // Read raw markdown for llms-full.txt
       const srcPath = path.join(

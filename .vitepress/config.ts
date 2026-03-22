@@ -1,15 +1,15 @@
 import { defineConfig, type HeadConfig } from "vitepress";
 import { generateRssFeed } from "./rss";
 import { generateLlmsTxt } from "./llms-generator";
-import { siteUrl } from "./site.config";
+import { siteUrl, siteName, siteDescription } from "./site.config";
 
 export default defineConfig({
   buildEnd: async (config) => {
     await generateRssFeed(config);
     await generateLlmsTxt(config);
   },
-  title: "Multivac 42",
-  description: "研究與寫作 - 探索商業、科技與產業的深度分析",
+  title: siteName,
+  description: siteDescription,
   lang: "zh-TW",
   srcDir: "docs",
   cleanUrls: true,

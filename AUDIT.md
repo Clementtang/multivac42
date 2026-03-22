@@ -384,3 +384,70 @@ Commits: `1879561`, `0adc348`
 | esbuild <=0.24.2 Dev Server Request Leak (GHSA-67mh-4wv8-2f99) | moderate x3 | P2 觀察   | 依賴鏈 vitepress→vite→esbuild，需等 VitePress >1.6.4。僅影響 dev server，不影響 production build |
 
 **原 P0 → 降級為 P2 觀察。** 所有 high severity 已解決，剩餘 3 moderate 為 dev-only 且 blocked by upstream。
+
+---
+
+## 第三輪覆核（2026-03-23）
+
+針對 commit `f815182`（site.config.ts 集中常數 + draft frontmatter + CLAUDE.md）的驗證。
+
+### 修正品質確認
+
+- `site.config.ts` 簡潔，4 個常數 export，`llmsDescription` 獨立欄位設計正確
+- 4 個消費端（config.ts、rss.ts、llms-generator.ts、TextSelectionShare.vue）都改為 import，diff 乾淨
+- `posts.data.ts` 的 draft 過濾實作合理
+- CLAUDE.md 內容精準，特別標註了「不要用 `npx vitepress build docs`」和「不要使用 `research/*.md`」兩個歷史踩坑
+
+### [P1-NEW] draft 過濾不完整 — RSS / llms.txt / tags 未排除草稿
+
+- **位置：** `rss.ts:43-47`、`llms-generator.ts:32-36`、`tags.data.ts:22-23`
+- **問題：** `posts.data.ts` 加了 `draft: true` 過濾，但 `rss.ts`、`llms-generator.ts`、`tags.data.ts` 三個 loader 都沒有加。若文章設了 `draft: true`，不會出現在首頁列表，但仍會出現在 RSS feed、llms.txt、llms-full.txt、tags 頁面。
+- **影響：** 草稿內容會透過 RSS 和 llms.txt 洩漏給訂閱者和 AI agent
+- **矛盾：** CLAUDE.md 第 32 行寫了「草稿（不出現在列表、RSS、llms.txt）」，但實作只做了列表那一層。文檔與實作不一致。
+- **建議：** 在 `rss.ts`、`llms-generator.ts`、`tags.data.ts` 的 filter 邏輯中加入 `frontmatter.draft !== true` 條件
+
+### [P3-NEW] config.ts description 未改用 import
+
+- **位置：** `.vitepress/config.ts:12`
+- **問題：** `site.config.ts` export 了 `siteDescription`，`rss.ts` 也改用 import，但 config.ts 的 VitePress `description` 欄位仍是 hardcoded `"研究與寫作 - 探索商業、科技與產業的深度分析"`。值相同所以不影響功能，但違反集中管理的初衷 — 未來修改 siteDescription 時仍需同步此處。
+- **建議：** `import { siteUrl, siteDescription } from "./site.config"` 並使用 `description: siteDescription`
+
+### ignoreDeadLinks 狀態建議
+
+`ignoreDeadLinks: true` 從第一輪稽核就存在，三輪修正都未處理。若短期內不打算動，建議在 AUDIT.md 結案摘要中將其從「剩餘」改為「接受風險」，附上理由和重新評估時間點，避免成為永久 TODO。
+
+---
+
+## 第四輪修正（2026-03-23）
+
+### P1-NEW draft 過濾不完整 — 已修復
+
+認同，這是實際 bug。CLAUDE.md 承諾「草稿不出現在 RSS、llms.txt」但實作只做了 posts.data.ts。
+
+已在三個 loader 加入 draft 過濾：
+
+- `rss.ts`: `if (frontmatter.draft) continue;`
+- `llms-generator.ts`: `if (fm.draft) continue;`
+- `tags.data.ts`: `.filter((page) => !page.frontmatter.draft)`
+
+### P3-NEW config.ts description 未改用 import — 已修復
+
+認同。`config.ts` 的 `title` 和 `description` 現改為 import `siteName` 和 `siteDescription`。
+
+### ignoreDeadLinks — 已修復
+
+在第三輪覆核前已於 commit `86683d3` 完成：
+
+- 修復 2 個死連結（瑞幸、Manus 的 company-research 子目錄路徑）
+- `ignoreDeadLinks: true` → `"localhostLinks"`
+- build 驗證 0 dead links
+
+---
+
+## 最終結案（2026-03-23）
+
+19 + 2 = 21 項問題，全部處理完畢：
+
+- **已解決：19 項**
+- **降級觀察：1 項**（esbuild moderate，blocked by VitePress upstream）
+- **接受現狀：1 項**（P3 validate-filenames.js 副檔名）

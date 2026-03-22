@@ -21,6 +21,7 @@ export default createContentLoader(
 
       rawData
         .filter((page) => !page.url.endsWith("/"))
+        .filter((page) => !page.frontmatter.draft)
         .forEach((page) => {
           const frontmatter = page.frontmatter;
           const tags = frontmatter.tags || [];
