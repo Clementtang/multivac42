@@ -7,10 +7,7 @@ tags: ["社群貼文","Stripe","PayPal","併購","金融科技","支付","Venmo"
 category: articles
 status: published
 related: ../topic-research/2026-02-25-stripe-paypal-acquisition-rumor.md
-series: paypal-stripe
-seriesTitle: PayPal 與支付生態系列
-seriesIndex: 2
-lastModified: 2026-03-20
+lastModified: 2026-03-22
 ---
 
 # 從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的登頂？

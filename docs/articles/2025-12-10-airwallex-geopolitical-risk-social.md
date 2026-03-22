@@ -6,10 +6,7 @@ author: Clement Tang
 tags: ["Airwallex","地緣政治","中美科技戰","金融科技","數據安全","社群貼文"]
 category: articles
 status: published
-series: airwallex
-seriesTitle: Airwallex 跨境支付系列
-seriesIndex: 3
-lastModified: 2026-03-20
+lastModified: 2026-03-22
 ---
 
 # 80 億美元獨角獸的致命弱點：Airwallex 為何被指控是「中國後門」？
@@ -196,7 +193,6 @@ Airwallex 於 2015 年在澳洲墨爾本創立，目前估值 80 億美元，年
 ## 參考資料
 
 **地緣政治爭議：**
-
 1. Keith Rabois X post - Airwallex Chinese backdoor allegations
    https://x.com/rabois/status/1995532262998417834
 2. Lucy Liu X response to Rabois allegations
@@ -208,13 +204,17 @@ Airwallex 於 2015 年在澳洲墨爾本創立，目前估值 80 億美元，年
 5. Fintech Feud Erupts After Rabois' "Chinese Backdoor" Jab at Airwallex - CX Today
    https://www.cxtoday.com/security-privacy-compliance/fintech-feud-erupts-after-rabois-chinese-backdoor-jab-at-airwallex-ceo-zhang-fires-back/
 
-**華語社群討論：** 6. X 平台簡體中文討論（2025 年 12 月 2-4 日）
-主要來源：@wublockchain12, @BlockBeatsAsia, @Ahmedchidiac13, @ccy1871 等用戶
-討論焦點：中國《國家情報法》、數據安全、商業競爭動機
+**華語社群討論：**
+6. X 平台簡體中文討論（2025 年 12 月 2-4 日）
+   主要來源：@wublockchain12, @BlockBeatsAsia, @Ahmedchidiac13, @ccy1871 等用戶
+   討論焦點：中國《國家情報法》、數據安全、商業競爭動機
 
-**公司背景：** 7. Airwallex raises $330M Series G at $8B valuation - Business Wire
-https://www.airwallex.com/newsroom/awx-raises-usd330m-series-g-at-usd8b-valuation-establishes-sf-as-dual-global-hq 8. Airwallex crosses $1 billion in annualized revenue - Fortune
-https://fortune.com/2025/11/03/airwallex-1-billion-annualized-revenue-fintech-payments-ramp-stripe-jack-zhang/ 9. Jack Zhang – Finding success in the pursuit of happiness - University of Melbourne
-https://www.unimelb.edu.au/alumni/stay-connected/news-and-stories/jack-zhang-finding-success
+**公司背景：**
+7. Airwallex raises $330M Series G at $8B valuation - Business Wire
+   https://www.airwallex.com/newsroom/awx-raises-usd330m-series-g-at-usd8b-valuation-establishes-sf-as-dual-global-hq
+8. Airwallex crosses $1 billion in annualized revenue - Fortune
+   https://fortune.com/2025/11/03/airwallex-1-billion-annualized-revenue-fintech-payments-ramp-stripe-jack-zhang/
+9. Jack Zhang – Finding success in the pursuit of happiness - University of Melbourne
+   https://www.unimelb.edu.au/alumni/stay-connected/news-and-stories/jack-zhang-finding-success
 
 ---

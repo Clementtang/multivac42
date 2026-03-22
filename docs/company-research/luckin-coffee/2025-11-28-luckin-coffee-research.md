@@ -6,10 +6,7 @@ author: Clement Tang
 tags: ["企業研究","瑞幸咖啡","中國","咖啡產業","財務造假","企業翻轉"]
 category: company-research
 status: published
-series: luckin-coffee
-seriesTitle: 瑞幸咖啡系列
-seriesIndex: 1
-lastModified: 2026-03-20
+lastModified: 2026-03-22
 ---
 
 # 瑞幸咖啡：從22億造假醜聞到年營收48億美元的商業史上最大逆轉
@@ -1234,12 +1231,6 @@ lastModified: 2026-03-20
 | 2025-11-28 | 初始版本建立，完成瑞幸咖啡深度研究                    | Claude |
 | 2025-11-28 | 新增【深度解析】瑞幸如何打敗星巴克（5大競爭優勢分析） | Claude |
 | 2025-11-28 | 新增【市場展望】瑞幸進軍台灣市場分析與成功機率評估    | Claude |
-
----
-
-## 延伸閱讀
-
-- [瑞幸咖啡進軍台灣：便利商店咖啡王國的破局之戰](../articles/2025-11-28-luckin-coffee-taiwan-analysis.md) — 以本研究為基礎的台灣市場深度分析
 
 ---
 

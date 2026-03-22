@@ -6,10 +6,7 @@ author: Clement Tang
 tags: ["企業研究","Manus","AI Agent","Meta併購","中國出海"]
 category: company-research
 status: published
-series: manus-ai
-seriesTitle: Manus AI 收購案系列
-seriesIndex: 1
-lastModified: 2026-03-20
+lastModified: 2026-03-22
 ---
 
 # Manus：從「套殼」爭議到被 Meta 收購的中國 AI Agent 出海傳奇
