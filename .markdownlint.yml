@@ -3,10 +3,8 @@
 default: true
 
 # 允許較長的行（中文內容）
-MD013:
-  line_length: 200
-  code_blocks: false
-  tables: false
+# 中文內容 + 長 URL 參考資料，行長限制不實際
+MD013: false
 
 # 允許 HTML
 MD033: false
@@ -17,3 +15,35 @@ MD024:
 
 # 允許第一行不是標題
 MD041: false
+
+# VitePress frontmatter title + h1 都存在（慣例）
+MD025: false
+
+# 社群貼文用粗體當視覺標題（非語義標題）
+MD036: false
+
+# Hashtag 行被誤認為 heading（#Shopify #BFCM）
+MD018: false
+
+# 表格/列表前後空行要求過於嚴格
+MD032: false
+
+# 裸 URL 在參考資料區塊常見
+MD034: false
+
+# code block 語言標記（部分 blockquote 不需要）
+MD040: false
+
+# 有序列表編號風格（允許全部用 1.）
+# 有序列表編號風格（中文長文常用 1. 2. 3. 混合重新編號）
+MD029: false
+
+# 連續空行（部分文章用於視覺分隔）
+MD012:
+  maximum: 2
+
+# 斜體風格混用（prettier/linter 會自動改回 underscore）
+MD049: false
+
+# table pipe style（MD060 是 0.22 新增的 rule）
+MD060: false
