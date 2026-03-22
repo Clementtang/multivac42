@@ -8,7 +8,7 @@ const isVisible = ref(false)
 const position = ref({ x: 0, y: 0 })
 const selectedText = ref('')
 
-const siteUrl = 'https://multivac42.com'
+import { siteUrl } from '../../site.config'
 
 const pageUrl = computed(() => {
   const path = page.value.relativePath.replace(/\.md$/, '').replace(/index$/, '')

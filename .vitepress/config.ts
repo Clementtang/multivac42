@@ -1,8 +1,7 @@
 import { defineConfig, type HeadConfig } from "vitepress";
 import { generateRssFeed } from "./rss";
 import { generateLlmsTxt } from "./llms-generator";
-
-const siteUrl = "https://multivac42.com";
+import { siteUrl } from "./site.config";
 
 export default defineConfig({
   buildEnd: async (config) => {

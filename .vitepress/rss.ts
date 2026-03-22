@@ -2,9 +2,7 @@ import { createContentLoader, type SiteConfig } from "vitepress";
 import { writeFileSync } from "fs";
 import path from "path";
 
-const siteUrl = "https://multivac42.com";
-const siteName = "Multivac 42";
-const siteDescription = "研究與寫作 - 探索商業、科技與產業的深度分析";
+import { siteUrl, siteName, siteDescription } from "./site.config";
 
 interface Post {
   title: string;

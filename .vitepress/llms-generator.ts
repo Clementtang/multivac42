@@ -2,10 +2,7 @@ import { createContentLoader, type SiteConfig } from "vitepress";
 import { writeFileSync, readFileSync, mkdirSync } from "fs";
 import path from "path";
 
-const siteUrl = "https://multivac42.com";
-const siteName = "Multivac 42";
-const siteDescription =
-  "繁體中文深度研究平台，涵蓋企業研究、產業分析、商業與科技趨勢。";
+import { siteUrl, siteName, llmsDescription } from "./site.config";
 
 interface Article {
   title: string;
@@ -75,7 +72,7 @@ export async function generateLlmsTxt(config: SiteConfig) {
     }
 
     const sectionOrder = ["公司研究", "主題研究", "文章"];
-    let llmsTxt = `# ${siteName}\n\n> ${siteDescription}\n\n`;
+    let llmsTxt = `# ${siteName}\n\n> ${llmsDescription}\n\n`;
 
     for (const section of sectionOrder) {
       const items = grouped.get(section);
@@ -95,7 +92,7 @@ export async function generateLlmsTxt(config: SiteConfig) {
     llmsTxt += `- [關於](${siteUrl}/about): 關於本站與作者\n`;
 
     // --- Generate llms-full.txt (full content) ---
-    let llmsFullTxt = `# ${siteName}\n\n> ${siteDescription}\n\n`;
+    let llmsFullTxt = `# ${siteName}\n\n> ${llmsDescription}\n\n`;
     llmsFullTxt += `本文件包含所有已發布文章的完整內容，共 ${articles.length} 篇。\n\n---\n\n`;
 
     for (const a of articles) {

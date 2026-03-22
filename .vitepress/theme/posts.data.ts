@@ -10,6 +10,7 @@ interface Frontmatter {
   author?: string;
   cover?: string;
   featured?: boolean;
+  draft?: boolean;
   series?: string;
   seriesTitle?: string;
   seriesIndex?: number;
@@ -46,6 +47,7 @@ export default createContentLoader(
     transform(rawData) {
       return rawData
         .filter((page) => !page.url.endsWith("/")) // Filter out index pages
+        .filter((page) => !(page.frontmatter as Frontmatter).draft) // Filter out drafts
         .map((page) => {
           const frontmatter = page.frontmatter as Frontmatter;
 
