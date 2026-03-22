@@ -352,14 +352,21 @@ Commits: `1879561`, `0adc348`
 
 4 項（ignoreDeadLinks、site.config.ts、draft frontmatter、CLAUDE.md）均不 block 網站運作，排期合理。
 
-### 稽核結案
+### 稽核結案（更新 2026-03-23）
 
-本輪稽核發現 19 項問題（P0:1 / P1:6 / P2:8 / P3:4），經兩輪修正後：
+本輪稽核發現 19 項問題（P0:1 / P1:6 / P2:8 / P3:4），經三輪修正後：
 
-- **已解決：** 12 項
-- **降級觀察：** 1 項（npm audit moderate → P2）
-- **排入近期：** 4 項
-- **接受現狀：** 2 項（P3 validate-filenames.js 副檔名、P3 .gitignore 防禦性規則）
+- **已解決：** 16 項
+- **降級觀察：** 1 項（npm audit moderate → P2，blocked by VitePress upstream）
+- **剩餘：** 1 項（ignoreDeadLinks allowlist，需盤點外部連結）
+- **接受現狀：** 1 項（P3 validate-filenames.js 副檔名）
+
+第三輪修正（commit `f815182`）：
+
+- P1 site.config.ts 集中管理常數（含 llmsDescription 獨立欄位）
+- P1 draft: true frontmatter 標準 + posts.data.ts 過濾邏輯
+- P3 CLAUDE.md 專案協作指引
+- P3 .gitignore 防禦性規則 → 已納入 CLAUDE.md 說明，接受現狀改為已解決
 
 ---
 
