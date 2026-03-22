@@ -28,11 +28,14 @@ multivac42/
 │   └── company-research/    # 公司研究
 ├── .vitepress/
 │   ├── config.ts            # VitePress 配置（含 Structured Data、SEO）
+│   ├── site.config.ts       # 站點常數（siteUrl, siteName, descriptions）
 │   ├── rss.ts               # RSS feed 生成
 │   ├── llms-generator.ts    # llms.txt / llms-full.txt / article .md 生成
+│   ├── config/
+│   │   └── categories.ts    # 文章分類定義
 │   └── theme/
-│       ├── components/      # Vue 元件
-│       ├── posts.data.ts    # 文章資料載入器
+│       ├── components/      # Vue 元件（21 個）
+│       ├── posts.data.ts    # 文章資料載入器（含 draft 過濾）
 │       ├── tags.data.ts     # 標籤資料載入器
 │       └── style.css        # 全域樣式
 ├── scripts/
@@ -67,6 +70,7 @@ tags:
 author: Clement Tang
 cover: /images/cover.jpg # 選填
 featured: true # 選填，精選文章
+draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags）
 series: series-slug # 選填，系列文章 ID
 seriesTitle: 系列名稱 # 選填
 seriesIndex: 1 # 選填，系列順序

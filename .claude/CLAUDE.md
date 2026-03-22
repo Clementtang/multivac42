@@ -29,7 +29,7 @@ tags: ["標籤"] # 選填
 author: "Clement Tang" # 選填，預設 Clement Tang
 cover: /og/filename.png # 選填，OG image
 featured: true # 選填，精選文章
-draft: true # 選填，草稿（不出現在列表、RSS、llms.txt）
+draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags）
 series: series-slug # 選填，系列 ID
 seriesTitle: "系列名稱" # 選填
 seriesIndex: 1 # 選填，系列順序
