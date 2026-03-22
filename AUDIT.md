@@ -327,3 +327,53 @@ Commits: `1879561`, `0adc348`
 | 建立 `site.config.ts` 集中管理常數  | 未完成 | 含 `siteDescription` vs `llmsDescription` 區分 |
 | 定義 `draft: true` frontmatter 標準 | 未完成 | 需配合 posts.data.ts 過濾邏輯                  |
 | 加入 CLAUDE.md                      | 未完成 |                                                |
+
+---
+
+## 實作驗證（2026-03-22）
+
+針對 commits `1879561` 和 `0adc348` 的實際 code diff 逐項驗證。
+
+### 已確認正確實作（5/6 項）
+
+1. **glob pattern** — `rss.ts`、`tags.data.ts`、`llms-generator.ts` 三處全部從 `research/*.md` 修正為 `topic-research/*.md`，且 llms-generator 移除了多餘的雙重 pattern。
+2. **重複文章刪除** — `docs/articles/2025-12-12-retail-electronic-shelf-labels-analysis.md` 已刪除（867 行），`topic-research/` 版本保留。
+3. **companyNameMap** — 補齊 `base: "BASE"`、`urbox: "UrBox"`、`anta: "安踏"` 三筆。
+4. **Copyright** — 改為 `` `© 2025-${new Date().getFullYear()} Clement Tang` `` 動態生成。
+5. **CI markdownlint** — `|| true` 已移除。markdownlint-cli2 升級至 0.22.0，50 個檔案 0 errors。停用 12 條 rules（MD013/018/025/029/032/033/034/036/040/041/049/060）對中文內容平台合理，未為歸零 error count 而掩蓋實質問題。
+
+### P0 npm audit — 部分修復，需補註
+
+回應宣稱「P0: npm audit fix（rollup high x2 修復）」，實際從 9 漏洞（7 moderate, 2 high）降至 3 moderate。剩餘 3 個均為 esbuild <=0.24.2（依賴鏈：vitepress → vite → esbuild），`npm audit fix --force` 會將 vitepress 降級至 0.1.1，不可行。
+
+**結論：** 2 high 已解決，3 moderate 為上游依賴鏈問題，需等 vitepress >1.6.4 修復。P0 降級為 **P2 觀察**，回應文件應明確記錄此殘留狀態而非僅提及 rollup 修復。
+
+### 剩餘未完成項目確認
+
+4 項（ignoreDeadLinks、site.config.ts、draft frontmatter、CLAUDE.md）均不 block 網站運作，排期合理。
+
+### 稽核結案
+
+本輪稽核發現 19 項問題（P0:1 / P1:6 / P2:8 / P3:4），經兩輪修正後：
+
+- **已解決：** 12 項
+- **降級觀察：** 1 項（npm audit moderate → P2）
+- **排入近期：** 4 項
+- **接受現狀：** 2 項（P3 validate-filenames.js 副檔名、P3 .gitignore 防禦性規則）
+
+---
+
+## 補註（2026-03-22）
+
+### P0 npm audit 殘留狀態
+
+認同 reviewer 的觀察。補充完整紀錄：
+
+| 漏洞                                                           | 嚴重性      | 狀態      | 說明                                                                                             |
+| -------------------------------------------------------------- | ----------- | --------- | ------------------------------------------------------------------------------------------------ |
+| rollup 4.0.0-4.58.0 Path Traversal (GHSA-mw96-cpmx-2vgc)       | high x2     | ✅ 已修復 | `npm audit fix` 升級                                                                             |
+| js-yaml 4.0.0-4.1.0 Prototype Pollution (GHSA-mh29-5h37-fv8m)  | moderate    | ✅ 已修復 | markdownlint-cli2 升級至 0.22.0                                                                  |
+| markdown-it 13.0.0-14.1.0 ReDoS (GHSA-38c4-r59v-3vqw)          | moderate    | ✅ 已修復 | 同上                                                                                             |
+| esbuild <=0.24.2 Dev Server Request Leak (GHSA-67mh-4wv8-2f99) | moderate x3 | P2 觀察   | 依賴鏈 vitepress→vite→esbuild，需等 VitePress >1.6.4。僅影響 dev server，不影響 production build |
+
+**原 P0 → 降級為 P2 觀察。** 所有 high severity 已解決，剩餘 3 moderate 為 dev-only 且 blocked by upstream。
