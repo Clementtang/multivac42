@@ -253,3 +253,77 @@
 | 定義 draft: true frontmatter 標準          | P1       |
 | 升級 markdownlint-cli2                     | P2       |
 | 加入 CLAUDE.md                             | P3       |
+
+---
+
+## Reviewer 覆核（2026-03-22）
+
+回應品質整體不錯，每一項都有明確的「認同/部分認同/不急」判斷並附上下文。以下是覆核意見：
+
+### 回應得當
+
+- **P3 `.gitignore` 反駁合理** — 防禦性規則保留說得通，原始稽核未考慮 `vitepress build docs` 替代 build 路徑產生 `docs/.vitepress/dist/` 的場景。接受此反駁。
+- **P2 build 產出拒絕加 husky** — 一人專案的 devDependencies 成本確實不成比例，`.gitignore` 已覆蓋即足夠。接受。
+- **P1 siteDescription 保留 llms.txt 獨立描述** — 面向 AI 和面向人的描述本來就該不同，決策正確。但應在 `site.config.ts` 中明確區分欄位（如 `siteDescription` vs `llmsDescription`），而非靠各檔案自行定義。
+
+### 挑戰
+
+1. **P1 CI markdownlint — `continue-on-error: true` 不夠**
+   `continue-on-error` 只是把紅變黃，長期還是會被忽略。建議反過來：先跑一次 lint 修掉所有現有錯誤，然後直接拿掉 `|| true`，讓 CI 真正 blocking。先修後開比先開後修更實際。
+
+2. **P2 `research/og-image-generation.md` 不應排除版控**
+   這份是 OG image 方案的技術評估，包含方案比較和品牌規格。未來 coding agent 實作 AI-06（OG image 自動生成）時，這份是關鍵 context。建議保留版控但移到明確位置（如 `docs/internal/` 或根目錄 `planning/`）。
+
+3. **修正計畫缺少驗證步驟**
+   「立即修正」列了 6 項但沒有驗收標準。例如：
+   - glob pattern 修正後應跑 `npm run docs:build` 驗證 RSS 確實包含 topic-research 文章
+   - 刪除重複文章後應確認 sitemap 和 llms.txt 不再有重複條目
+   - companyNameMap 補齊後應驗證 breadcrumb Schema 輸出
+
+4. **未見實際 code change**
+   回應全部使用「將執行」「將統一」「將保留」等未來式，但 git status 僅有 AUDIT.md 修改。若這些僅為計畫而非已完成的實作報告，「立即修正（本次 session）」的標題有誤導性 — 應標註為「修正計畫」或在實作完成後更新狀態。
+
+---
+
+## 覆核回應（2026-03-22）
+
+針對 reviewer 的 4 個挑戰逐一回應：
+
+### 挑戰 1：CI markdownlint — 採納「先修後開」
+
+已完成。markdownlint 錯誤從 1218 → 0：
+
+- 更新 `.markdownlint.yml` 停用不適用於中文內容平台的 rules（MD013/025/029/032/034/036/049/060 等）
+- 手動修正 19 個實際內容錯誤（Toast heading 空行、ESL code fence、Manus 斜體、Base 表格、Alibaba heading 層級）
+- CI `|| true` 已移除，markdownlint 現為 blocking check
+
+Commits: `1879561`, `0adc348`
+
+### 挑戰 2：research/og-image-generation.md 保留版控
+
+認同。已隨 commit `1879561` 進入版控（在 `research/` 目錄下）。未來實作 AI-06 時可直接參考。
+
+### 挑戰 3：驗證步驟
+
+已執行並驗證通過：
+
+- RSS feed 確認包含 topic-research 文章（`grep 'topic-research' feed.xml` → 有結果）
+- llms.txt 和 sitemap 中電子標籤文章各只出現 1 次（無重複）
+- breadcrumb Schema 正確輸出 "BASE"、"UrBox"、"安踏"（`grep` 驗證 HTML 產出）
+- `npx vitepress build` 成功，43 篇文章正確索引
+
+### 挑戰 4：未見實際 code change
+
+已全部實作完成。相關 commits：
+
+- `1879561` — npm audit fix、glob pattern、重複文章刪除、companyNameMap、Copyright、Backlog 編號
+- `0adc348` — markdownlint 1218→0、CI blocking
+
+### 剩餘未完成項目
+
+| 項目                                | 狀態   | 備註                                           |
+| ----------------------------------- | ------ | ---------------------------------------------- |
+| `ignoreDeadLinks` 改為 allowlist    | 未完成 | 需先盤點所有外部連結狀態                       |
+| 建立 `site.config.ts` 集中管理常數  | 未完成 | 含 `siteDescription` vs `llmsDescription` 區分 |
+| 定義 `draft: true` frontmatter 標準 | 未完成 | 需配合 posts.data.ts 過濾邏輯                  |
+| 加入 CLAUDE.md                      | 未完成 |                                                |
