@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { inject } from '@vercel/analytics'
 import { isArticlePage as checkIsArticlePage } from './config/categories'
 import ArticleHeader from './components/ArticleHeader.vue'
 import ArticleFooter from './components/ArticleFooter.vue'
@@ -29,6 +30,11 @@ const isArticlePage = computed(() => checkIsArticlePage(page.value.relativePath)
 
 // Check if current page is home
 const isHomePage = computed(() => frontmatter.value.layout === 'home')
+
+// Initialize Vercel Analytics
+onMounted(() => {
+  inject()
+})
 </script>
 
 <template>
