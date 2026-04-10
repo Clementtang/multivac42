@@ -451,3 +451,33 @@ Commits: `1879561`, `0adc348`
 - **已解決：19 項**
 - **降級觀察：1 項**（esbuild moderate，blocked by VitePress upstream）
 - **接受現狀：1 項**（P3 validate-filenames.js 副檔名）
+
+---
+
+## Reviewer 結案簽核（2026-03-23）
+
+### 驗證結果
+
+經四輪稽核—修正—驗證循環，21 項發現全部經過 code diff 驗證：
+
+| 輪次 | Commits              | 修正項目數 | 驗證狀態 |
+| ---- | -------------------- | ---------- | -------- |
+| 1    | `1879561`            | 6          | 通過     |
+| 2    | `0adc348`            | 2          | 通過     |
+| 3    | `86683d3`, `f815182` | 5          | 通過     |
+| 4    | `c5dc137`            | 3          | 通過     |
+
+### 品質觀察
+
+- **回應速度與態度**：每輪覆核提出的挑戰都在同一 session 內修復，沒有拖延
+- **修正品質**：未引入新的 regression。每次修正都符合既有 code style（如 draft 過濾各 loader 用各自的慣用 pattern）
+- **文檔與實作一致性**：第三輪發現的 CLAUDE.md 與實作矛盾（draft 過濾）是本次稽核最有價值的發現 — 文檔先於實作完成，導致承諾與現實脫節。已修正
+- **唯一的遺留項**：esbuild 3 moderate（P2 觀察）為 VitePress 上游依賴鏈問題，僅影響 dev server，不影響 production。建議在 VitePress 發布 >1.6.4 時重新檢查
+
+### 改善建議（非 blocking）
+
+未來可考慮將 draft 過濾邏輯抽為共用 utility（如 `filterPublished(rawData)`），避免四個 loader 各自實作相同判斷。目前規模下不急，但文章數量成長後維護成本會上升。
+
+### 結論
+
+稽核結案，無剩餘 blocking 項目。
