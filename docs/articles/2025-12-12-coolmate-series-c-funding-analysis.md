@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["Coolmate","越南新創","D2C品牌","電商","東南亞","獨角獸"]
 category: articles
 status: published
-lastModified: 2026-01-27
+lastModified: 2026-06-17
 ---
 
 # 最難的決定：越南最火 D2C 品牌「主動踩剎車」，一年後融資翻倍
@@ -24,7 +24,7 @@ lastModified: 2026-01-27
 
 這次 Series C 的投資陣容史無前例：淡馬錫旗下的 Vertex Growth Fund、日本政府支持的 Cool Japan Fund，以及韓國 Top 3 服飾集團 YoungOne CVC。為什麼這些國際資本同時押注一個越南本土品牌？
 
-## 投資人看到了什麼？
+## 投資人看到了什麼
 
 Vertex Growth 合夥人 James Lee 一語道破：「Coolmate 的特別之處，不是追逐時尚趨勢，而是建立了一個營運模型（operating model）。垂直整合和 SKU 紀律比 logo 更難複製。」
 

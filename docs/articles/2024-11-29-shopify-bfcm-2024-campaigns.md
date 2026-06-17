@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["Shopify","BFCM","電商","技術行銷","數據視覺化"]
 category: articles
 status: published
-lastModified: 2026-01-27
+lastModified: 2026-06-17
 ---
 
 # Shopify BFCM 2024：電商平台如何把購物節變成技術力展演
@@ -55,7 +55,7 @@ lastModified: 2026-01-27
 
 **全瀏覽器 3D 駕駛艙體驗**
 
-- **網址**：https://bfcm.shopify.com
+- **網址**：<https://bfcm.shopify.com>
 - **技術架構**：
   - Three.js 和 React-three-fiber
   - 完全基於瀏覽器的 3D 渲染

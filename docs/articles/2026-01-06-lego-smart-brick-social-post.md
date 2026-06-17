@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["LEGO","Smart Brick","CES 2026","玩具科技","社群貼文"]
 category: articles
 status: published
-lastModified: 2026-01-27
+lastModified: 2026-06-17
 ---
 
 # LEGO 推出 Smart Brick，把一台電腦塞進積木裡
@@ -73,7 +73,7 @@ LEGO 已宣布將把 Smart Play 擴展到 City 和 Technic 系列。但真正有
 - **城市規劃模擬**：LEGO City 系列若導入 Smart Play，整座積木城市都能「活起來」——交通號誌、火車時刻、緊急服務調度都能連動。
 - **無障礙設計**：聲音輸入和音效輸出為視障玩家開啟新的遊玩方式。
 
-## 為什麼這很重要？
+## 為什麼這很重要
 
 在每個玩具都想連結手機、每個體驗都想上傳雲端的時代，LEGO 選擇了一條反直覺的路：把所有智慧都封裝在積木本身。
 

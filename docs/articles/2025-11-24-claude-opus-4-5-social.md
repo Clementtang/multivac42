@@ -6,7 +6,7 @@ author: Clement Tang
 tags: ["Claude","AI","編碼","Agents","社群貼文"]
 category: articles
 status: published
-lastModified: 2026-01-27
+lastModified: 2026-06-17
 ---
 
 # Claude Opus 4.5 發布：三大突破重新定義企業 AI
@@ -66,6 +66,7 @@ Anthropic 於 **2025 年 11 月 24 日** 推出最強大的 AI 模型 Claude Opu
 ## 📊 與競爭對手的比較
 
 **編碼能力**（SWE-bench Verified）：
+
 - Claude Opus 4.5: **業界領先**
 - Claude Sonnet 4: **72.7%**
 - GPT-4.1: **54.6%**
