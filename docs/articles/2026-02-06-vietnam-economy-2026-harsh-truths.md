@@ -1,12 +1,10 @@
 ---
 title: 越南經濟真相：閉門會議揭露的三大隱憂與投資風險
 description: 河內閉門會議上資深經濟學家的震撼發言：生產力成長全靠外資機器、人口紅利僅剩十年、銀行貸存比破107。深度解析越南房地產、黃金、銅的投資觀點。
-lastModified: 2026-03-18
 date: 2026-02-06
-author: Clement Tang
 tags: ["越南","經濟分析","東南亞","投資","房地產"]
-category: articles
-status: published
+author: Clement Tang
+lastModified: 2026-03-18
 ---
 
 # 越南經濟的真相：一場閉門會議上的震撼發言

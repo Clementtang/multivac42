@@ -2,11 +2,9 @@
 title: 電子標籤在零售業的深入分析：數位轉型的關鍵工具
 description: 電子貨架標籤（ESL）正在重塑零售業的運營模式，從動態定價到全通路整合，成為零售數位轉型的核心技術。
 date: 2025-12-12
-author: Clement Tang
 tags: ["零售科技","電子標籤","ESL","數位轉型","動態定價","智慧零售"]
-category: topic-research
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 電子標籤在零售業的深入分析：數位轉型的關鍵工具

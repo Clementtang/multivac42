@@ -2,11 +2,9 @@
 title: SmartOSC：越南電商與數位轉型領導者
 description: 越南領先的電子商務與數位轉型服務商，擁有 1,000+ 技術人才。
 date: 2025-11-25
-author: Clement Tang
 tags: ["企業研究","電子商務","數位轉型","越南","東南亞"]
-category: company-research
-status: published
-lastModified: 2026-06-13
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # SmartOSC - 企業研究分析

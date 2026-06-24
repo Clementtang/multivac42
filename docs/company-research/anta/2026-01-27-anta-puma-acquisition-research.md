@@ -2,12 +2,9 @@
 title: 安踏收購 PUMA 股權：中國運動品牌的全球化野心
 description: 分析中國安踏體育以 15 億歐元收購 PUMA 29% 股權的戰略意圖、交易背景與產業影響
 date: 2026-01-27
-author: Clement Tang
 tags: ["議題研究","運動產業","併購","安踏","PUMA","中國企業"]
-category: company-research
-status: published
-version: 1.0
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 安踏收購 PUMA 股權：中國運動品牌的全球化野心

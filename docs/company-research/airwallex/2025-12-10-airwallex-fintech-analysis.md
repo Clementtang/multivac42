@@ -2,14 +2,12 @@
 title: Airwallex 深度分析：估值80億、營收10億的跨境支付獨角獸
 description: 深度剖析 Airwallex 商業模式、競爭優勢與風險。ARR 一年從5億翻倍至10億美元，估值80億，93%交易繞過SWIFT。含Stripe比較、地緣政治風險、IPO展望。
 date: 2025-12-10
-author: Clement Tang
 tags: ["企業研究","Airwallex","金融科技","跨境支付","B2B金融"]
-category: company-research
-status: published
+author: Clement Tang
 series: airwallex
 seriesTitle: Airwallex 跨境支付系列
 seriesIndex: 1
-lastModified: 2026-06-17
+lastModified: 2026-06-24
 ---
 
 # Airwallex：從跨境支付到全球金融操作系統的崛起

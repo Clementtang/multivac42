@@ -2,11 +2,9 @@
 title: AI 購物大戰開打：Google 與 OpenAI 爭奪你的錢包
 description: Google UCP 與 OpenAI/Stripe ACP 兩大代理商務協議的競爭，將如何改變我們的購物方式？
 date: 2026-01-13
-author: Clement Tang
 tags: ["AI","代理商務","Google","OpenAI","電子商務"]
-category: articles
-status: published
-lastModified: 2026-01-27
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # AI 購物大戰開打：Google 與 OpenAI 爭奪你的錢包

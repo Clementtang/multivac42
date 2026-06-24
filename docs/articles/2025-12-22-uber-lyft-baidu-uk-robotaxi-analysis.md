@@ -2,11 +2,9 @@
 title: 美中科技冷戰下的破冰合作：為何 Uber、Lyft 願意把自動駕駛夢託付給中國百度？
 description: 當美國兩大共乘巨頭放棄自研，轉而與中國科技公司攜手進軍歐洲市場，全球自動駕駛產業的權力版圖正在重新洗牌。
 date: 2025-12-22
-author: Clement Tang
 tags: ["自動駕駛","Uber","Lyft","百度","Robotaxi","地緣政治","社群貼文"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 美中科技冷戰下的破冰合作：為何 Uber、Lyft 願意把自動駕駛夢託付給中國百度

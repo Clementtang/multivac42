@@ -2,12 +2,9 @@
 title: 社群貼文：當 AI 模型被當成軍火管制
 description: Fable 5 被美國商務部下架，讓我回頭補上三十多年前那段把程式碼當軍火的歷史。
 date: 2026-06-13
-author: Clement Tang
 tags: ["社群貼文","AI 治理","出口管制","地緣政治","資安"]
-category: articles
-status: published
-related: docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md
-lastModified: 2026-06-20
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 當 AI 模型被當成軍火管制

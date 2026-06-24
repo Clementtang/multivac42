@@ -2,11 +2,9 @@
 title: 一個越南 92 年生創業家的「送禮革命」：UrBox 如何用 API 串起十億美元市場
 description: UrBox 創辦人 Trương Công Hiếu 從失敗的實體禮盒創業，轉型打造越南數位禮品市場領頭羊，揭示東南亞企業送禮數位化革命。
 date: 2025-12-25
-author: Clement Tang
 tags: ["UrBox","越南","創業","數位禮品","B2B","東南亞","社群貼文"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 一個越南 92 年生創業家的「送禮革命」：UrBox 如何用 API 串起十億美元市場

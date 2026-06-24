@@ -2,14 +2,12 @@
 title: 瑞幸咖啡研究：22億造假到年營收48億美元的翻轉
 description: 從22億人民幣財務造假、納斯達克退市，到年營收345億、門店2.9萬家超越星巴克5倍。完整解析瑞幸咖啡的5大競爭優勢、台灣市場展望與重返美股計劃。
 date: 2025-11-28
-author: Clement Tang
 tags: ["企業研究","瑞幸咖啡","中國","咖啡產業","財務造假","企業翻轉"]
-category: company-research
-status: published
+author: Clement Tang
 series: luckin-coffee
 seriesTitle: 瑞幸咖啡系列
 seriesIndex: 1
-lastModified: 2026-06-17
+lastModified: 2026-06-24
 ---
 
 # 瑞幸咖啡：從22億造假醜聞到年營收48億美元的商業史上最大逆轉

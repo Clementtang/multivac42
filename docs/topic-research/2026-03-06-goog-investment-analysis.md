@@ -2,10 +2,8 @@
 title: $GOOG 投資研究：美伊戰事、非農下修與 AI 軍備競賽下的多空全景
 description: 2026 年 3 月 Alphabet 投資全面分析，結合多空論述、技術面估值、美伊衝突、2 月非農就業資料下修，研判 GOOG 短中長期走勢
 date: 2026-03-06
-author: Clement Tang
 tags: ["議題研究","美股","GOOG","Alphabet","Google","AI","科技股","地緣政治","總體經濟"]
-category: topic-research
-status: published
+author: Clement Tang
 lastModified: 2026-06-24
 ---
 

@@ -2,11 +2,9 @@
 title: BASE 株式會社 - 日本最大網路商店創建平台企業研究
 description: 日本最大的網路商店創建平台，致力於賦能個人與小型團隊輕鬆開展電子商務
 date: 2025-11-23
-author: Claude
 tags: ["企業研究","電子商務","日本","SaaS","金融科技"]
-category: company-research
-status: published
-lastModified: 2026-06-17
+author: Claude
+lastModified: 2026-06-24
 ---
 
 # BASE 株式會社 - 企業研究分析

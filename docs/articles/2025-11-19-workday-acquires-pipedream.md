@@ -2,11 +2,9 @@
 title: Workday 併購 Pipedream：強化「可行動 AI」布局
 description: 企業 AI 從「洞察」邁向「行動」的關鍵突破——Workday 收購擁有 3,000+ 連接器的 AI agent 整合平台 Pipedream，讓 AI 不只分析數據，更能直接執行任務。
 date: 2025-11-21
-author: Clement Tang
 tags: ["Workday","Pipedream","AI","併購","企業軟體","自動化"]
-category: articles
-status: published
-lastModified: 2026-01-27
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # Workday 併購 Pipedream：強化「可行動 AI」布局

@@ -2,11 +2,9 @@
 title: Gemini Spark 是什麼？Google 24/7 AI Agent 與 OpenClaw、Hermes 路線之爭
 description: Google 在 I/O 2026 發布個人 AI agent Gemini Spark，主打雲端 24/7 自主執行、深度整合 Gmail 與 Workspace。Spark 和爆紅的開源 agent OpenClaw、Hermes Agent 各有什麼能耐？一次看懂 2026 AI agent 之年封閉託管與開源自架的路線之爭。
 date: 2026-05-19
-author: Clement Tang
 tags: ["Google","Gemini","AI Agent","OpenClaw","AI","競爭分析"]
-category: articles
-status: published
-lastModified: 2026-06-13
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # Gemini Spark 是什麼？Google 24/7 AI Agent 與 OpenClaw、Hermes 路線之爭

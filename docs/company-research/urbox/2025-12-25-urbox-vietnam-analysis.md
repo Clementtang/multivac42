@@ -2,11 +2,9 @@
 title: UrBox - 越南企業數位禮品與忠誠度平台深度研究
 description: 越南領先的 B2B 數位禮品與忠誠度解決方案平台深度分析，涵蓋商業模式、市場定位、競爭優勢與投資評估。
 date: 2025-12-25
-author: Claude
 tags: ["企業研究","UrBox","越南","禮品卡","企業福利","忠誠度平台","SaaS","東南亞"]
-category: company-research
-status: published
-lastModified: 2026-06-17
+author: Claude
+lastModified: 2026-06-24
 ---
 
 # UrBox - 越南企業數位禮品與忠誠度平台深度研究

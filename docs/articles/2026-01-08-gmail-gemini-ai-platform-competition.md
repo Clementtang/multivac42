@@ -2,11 +2,9 @@
 title: Gmail 導入 Gemini AI：30 億用戶的平台，正在殺死寄生在它身上的服務
 description: Google 宣布 Gmail 進入 Gemini 時代，22 年來最大更新。當平台商開始做第三方的功能，那些靠 Gmail 吃飯的 AI 外掛和服務，還有活路嗎？
 date: 2026-01-08
-author: Clement Tang
 tags: ["Google","Gmail","Gemini","AI","平台競爭","社群貼文"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # Gmail 導入 Gemini AI：30 億用戶的平台，正在殺死寄生在它身上的服務

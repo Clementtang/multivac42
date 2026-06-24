@@ -2,11 +2,9 @@
 title: 當電商有了自己的 DNS：UCP 技術架構的產業史觀
 description: 從 HTTP、OAuth 到 EDI，底層協定如何重塑產業格局？UCP 的技術設計將如何改變電商權力結構？
 date: 2026-01-14
-author: Clement Tang
 tags: ["技術評論","AI","代理商務","協議標準","產業分析"]
-category: articles
-status: published
-lastModified: 2026-01-27
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 當電商有了自己的 DNS：UCP 技術架構的產業史觀

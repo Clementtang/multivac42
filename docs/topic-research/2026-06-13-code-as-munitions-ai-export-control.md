@@ -2,12 +2,9 @@
 title: 當程式碼成為軍火：從密碼學戰爭到 AI 模型出口管制的三十年
 description: Fable 5 遭美國商務部下架，重演了 1990 年代把加密軟體當軍火的歷史。本文梳理三十年來美國以國安為名管制程式碼的脈絡，分析 AI 模型權重成為下一個管制標的的邏輯、張力與情景。
 date: 2026-06-13
-author: Clement Tang
 tags: ["議題研究","AI 治理","出口管制","地緣政治","資訊安全"]
-category: topic-research
-status: published
-version: 1.0
-lastModified: 2026-06-20
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 當程式碼成為軍火：從密碼學戰爭到 AI 模型出口管制的三十年

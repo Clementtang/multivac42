@@ -2,11 +2,9 @@
 title: 1.25 億買下 800 家店：美廉社母公司收購 OK 超商，台灣零售版圖重新洗牌
 description: 三商家購以 1.25 億元收購 OK 超商全數股權，這場併購背後藏著什麼戰略意圖？
 date: 2026-01-23
-author: Clement Tang
 tags: ["零售","併購","超商","三商家購","OK超商","社群貼文"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 1.25 億買下 800 家店：美廉社母公司收購 OK 超商，台灣零售版圖重新洗牌

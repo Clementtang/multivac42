@@ -2,14 +2,12 @@
 title: 瑞幸咖啡12月登台：中國咖啡巨頭能否攻下台灣超商咖啡的鐵壁？
 description: 從財務造假到年營收48億美元的逆轉奇蹟，瑞幸咖啡即將透過彰化翁家進軍台灣。台灣便利商店咖啡270億市場、1.2萬家超商密度，才是瑞幸真正的考驗。
 date: 2025-11-28
-author: Clement Tang
 tags: ["瑞幸咖啡","台灣市場","便利商店咖啡","商業分析","社群貼文"]
-category: articles
-status: published
+author: Clement Tang
 series: luckin-coffee
 seriesTitle: 瑞幸咖啡系列
 seriesIndex: 2
-lastModified: 2026-06-17
+lastModified: 2026-06-24
 ---
 
 # 瑞幸咖啡12月登台：中國咖啡巨頭能否攻下台灣超商咖啡的鐵壁

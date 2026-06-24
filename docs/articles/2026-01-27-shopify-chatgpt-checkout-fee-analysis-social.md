@@ -2,11 +2,9 @@
 title: AI 購物的隱藏成本：Shopify 商家在 ChatGPT 賣東西，代價是多少？
 description: 從 Shopify 與 OpenAI 合作的 4% 抽成結構，分析 AI 代理商務對商家的真實影響與採用決策
 date: 2026-01-27
-author: Clement Tang
 tags: ["AI","電子商務","Shopify","ChatGPT","代理商務"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # AI 購物的隱藏成本：Shopify 商家在 ChatGPT 賣東西，代價是多少

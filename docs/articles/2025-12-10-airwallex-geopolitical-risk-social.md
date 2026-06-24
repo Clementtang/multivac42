@@ -2,14 +2,12 @@
 title: 80 億美元獨角獸的致命弱點：Airwallex 為何被指控是「中國後門」？
 description: 一家澳洲起家的金融科技公司，估值 80 億美元。但當它準備砸 10 億美元進軍美國市場時，卻因為「中國關聯」陷入信任危機。
 date: 2025-12-10
-author: Clement Tang
 tags: ["Airwallex","地緣政治","中美科技戰","金融科技","數據安全","社群貼文"]
-category: articles
-status: published
+author: Clement Tang
 series: airwallex
 seriesTitle: Airwallex 跨境支付系列
 seriesIndex: 3
-lastModified: 2026-06-17
+lastModified: 2026-06-24
 ---
 
 # 80 億美元獨角獸的致命弱點：Airwallex 為何被指控是「中國後門」

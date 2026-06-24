@@ -2,11 +2,9 @@
 title: 和泰汽車日本商用車投資案 - 企業策略研究分析
 description: 台灣最大汽車經銷商和泰汽車（2207）宣布史上最大海外投資，斥資百億新台幣收購日野汽車旗下五家日本經銷商 80% 股權，正式進軍日本商用車市場。
 date: 2025-12-19
-author: Clement Tang
 tags: ["企業研究","和泰汽車","日野汽車","商用車","海外投資","日本市場"]
-category: company-research
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 和泰汽車日本商用車投資案 - 企業策略研究分析

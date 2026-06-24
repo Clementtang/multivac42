@@ -2,11 +2,9 @@
 title: Toast Inc：從餐廳 POS 到金融科技平台的雲端革命
 description: 美國領先的餐廳管理雲端平台，以 Android 系統打造的一體化 POS 解決方案，服務超過 15.6 萬家美國餐廳，ARR 突破 20 億美元。
 date: 2025-12-05
-author: Clement Tang
 tags: ["企業研究","Toast","POS系統","餐飲科技","SaaS","金融科技"]
-category: company-research
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # Toast Inc：從餐廳 POS 到金融科技平台的雲端革命

@@ -2,11 +2,9 @@
 title: 數位主權之爭：全球網路治理與跨境平台監管浪潮
 description: 從數據落地到產業保護，各國政府正透過立法重新定義網路疆界。中國要求數據在地化、印尼封殺 TikTok Shop、越南逼退 Shein 與 Temu，這不僅是監管政策的轉變，更是一場關於數位主權、經濟保護主義與全球化退潮的角力戰。
 date: 2025-12-10
-author: Clement Tang
 tags: ["網路治理","數據落地","跨境電商","數位主權","個資保護","產業保護"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 數位主權之爭：全球網路治理與跨境平台監管浪潮

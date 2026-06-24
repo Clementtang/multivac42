@@ -2,11 +2,9 @@
 title: LEGO 推出 Smart Brick，把一台電腦塞進積木裡
 description: LEGO 在 CES 2026 發表 Smart Brick，這是自 1978 年推出人偶以來最重大的創新。
 date: 2026-01-06
-author: Clement Tang
 tags: ["LEGO","Smart Brick","CES 2026","玩具科技","社群貼文"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # LEGO 推出 Smart Brick，把一台電腦塞進積木裡

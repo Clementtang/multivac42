@@ -2,14 +2,12 @@
 title: 「套殼」到極致，就是勝利：一個 90 後中國創業者如何讓祖克柏掏出數十億美元
 description: 他用別人家的 AI 模型，打造出史上成長最快的 SaaS 公司。8 個月營收破億美元，最終被 Meta 收購、出任副總裁。
 date: 2025-12-30
-author: Clement Tang
 tags: ["Manus","Meta併購","AI Agent","中國出海","肖弘","社群貼文"]
-category: articles
-status: published
+author: Clement Tang
 series: manus-ai
 seriesTitle: Manus AI 收購案系列
 seriesIndex: 2
-lastModified: 2026-06-17
+lastModified: 2026-06-24
 ---
 
 # 「套殼」到極致，就是勝利：一個 90 後中國創業者如何讓祖克柏掏出數十億美元

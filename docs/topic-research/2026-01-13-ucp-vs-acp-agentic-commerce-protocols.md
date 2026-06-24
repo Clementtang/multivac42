@@ -2,12 +2,9 @@
 title: Google UCP vs OpenAI/Stripe ACP：2026 代理商務協議完整比較
 description: 2026 年兩大 Agentic Commerce 協議深度比較：Google UCP 與 OpenAI/Stripe ACP 的技術架構差異、生態系統策略、商家整合方式及對電商產業的影響。
 date: 2026-01-13
-author: Clement Tang
 tags: ["議題研究","AI","代理商務","協議標準","電子商務"]
-category: topic-research
-status: published
-version: 1.2
-lastModified: 2026-03-13
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # Google UCP vs OpenAI/Stripe ACP 代理商務協議比較

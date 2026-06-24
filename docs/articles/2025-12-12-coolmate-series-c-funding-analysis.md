@@ -2,11 +2,9 @@
 title: 最難的決定：越南最火 D2C 品牌「主動踩剎車」，一年後融資翻倍
 description: 越南 D2C 男裝品牌 Coolmate 在營收快速成長時主動放慢腳步重建系統，一年後完成 Series C 融資，瞄準 2030 年成為獨角獸。
 date: 2025-12-12
-author: Clement Tang
 tags: ["Coolmate","越南新創","D2C品牌","電商","東南亞","獨角獸"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 最難的決定：越南最火 D2C 品牌「主動踩剎車」，一年後融資翻倍

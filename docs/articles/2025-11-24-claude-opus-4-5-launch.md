@@ -3,10 +3,8 @@ title: Claude Opus 4.5：AI 編碼與 Agent 能力的新標竿
 description: Anthropic 推出最強大 AI 模型——Claude Opus 4.5，結合卓越編碼能力、自我優化 agents 與突破性的 Infinite Chat 功能，重新定義企業級 AI 的效率與智能。
 date: 2025-11-24
 tags: ["Claude","Anthropic","AI","LLM","編碼","Agents","企業AI"]
-category: articles
-status: published
 author: Clement Tang
-lastModified: 2026-01-27
+lastModified: 2026-06-24
 ---
 
 # Claude Opus 4.5：AI 編碼與 Agent 能力的新標竿

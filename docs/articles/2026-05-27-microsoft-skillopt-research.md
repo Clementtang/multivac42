@@ -2,11 +2,9 @@
 title: 當 AI 開始自己寫筆記：Microsoft SkillOpt 如何讓語言模型的技能像神經網路一樣可訓練
 description: 深入解析 Microsoft 在 2026 年 5 月發布的 SkillOpt 專案，看它如何用一份 Markdown 檔案改寫 LLM agent 技能訓練的遊戲規則，並對照 Voyager、Reflexion、TextGrad、GEPA 等相關研究。
 date: 2026-05-27
-author: Clement Tang
 tags: ["AI","LLM","Agent","Microsoft","技術解析","Prompt Engineering"]
-category: articles
-status: published
-lastModified: 2026-06-13
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # 當 AI 開始自己寫筆記：Microsoft SkillOpt 如何讓語言模型的技能像神經網路一樣可訓練

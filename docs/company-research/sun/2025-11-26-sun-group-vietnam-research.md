@@ -2,11 +2,9 @@
 title: Sun Group（太陽集團）：越南旅遊休閒巨擘
 description: 越南最大的綜合旅遊、娛樂、房地產與基礎建設開發集團，以世界級主題公園與纜車系統聞名。
 date: 2025-11-26
-author: Clement Tang
 tags: ["企業研究","旅遊業","越南","房地產開發","基礎建設"]
-category: company-research
-status: published
-lastModified: 2026-06-13
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # Sun Group（太陽集團）- 企業研究分析

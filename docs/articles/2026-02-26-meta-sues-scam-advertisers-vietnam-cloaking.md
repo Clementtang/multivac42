@@ -2,11 +2,9 @@
 title: Meta 一口氣告了四組詐騙廣告商，但真正有趣的是那個越南人的技術
 description: Meta 同日對四組詐騙廣告商提起訴訟，包括越南籍 Lý Văn Lâm 利用 Cloaking 技術繞過廣告審查並進行訂閱詐騙，以及巴西和中國的深偽名人誘餌操作。這不只是法律行動，更是 Meta 重新定義平台責任邊界的一步棋。
 date: 2026-02-26
-author: Clement Tang
 tags: ["Meta","廣告詐騙","Cloaking","越南","深偽","平台治理","AI"]
-category: articles
-status: published
-lastModified: 2026-06-17
+author: Clement Tang
+lastModified: 2026-06-24
 ---
 
 # Meta 一口氣告了四組詐騙廣告商，但真正有趣的是那個越南人的技術
