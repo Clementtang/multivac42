@@ -2,6 +2,7 @@ node_modules/
 .vitepress/cache/
 .vitepress/dist/
 docs/.vitepress/
+*.timestamp-*.mjs
 .DS_Store
 *.log
 .mcp.json

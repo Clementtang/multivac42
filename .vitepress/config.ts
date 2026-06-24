@@ -235,7 +235,7 @@ export default defineConfig({
     // ============================================
     const isArticle =
       pageData.relativePath.startsWith("articles/") ||
-      pageData.relativePath.startsWith("research/") ||
+      pageData.relativePath.startsWith("topic-research/") ||
       pageData.relativePath.startsWith("company-research/");
 
     if (isArticle && !pageData.relativePath.endsWith("index.md") && date) {
