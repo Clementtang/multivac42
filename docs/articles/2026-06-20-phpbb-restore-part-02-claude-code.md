@@ -1,15 +1,13 @@
 ---
-title: "PM × Claude Code，6 週救活公會論壇紀實"
-description: "一個 PM 怎麼用 AI pair programming 完成原本超出能力範圍的全棧搬遷工程。能委託什麼、必須親自做什麼，以及這個專案怎麼意外長出 /seer skill。"
+title: PM × Claude Code，6 週救活公會論壇紀實
+description: 一個 PM 怎麼用 AI pair programming 完成原本超出能力範圍的全棧搬遷工程。能委託什麼、必須親自做什麼，以及這個專案怎麼意外長出 /seer skill。
 date: 2026-06-20
-author: "Clement Tang"
-tags:
-  ["claude-code", "pair-programming", "phpbb", "self-hosting", "blog-series"]
-category: articles
-status: draft
-draft: true
-series: "phpBB Restore Series"
-seriesPart: 2
+tags: ["claude-code","pair-programming","phpbb","self-hosting","blog-series"]
+author: Clement Tang
+series: phpBB Restore Series
+seriesTitle: phpBB Restore 系列
+seriesIndex: 2
+lastModified: 2026-06-28
 ---
 
 # PM × Claude Code，6 週救活公會論壇紀實

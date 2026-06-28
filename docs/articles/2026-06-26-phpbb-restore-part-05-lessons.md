@@ -1,14 +1,13 @@
 ---
-title: "6 週踩雷集錦，那些卡了我半天的小事"
-description: "1Password SSH agent 撞 MaxAuthTries=3、phpBB 顯示成功訊息但根本沒寄信、sed 解析 .env 密碼含等號被截斷、Prettier 把 phpBB 模板搞壞，每個都是 1 到 3 小時 debug 的小坑，集合起來才是真實的 6 週體感。"
+title: 6 週踩雷集錦，那些卡了我半天的小事
+description: 1Password SSH agent 撞 MaxAuthTries=3、phpBB 顯示成功訊息但根本沒寄信、sed 解析 .env 密碼含等號被截斷、Prettier 把 phpBB 模板搞壞，每個都是 1 到 3 小時 debug 的小坑，集合起來才是真實的 6 週體感。
 date: 2026-06-26
-author: "Clement Tang"
-tags: ["debugging", "phpbb", "docker", "mysql", "blog-series"]
-category: articles
-status: draft
-draft: true
-series: "phpBB Restore Series"
-seriesPart: 5
+tags: ["debugging","phpbb","docker","mysql","blog-series"]
+author: Clement Tang
+series: phpBB Restore Series
+seriesTitle: phpBB Restore 系列
+seriesIndex: 5
+lastModified: 2026-06-28
 ---
 
 # 6 週踩雷集錦，那些卡了我半天的小事

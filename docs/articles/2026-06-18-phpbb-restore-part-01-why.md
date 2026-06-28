@@ -1,15 +1,13 @@
 ---
-title: "為什麼我花 33 天救一個 23 年的舊論壇"
-description: "公會論壇 2015 年就停更了。為什麼 2026 年才動手？真正的觸發點是 AI 工具終於成熟到讓非工程師能自己做這件事，Bluehost 退場只是順便。"
+title: 為什麼我花 33 天救一個 23 年的舊論壇
+description: 公會論壇 2015 年就停更了。為什麼 2026 年才動手？真正的觸發點是 AI 工具終於成熟到讓非工程師能自己做這件事，Bluehost 退場只是順便。
 date: 2026-06-18
-author: "Clement Tang"
-tags:
-  ["phpbb", "self-hosting", "claude-code", "everquest", "guild", "blog-series"]
-category: articles
-status: draft
-draft: true
-series: "phpBB Restore Series"
-seriesPart: 1
+tags: ["phpbb","self-hosting","claude-code","everquest","guild","blog-series"]
+author: Clement Tang
+series: phpBB Restore Series
+seriesTitle: phpBB Restore 系列
+seriesIndex: 1
+lastModified: 2026-06-28
 ---
 
 # 為什麼我花 33 天救一個 23 年的舊論壇
