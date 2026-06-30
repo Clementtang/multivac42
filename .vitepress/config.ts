@@ -12,6 +12,9 @@ export default defineConfig({
   description: siteDescription,
   lang: "zh-TW",
   srcDir: "docs",
+  // phpBB Restore 系列暫不發佈：尚未補特色圖，缺圖會讓 build 失敗。
+  // 發佈時移除此行，並把圖片放進 docs/public/images/posts/phpbb-restore/。
+  srcExclude: ["articles/*-phpbb-restore-part-*.md"],
   cleanUrls: true,
   ignoreDeadLinks: "localhostLinks",
 

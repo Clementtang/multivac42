@@ -2,8 +2,9 @@
 title: 資料復原，phpBB 與 WordPress 的多代升級鏈
 description: phpBB 從 2.0 升到 3.3.15 跨 5 個 major version、WordPress 從 1.5 升到 6.9 跨十多個 schema 版本。中文編碼、附件路徑、prefix 差異、私版破圖救援，每一步怎麼做、怎麼證明資料沒掉。
 date: 2026-06-22
-tags: ["phpbb","wordpress","data-migration","mysql","blog-series"]
+tags: ["phpbb", "wordpress", "data-migration", "mysql", "blog-series"]
 author: Clement Tang
+draft: true
 series: phpBB Restore Series
 seriesTitle: phpBB Restore 系列
 seriesIndex: 3
