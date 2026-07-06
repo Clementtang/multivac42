@@ -2,13 +2,12 @@
 title: 部署架構，從 Bluehost shared hosting 到 1 GB VPS
 description: DigitalOcean SGP1 一台 1 GB droplet 怎麼跑 phpBB 兩站加 WordPress 加兩個 MySQL instance。Traefik path-based routing、Resend SMTP relay 繞過 DO 封 port、MySQL in-place 升級的實作細節。
 date: 2026-06-24
-tags: ["docker", "traefik", "mysql", "smtp", "self-hosting", "blog-series"]
+tags: ["docker","traefik","mysql","smtp","self-hosting","blog-series"]
 author: Clement Tang
-draft: true
 series: phpBB Restore Series
 seriesTitle: phpBB Restore 系列
 seriesIndex: 4
-lastModified: 2026-06-28
+lastModified: 2026-07-06
 ---
 
 # 部署架構，從 Bluehost shared hosting 到 1 GB VPS
