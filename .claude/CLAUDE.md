@@ -50,9 +50,12 @@ company-research/**/*.md
 不要使用 `research/*.md`（此目錄不存在）。
 修改 glob 時需同步更新：`posts.data.ts`、`tags.data.ts`、`rss.ts`、`llms-generator.ts`。
 
-## 編輯流程
+## 編輯流程（2026-07 起為 CI 自動發布）
 
-1. 在 Pensieve 編輯源檔
-2. `cd ~/pensieve && node scripts/publish-to-multivac.js`
-3. `cd ~/multivac42 && npx vitepress build` 驗證
-4. 分別 commit 兩個 repo
+1. 在 Pensieve 編輯源檔（M42 端**不要**手動 commit `docs/` 內容，會與 CI 衝突）
+2. 發布前本地驗證：`cd ~/pensieve && node scripts/publish-to-multivac.js --validate --dry-run`
+3. Pensieve `git push` → CI 自動轉換、auto-commit 並 push 到 M42 origin → Vercel 自動部署
+4. M42 端開工先 `git pull --ff-only` 對齊；只 commit config / theme / infra
+5. **發布後實地驗證線上**：目標頁 200＋關鍵元件出現＋圖片載入——CI success ≠ 文章上線（srcExclude / draft 會靜默排除，實踩過 404 一週才發現）
+
+細節與陷阱：pensieve project memory `reference_publish_pipeline.md`。
