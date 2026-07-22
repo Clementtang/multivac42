@@ -12,17 +12,17 @@ const navigation = computed(() => {
 
   // Determine category from current path
   const isArticle = currentPath.startsWith('/articles/')
-  const isResearch = currentPath.startsWith('/research/')
+  const isTopicResearch = currentPath.startsWith('/topic-research/')
   const isCompanyResearch = currentPath.startsWith('/company-research/')
 
-  if (!isArticle && !isResearch && !isCompanyResearch) {
+  if (!isArticle && !isTopicResearch && !isCompanyResearch) {
     return { prev: null, next: null }
   }
 
   // Filter posts by same category
   const categoryPosts = posts.filter(post => {
     if (isArticle) return post.url.startsWith('/articles/')
-    if (isResearch) return post.url.startsWith('/research/')
+    if (isTopicResearch) return post.url.startsWith('/topic-research/')
     if (isCompanyResearch) return post.url.startsWith('/company-research/')
     return false
   })

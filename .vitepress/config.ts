@@ -114,14 +114,8 @@ export default defineConfig({
           name: "Multivac 42",
           url: siteUrl,
         },
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${siteUrl}/?q={search_term_string}`,
-          },
-          "query-input": "required name=search_term_string",
-        },
+        // SearchAction 省略：VitePress local search 為 client modal，
+        // 不支援 /?q= 這類可索引的搜尋 URL，宣告會造成 structured data 不實。
       };
 
       head.push([
@@ -144,14 +138,18 @@ export default defineConfig({
     };
 
     const companyNameMap: Record<string, string> = {
-      base: "BASE",
-      "luckin-coffee": "瑞幸咖啡",
-      toast: "Toast",
       airwallex: "Airwallex",
-      hotai: "和泰汽車",
-      urbox: "UrBox",
-      "manus-ai": "Manus AI",
       anta: "安踏",
+      base: "BASE",
+      hotai: "和泰汽車",
+      "louisa-coffee": "路易莎咖啡",
+      "luckin-coffee": "瑞幸咖啡",
+      "manus-ai": "Manus AI",
+      misc: "其他",
+      smartosc: "SmartOSC",
+      sun: "Sun Group",
+      toast: "Toast",
+      urbox: "UrBox",
     };
 
     function generateBreadcrumbItems() {

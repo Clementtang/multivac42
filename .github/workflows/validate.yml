@@ -3,10 +3,24 @@ name: 驗證內容
 on:
   pull_request:
     branches: [main]
-    paths: ["docs/**/*.md"]
+    paths:
+      - "docs/**"
+      - ".vitepress/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - "vercel.json"
+      - ".github/workflows/validate.yml"
   push:
     branches: [main]
-    paths: ["docs/**/*.md"]
+    paths:
+      - "docs/**"
+      - ".vitepress/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - "vercel.json"
+      - ".github/workflows/validate.yml"
 
 jobs:
   validate:
