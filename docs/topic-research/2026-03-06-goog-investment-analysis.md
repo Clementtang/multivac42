@@ -4,13 +4,12 @@ description: 2026 年 3 月 Alphabet 投資全面分析，結合多空論述、�
 date: 2026-03-06
 tags: ["議題研究","美股","GOOG","Alphabet","Google","AI","科技股","地緣政治","總體經濟"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # $GOOG 投資研究：美伊戰事、非農下修與 AI 軍備競賽下的多空全景
 
 > 當 AI 軍備競賽遇上反壟斷達摩克利斯之劍，再加上中東戰火與就業寒冬，Alphabet 的投資價值該如何定位？
-
 
 ---
 

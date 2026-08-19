@@ -4,11 +4,10 @@ description: LEGO 在 CES 2026 發表 Smart Brick，這是自 1978 年推出人�
 date: 2026-01-06
 tags: ["LEGO","Smart Brick","CES 2026","玩具科技","社群貼文"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # LEGO 推出 Smart Brick，把一台電腦塞進積木裡
-
 
 ---
 

@@ -7,13 +7,12 @@ author: Clement Tang
 series: airwallex
 seriesTitle: Airwallex 跨境支付系列
 seriesIndex: 3
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 80 億美元獨角獸的致命弱點：Airwallex 為何被指控是「中國後門」
 
 > 一家澳洲起家的金融科技公司，估值 80 億美元，年處理交易量超過 2,350 億美元。但當它準備砸 10 億美元進軍美國市場時，卻因為「中國關聯」陷入信任危機。這是商業競爭的抹黑，還是地緣政治的必然代價？
-
 
 ---
 

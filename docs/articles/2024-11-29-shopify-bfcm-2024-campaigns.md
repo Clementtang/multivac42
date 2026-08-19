@@ -4,13 +4,12 @@ description: Shopify 在 2024 年黑色星期五創下 115 億美元銷售額，
 date: 2024-11-29
 tags: ["Shopify","BFCM","電商","技術行銷","數據視覺化"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # Shopify BFCM 2024：電商平台如何把購物節變成技術力展演
 
 > Shopify 在 2024 年黑色星期五創下 115 億美元銷售額，但更值得關注的是他們如何用 Las Vegas Sphere、3D 互動體驗和 VR 技術，把購物節變成一場技術實力的全球宣傳。
-
 
 ---
 

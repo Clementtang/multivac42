@@ -4,13 +4,12 @@ description: Claude Code 在 6 個月內衝破 10 億美元營收後，Anthropic
 date: 2025-12-03
 tags: ["Anthropic","Bun","併購","AI編碼","Claude","JavaScript","開發工具"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # Anthropic 併購 Bun：AI 編碼巨頭的基礎設施豪賭
 
 > Claude Code 在 6 個月內衝破 10 億美元營收後，Anthropic 用首次併購展現野心——收購全球最快的 JavaScript runtime Bun，為 AI 原生開發工具打造專屬引擎。
-
 
 ---
 

@@ -4,13 +4,12 @@ description: 深度分析 Stripe 對 PayPal 表達併購興趣的市場謠言、
 date: 2026-02-25
 tags: ["議題研究","金融科技","支付產業","併購","Stripe","PayPal","穩定幣"]
 author: Clement Tang
-lastModified: 2026-07-15
+lastModified: 2026-08-19
 ---
 
 # Stripe 併購 PayPal？一場可能改寫支付產業版圖的世紀交易
 
 > 當估值 1,590 億美元的支付新貴，向市值僅剩 430 億美元的昔日霸主伸出橄欖枝，這場交易背後揭示的是整個數位支付產業的權力重組。
-
 
 ---
 

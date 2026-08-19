@@ -7,13 +7,12 @@ author: Clement Tang
 series: paypal-stripe
 seriesTitle: PayPal 與支付生態系列
 seriesIndex: 3
-lastModified: 2026-07-15
+lastModified: 2026-08-19
 ---
 
 # 不上市的 Stripe，為什麼要「下市」PayPal？解讀 530 億美元的世紀收購提案
 
 > 五個月前它還是一則被否認的謠言，如今變成一份 530 億美元的正式報價。Stripe 拒絕 IPO，與它聯手私募基金收購 PayPal，其實是同一個信念的兩面。對 Stripe 而言，公開市場的功能已經改變，從掛牌的舞台，變成了狩獵的場域。
-
 
 ---
 

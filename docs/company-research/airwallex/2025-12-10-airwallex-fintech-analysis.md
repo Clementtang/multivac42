@@ -7,13 +7,12 @@ author: Clement Tang
 series: airwallex
 seriesTitle: Airwallex 跨境支付系列
 seriesIndex: 1
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # Airwallex：從跨境支付到全球金融操作系統的崛起
 
 > 澳洲墨爾本誕生的金融科技獨角獸，以顛覆性的跨境支付解決方案挑戰傳統銀行體系，2025 年估值達 80 億美元，年化營收突破 10 億美元，年處理交易量超過 2,350 億美元，服務全球 15 萬家企業，93% 的交易繞過傳統 SWIFT 系統。
-
 
 ---
 

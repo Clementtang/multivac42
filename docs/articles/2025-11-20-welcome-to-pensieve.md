@@ -4,13 +4,12 @@ description: 這是一個範例文章，展示如何使用 Pensieve 儲存庫進
 date: 2025-11-20
 tags: ["寫作","指南","Pensieve"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 歡迎使用 Pensieve 寫作儲存庫
 
 > 這是一個範例文章，展示如何使用 Pensieve 儲存庫進行寫作。
-
 
 ---
 

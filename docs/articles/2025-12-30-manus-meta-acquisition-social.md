@@ -7,13 +7,12 @@ author: Clement Tang
 series: manus-ai
 seriesTitle: Manus AI 收購案系列
 seriesIndex: 2
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 「套殼」到極致，就是勝利：一個 90 後中國創業者如何讓祖克柏掏出數十億美元
 
 > 他用別人家的 AI 模型，打造出史上成長最快的 SaaS 公司。8 個月營收破億美元，最終被 Meta 收購、出任副總裁。這個 1992 年出生的江西小鎮青年，給了全球科技業一堂「套殼經濟學」的震撼教育。
-
 
 ---
 

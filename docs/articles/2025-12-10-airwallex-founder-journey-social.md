@@ -7,13 +7,12 @@ author: Clement Tang
 series: airwallex
 seriesTitle: Airwallex 跨境支付系列
 seriesIndex: 2
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 從咖啡廳老闆到 80 億美元獨角獸：這位華人創業家拒絕 Stripe 12 億收購的豪賭
 
 > 15 歲離鄉背井到澳洲，從學霸變成「不會說英文的普通學生」。他在投資銀行工作十年後創業，前兩個產品失敗，銀行帳戶只剩六週現金。如今，他打造了估值 80 億美元的金融科技巨頭，年處理交易量超過 2,350 億美元。
-
 
 ---
 

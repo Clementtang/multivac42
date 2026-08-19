@@ -7,13 +7,12 @@ author: Clement Tang
 series: luckin-coffee
 seriesTitle: 瑞幸咖啡系列
 seriesIndex: 1
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 瑞幸咖啡：從22億造假醜聞到年營收48億美元的商業史上最大逆轉
 
 > 中國最大咖啡連鎖品牌，經歷納斯達克史上最大財務造假醜聞後浴火重生，四年內從破產邊緣翻轉為年營收345億人民幣（約48億美元）、門店數突破2.9萬家的咖啡帝國，並計劃重返美國資本市場。
-
 
 ---
 

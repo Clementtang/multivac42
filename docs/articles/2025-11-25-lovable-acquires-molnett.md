@@ -4,13 +4,12 @@ description: 成立僅一年的 AI 編碼平台 Lovable 收購歐洲雲端服務
 date: 2025-11-25
 tags: ["Lovable","Molnett","併購","AI編碼","雲端基礎設施","數位主權"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # Lovable 併購 Molnett：AI 編碼獨角獸的基礎設施野心
 
 > 成立僅一年的 AI 編碼平台 Lovable 收購歐洲雲端服務商 Molnett，在快速擴張至近 800 萬用戶的同時，透過吸收頂尖基礎設施團隊強化技術底蘊。
-
 
 ---
 

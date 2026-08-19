@@ -4,13 +4,12 @@ description: 一人公司運動的代表人物 Pieter Levels，最近分享了�
 date: 2025-12-11
 tags: ["levelsio","獨立開發","SaaS","創業","社群貼文"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 認識新朋友 5 分鐘後，這位年收百萬美元的獨立開發者會跟你說什麼
 
 > 一人公司運動的代表人物 Pieter Levels，最近分享了他認識新朋友後必講的人生建議清單。直接、不客氣，但每一條都是他真心相信的事。
-
 
 ---
 

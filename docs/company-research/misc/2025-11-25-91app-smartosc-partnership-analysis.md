@@ -4,13 +4,12 @@ description: 從 91APP 觀點評估與 SmartOSC 合作進軍越南與東南亞�
 date: 2025-11-25
 tags: ["策略合作","91APP","SmartOSC","東南亞擴張","越南市場"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 91APP × SmartOSC 策略合作分析
 
 > 從 91APP 觀點評估與 SmartOSC 合作進軍越南與東南亞市場的策略價值
-
 
 ---
 

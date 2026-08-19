@@ -4,13 +4,12 @@ description: 2026 年兩大 Agentic Commerce 協議深度比較：Google UCP 與
 date: 2026-01-13
 tags: ["議題研究","AI","代理商務","協議標準","電子商務"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # Google UCP vs OpenAI/Stripe ACP 代理商務協議比較
 
 > 比較 Google UCP 與 OpenAI/Stripe ACP 兩大代理商務協議的技術架構、生態策略與市場定位
-
 
 ---
 

@@ -4,13 +4,12 @@ description: 越南 D2C 男裝品牌 Coolmate 在營收快速成長時主動放�
 date: 2025-12-12
 tags: ["Coolmate","越南新創","D2C品牌","電商","東南亞","獨角獸"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 最難的決定：越南最火 D2C 品牌「主動踩剎車」，一年後融資翻倍
 
 > **「讓公司成長最難的，不是擴張速度，而是知道何時該停下來重建。」—— Coolmate CEO Pham Chi Nhu**
-
 
 ---
 

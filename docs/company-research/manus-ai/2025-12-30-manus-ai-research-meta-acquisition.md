@@ -7,13 +7,12 @@ author: Clement Tang
 series: manus-ai
 seriesTitle: Manus AI 收購案系列
 seriesIndex: 1
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # Manus：從「套殼」爭議到被 Meta 收購的中國 AI Agent 出海傳奇
 
 > 一家由 90 後中國創業者創立的 AI Agent 新創，憑藉「套殼」Claude 的技術、病毒式行銷策略，以及精準的出海佈局，在 8 個月內達成 1 億美元 ARR，最終被 Meta 以數十億美元收購。這是 2025 年最具話題性的 AI 併購案，也是中國科技公司成功出海的經典案例。
-
 
 ---
 

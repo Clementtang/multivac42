@@ -4,13 +4,12 @@ description: 深入解析 Microsoft 在 2026 年 5 月發布的 SkillOpt 專案�
 date: 2026-05-27
 tags: ["AI","LLM","Agent","Microsoft","技術解析","Prompt Engineering"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # 當 AI 開始自己寫筆記：Microsoft SkillOpt 如何讓語言模型的技能像神經網路一樣可訓練
 
 > 2026 年 5 月，Microsoft Research 釋出 SkillOpt，一個能像訓練神經網路那樣訓練 AI agent「技能文件」的開源工具。它不動模型權重，卻在 52 項評測中拿下 52 勝。
-
 
 ---
 

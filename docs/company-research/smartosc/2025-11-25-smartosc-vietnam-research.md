@@ -4,13 +4,12 @@ description: 越南領先的電子商務與數位轉型服務商，擁有 1,000+
 date: 2025-11-25
 tags: ["企業研究","電子商務","數位轉型","越南","東南亞"]
 author: Clement Tang
-lastModified: 2026-06-24
+lastModified: 2026-08-19
 ---
 
 # SmartOSC - 企業研究分析
 
 > 越南領先的電子商務與數位轉型服務商，提供全方位的數位解決方案
-
 
 ---
 
