@@ -7,12 +7,12 @@ author: Clement Tang
 series: phpBB Restore Series
 seriesTitle: phpBB Restore 系列
 seriesIndex: 2
-lastModified: 2026-07-06
+lastModified: 2026-11-16
 ---
 
 # PM × Claude Code，6 週救活公會論壇紀實
 
-> 一個 PM 怎麼用 AI pair programming 完成原本超出能力範圍的全棧搬遷工程。能委託什麼、必須親自做什麼，以及這個專案怎麼意外長出 `/seer` skill。系列文 5 篇之 #2。
+> 一個 PM 怎麼用 AI pair programming 完成原本超出能力範圍的全棧搬遷工程。能委託什麼、必須親自做什麼，以及這個專案怎麼意外長出 `/seer` skill。系列文 6 篇之 #2。
 
 ## 從動機到開工那天
 
@@ -116,4 +116,4 @@ Claude Code 改變的就是這件事，我不需要練到能寫 production code�
 
 ---
 
-_天地日月公會論壇現在站在 [eq2.3d-olg.net/community](https://eq2.3d-olg.net/community/) 與 [eq.3d-olg.net](https://eq.3d-olg.net/)。系列文 5 篇之 #2，下一篇 #3 進技術 deep dive。_
+_天地日月公會論壇現在站在 [eq2.3d-olg.net/community](https://eq2.3d-olg.net/community/) 與 [eq.3d-olg.net](https://eq.3d-olg.net/)。系列文 6 篇之 #2，下一篇 #3 進技術 deep dive。_

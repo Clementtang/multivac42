@@ -7,12 +7,12 @@ author: Clement Tang
 series: phpBB Restore Series
 seriesTitle: phpBB Restore 系列
 seriesIndex: 1
-lastModified: 2026-07-06
+lastModified: 2026-11-16
 ---
 
 # 為什麼我花 33 天救一個 23 年的舊論壇
 
-> 公會論壇 2015 年就停更了。為什麼 2026 年才動手？真正的觸發點是 AI 工具終於成熟到讓非工程師能自己做這件事，Bluehost 退場只是順便。系列文 5 篇之 #1。
+> 公會論壇 2015 年就停更了。為什麼 2026 年才動手？真正的觸發點是 AI 工具終於成熟到讓非工程師能自己做這件事，Bluehost 退場只是順便。系列文 6 篇之 #1。
 
 ## 論壇 11 年沒人發文了，為什麼現在動手
 
@@ -70,7 +70,7 @@ WordPress Plus Hosting 加 3D-OLG.NET 一年 $203.88、加上 SiteLock Lite（�
 
 ## 接下來的 4 篇
 
-這個系列共 5 篇，這篇是動機篇，談為什麼救、為什麼是現在、為什麼花 33 天。接下來的 4 篇分別處理不同層面。
+這個系列共 6 篇，這篇是動機篇，談為什麼救、為什麼是現在、為什麼花 33 天。接下來的 5 篇分別處理不同層面。
 
 **#2「PM × Claude Code 6 週救活公會論壇紀實」** 寫一個 PM 怎麼用 AI pair programming 完成工程任務，能委託什麼、必須親自做什麼，順便講一個重要的副產品，這個專案後來長出了 `/seer` skill。
 
@@ -79,6 +79,8 @@ WordPress Plus Hosting 加 3D-OLG.NET 一年 $203.88、加上 SiteLock Lite（�
 **#4「部署架構」** 談 Docker Compose、Traefik path-based routing、Resend SMTP relay、MySQL 8.4 in-place 升級。
 
 **#5「6 週踩雷集錦」** 寫那些卡了我半天的小事，1Password SSH agent 排序、phpBB anti-spam silent skip、Docker volume 升級陷阱、phpBB DATETIME_FORMAT cosmetic warning 等。
+
+**#6「上線之後的第一次斷線」** 是上線五個月後補寫的，VPS 凌晨自動重開後三站斷線 15 小時，以及之後補上的開機防呆與手機推播。
 
 決定救之後，下一個問題是，一個 PM 怎麼自己做這件事？在 #2 接著聊。
 

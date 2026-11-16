@@ -7,12 +7,12 @@ author: Clement Tang
 series: phpBB Restore Series
 seriesTitle: phpBB Restore 系列
 seriesIndex: 5
-lastModified: 2026-07-06
+lastModified: 2026-11-16
 ---
 
 # 6 週踩雷集錦，那些卡了我半天的小事
 
-> 1Password SSH agent 撞 MaxAuthTries=3、phpBB 顯示成功訊息但根本沒寄信、sed 解析 .env 密碼含等號被截斷、Prettier 把 phpBB 模板搞壞，每個都是 1 到 3 小時 debug 的小坑，集合起來才是真實的 6 週體感。系列文 5 篇之 #5，最終回。
+> 1Password SSH agent 撞 MaxAuthTries=3、phpBB 顯示成功訊息但根本沒寄信、sed 解析 .env 密碼含等號被截斷、Prettier 把 phpBB 模板搞壞，每個都是 1 到 3 小時 debug 的小坑，集合起來才是真實的 6 週體感。系列文 6 篇之 #5。
 
 ## 為什麼要記 debug 過程
 
@@ -113,7 +113,7 @@ phpBB 模板引擎不認得跨行的 directive，編譯時 silently 略過。後
 
 ## 系列收尾
 
-5 篇寫完了。
+主線 5 篇寫完了。
 
 \#1 講為什麼救這個 23 年的舊論壇，是動機篇。#2 講一個 PM 怎麼用 Claude Code 自己做這件事，包括能委託什麼、必須親自做什麼，以及這個專案怎麼意外長出 `/seer` skill。#3 講資料復原的多代升級鏈、中文編碼、附件對齊驗證。#4 講部署架構、Traefik 一個 domain 分流到三站、SMTP 怎麼繞過 DigitalOcean 封 port。這篇 #5 集中收錄 8 個吃時間的小坑。
 
@@ -121,6 +121,8 @@ phpBB 模板引擎不認得跨行的 directive，編譯時 silently 略過。後
 
 論壇現在站在 [eq2.3d-olg.net/community](https://eq2.3d-olg.net/community/) 與 [eq.3d-olg.net](https://eq.3d-olg.net/)，The Sun Moon Guild 在 EverQuest II Halls of Fate 伺服器持續運作中。歡迎老友回來、歡迎陌生人路過。
 
+上線五個月後的第一次斷線，以及之後補上的防呆與告警，另外寫成 [#6](2026-11-16-phpbb-restore-part-06-first-outage)。
+
 ---
 
-_系列文 5 篇之 #5，phpBB Restore Series 完。_
+_系列文 6 篇之 #5，下一篇 [#6](2026-11-16-phpbb-restore-part-06-first-outage) 是上線之後的第一次斷線。_

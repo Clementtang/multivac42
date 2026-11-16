@@ -7,12 +7,12 @@ author: Clement Tang
 series: phpBB Restore Series
 seriesTitle: phpBB Restore 系列
 seriesIndex: 4
-lastModified: 2026-07-06
+lastModified: 2026-11-16
 ---
 
 # 部署架構，從 Bluehost shared hosting 到 1 GB VPS
 
-> DigitalOcean SGP1 一台 1 GB droplet 怎麼跑 phpBB 兩站加 WordPress 加兩個 MySQL instance。Traefik path-based routing、Resend SMTP relay 繞過 DO 封 port、MySQL in-place 升級的實作細節。系列文 5 篇之 #4。
+> DigitalOcean SGP1 一台 1 GB droplet 怎麼跑 phpBB 兩站加 WordPress 加兩個 MySQL instance。Traefik path-based routing、Resend SMTP relay 繞過 DO 封 port、MySQL in-place 升級的實作細節。系列文 6 篇之 #4。
 
 ## 1 GB RAM 跑得動嗎，盤點要塞進去的東西
 
@@ -116,4 +116,4 @@ phpBB 的 `config.php` 預設配一個 DB 帳號走天下，這個帳號通常�
 
 ---
 
-_天地日月公會論壇現在站在 [eq2.3d-olg.net/community](https://eq2.3d-olg.net/community/) 與 [eq.3d-olg.net](https://eq.3d-olg.net/)。系列文 5 篇之 #4，下一篇 #5 是踩雷集錦，整個系列的最後一篇。_
+_天地日月公會論壇現在站在 [eq2.3d-olg.net/community](https://eq2.3d-olg.net/community/) 與 [eq.3d-olg.net](https://eq.3d-olg.net/)。系列文 6 篇之 #4，下一篇 #5 是踩雷集錦，主線的最後一篇。_
