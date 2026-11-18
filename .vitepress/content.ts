@@ -19,11 +19,10 @@ interface ContentPage {
 export function isPublishedPost(page: ContentPage): boolean {
   if (page.url.endsWith("/")) return false;
   if (page.frontmatter.draft) return false;
-  validateFrontmatter(page);
-  return true;
+  return validateFrontmatter(page);
 }
 
-function validateFrontmatter({ url, frontmatter }: ContentPage): void {
+function validateFrontmatter({ url, frontmatter }: ContentPage): boolean {
   const problems: string[] = REQUIRED_FIELDS.filter(
     (field) => !frontmatter[field],
   ).map((field) => `缺少必填欄位 ${field}`);
@@ -32,9 +31,13 @@ function validateFrontmatter({ url, frontmatter }: ContentPage): void {
     problems.push("tags 必須是陣列");
   }
 
-  if (problems.length > 0) {
-    throw new Error(`frontmatter 驗證失敗：${url}（${problems.join("、")}）`);
-  }
+  if (problems.length === 0) return true;
+
+  const message = `frontmatter 驗證失敗：${url}（${problems.join("、")}）`;
+  // 正式建置要擋下；dev server 只警告並略過該篇，避免一個壞檔讓整站跳錯誤畫面
+  if (process.env.NODE_ENV === "production") throw new Error(message);
+  console.warn(`⚠ ${message}，dev 模式先略過`);
+  return false;
 }
 
 // YAML 未加引號的日期會解析成 Date；統一輸出 YYYY-MM-DD，避免帶出建置機器的時區名稱。

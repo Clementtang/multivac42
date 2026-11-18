@@ -1,6 +1,7 @@
 import type { SiteConfig } from "vitepress";
 import { existsSync, readFileSync, readdirSync, statSync } from "fs";
 import path from "path";
+import matter from "gray-matter";
 
 import { siteUrl } from "./site.config";
 
@@ -20,11 +21,10 @@ function listMarkdownFiles(dir: string): string[] {
   });
 }
 
+// 與 content loader 同一個解析器與真值判斷（VitePress 內部即用 gray-matter），
+// 否則 draft: "true"、行尾註解、CRLF、BOM 等寫法兩邊判斷不一致，合法內容也會擋下部署。
 function isDraft(filePath: string): boolean {
-  const frontmatter = readFileSync(filePath, "utf-8").match(
-    /^---\n([\s\S]*?)\n---/,
-  );
-  return !!frontmatter && /^draft:\s*true\s*$/m.test(frontmatter[1]);
+  return Boolean(matter(readFileSync(filePath, "utf-8")).data.draft);
 }
 
 function expectedArticlePaths(srcDir: string): string[] {
@@ -45,13 +45,16 @@ export function verifyBuildOutput(config: SiteConfig): void {
   const expected = expectedArticlePaths(config.srcDir);
 
   for (const articlePath of expected) {
-    const url = `${siteUrl}/${articlePath}`;
+    // sitemap 以 new URL() 正規化，非 ASCII 與空白會被 percent-encode；比對時用同一種寫法
+    const url = new URL(articlePath, `${siteUrl}/`).href;
     const missing: string[] = [];
     if (!existsSync(path.join(outDir, `${articlePath}.html`)))
       missing.push("HTML");
     const mdFile = path.join(outDir, `${articlePath}.md`);
     if (!existsSync(mdFile) || statSync(mdFile).size === 0) missing.push(".md");
-    if (!llmsTxt.includes(`(${url})`)) missing.push("llms.txt");
+    const llmsUrl = `${siteUrl}/${articlePath}`;
+    if (!llmsTxt.includes(`(${llmsUrl})`) && !llmsTxt.includes(`(${url})`))
+      missing.push("llms.txt");
     if (!sitemap.includes(`<loc>${url}</loc>`)) missing.push("sitemap");
     if (missing.length > 0)
       problems.push(`${articlePath}：缺 ${missing.join("、")}`);
@@ -59,7 +62,8 @@ export function verifyBuildOutput(config: SiteConfig): void {
 
   if (problems.length > 0) {
     throw new Error(
-      `建置產物檢查失敗（${problems.length} 篇）：\n${problems.join("\n")}`,
+      `建置產物檢查失敗（${problems.length} 篇）：\n${problems.join("\n")}\n` +
+        "常見原因：檔案放在 content.ts 的 CONTENT_GLOBS 沒涵蓋的子目錄（articles、topic-research 只收第一層），或 frontmatter 有誤。",
     );
   }
   console.log(`✓ Build output verified: ${expected.length} articles`);
