@@ -2,6 +2,7 @@ import { defineConfig, type HeadConfig } from "vitepress";
 import { generateRssFeed } from "./rss";
 import { generateLlmsTxt } from "./llms-generator";
 import { siteUrl, siteName, siteDescription } from "./site.config";
+import { relativePathToUrlPath } from "./theme/config/categories";
 
 export default defineConfig({
   buildEnd: async (config) => {
@@ -77,7 +78,7 @@ export default defineConfig({
     const cover = pageData.frontmatter.cover;
     const date = pageData.frontmatter.date;
     const author = pageData.frontmatter.author || "Clement Tang";
-    const url = `${siteUrl}/${pageData.relativePath.replace(/\.md$/, "").replace(/index$/, "")}`;
+    const url = `${siteUrl}/${relativePathToUrlPath(pageData.relativePath)}`;
 
     const head: HeadConfig[] = [
       // SEO-04: Canonical URL
@@ -131,7 +132,6 @@ export default defineConfig({
     const pathNameMap: Record<string, string> = {
       articles: "文章",
       "company-research": "公司研究",
-      research: "主題研究",
       "topic-research": "主題研究",
       tags: "標籤",
       about: "關於",

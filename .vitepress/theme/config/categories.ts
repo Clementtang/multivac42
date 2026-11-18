@@ -31,6 +31,12 @@ export function isArticlePage(path: string): boolean {
   return isArticlePath(path) && !path.endsWith("index.md");
 }
 
+// relativePath（如 "articles/foo.md"、"articles/index.md"）轉成不含開頭斜線的 URL 路徑。
+// 只移除完整的 index 檔名；舊寫法 /index$/ 會把 "price-index.md" 截成 "price-"。
+export function relativePathToUrlPath(relativePath: string): string {
+  return relativePath.replace(/\.md$/, "").replace(/(^|\/)index$/, "$1");
+}
+
 // 從路徑取得類別
 export function getCategoryFromPath(path: string): ArticleCategory | null {
   for (const category of ARTICLE_CATEGORIES) {

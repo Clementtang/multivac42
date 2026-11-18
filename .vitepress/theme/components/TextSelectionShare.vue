@@ -9,10 +9,10 @@ const position = ref({ x: 0, y: 0 })
 const selectedText = ref('')
 
 import { siteUrl } from '../../site.config'
+import { relativePathToUrlPath } from '../config/categories'
 
 const pageUrl = computed(() => {
-  const path = page.value.relativePath.replace(/\.md$/, '').replace(/index$/, '')
-  return `${siteUrl}/${path}`
+  return `${siteUrl}/${relativePathToUrlPath(page.value.relativePath)}`
 })
 
 const twitterUrl = computed(() => {

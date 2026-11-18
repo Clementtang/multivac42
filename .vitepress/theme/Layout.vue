@@ -45,7 +45,8 @@ onMounted(() => {
   <Layout>
     <!-- Reading progress bar for articles -->
     <template #layout-top>
-      <ReadingProgress v-if="isArticlePage" />
+      <!-- key forces a fresh instance per article so GA4 scroll milestones reset on in-site navigation -->
+      <ReadingProgress v-if="isArticlePage" :key="page.relativePath" />
     </template>
     <!-- Insert ArticleHeader before doc content (will render our title + byline) -->
     <template #doc-before>

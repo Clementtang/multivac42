@@ -541,8 +541,9 @@ html {
 /* ========================================
    Article Header - Hide original h1
    ======================================== */
-/* Hide the first h1 in article content when ArticleHeader renders title */
-.vp-doc > div > h1:first-child {
+/* Hide the first h1 in article content only when ArticleHeader renders the title.
+   Unscoped, this also hid the only h1 on /tags, /archive, /about and index pages. */
+.article-header ~ .main .vp-doc > div > h1:first-child {
   display: none !important;
 }
 

@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 import { data as posts } from '../posts.data'
+import { relativePathToUrlPath } from '../config/categories'
 
 const { page, frontmatter } = useData()
 
@@ -19,7 +20,7 @@ const seriesPosts = computed(() => {
 })
 
 // Current article's URL for comparison
-const currentUrl = computed(() => page.value.relativePath.replace(/\.md$/, '').replace(/index$/, ''))
+const currentUrl = computed(() => relativePathToUrlPath(page.value.relativePath))
 
 // Find current article index in series
 const currentIndex = computed(() => {

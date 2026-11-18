@@ -31,6 +31,7 @@ const filteredPosts = computed(() => {
         :title="post.title"
         :description="post.description"
         :date="post.date"
+        :last-modified="post.lastModified"
         :url="post.url"
         :tags="post.tags"
         :author="post.author"

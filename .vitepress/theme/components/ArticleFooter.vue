@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
 
-const { frontmatter, page } = useData()
+const { frontmatter } = useData()
 
 // Format date to Chinese format (2025 年 12 月 3 日)
 function formatDateChinese(dateStr: string | Date | undefined): string | null {
@@ -16,17 +16,8 @@ function formatDateChinese(dateStr: string | Date | undefined): string | null {
 
 const formattedLastModified = computed(() => formatDateChinese(frontmatter.value.lastModified))
 
-// Check if this is an article page
-const isArticlePage = computed(() => {
-  const category = frontmatter.value.category
-  if (category === 'articles' || category === 'company-research' || category === 'research') {
-    return true
-  }
-  const path = page.value.relativePath
-  const isInContentDir = path.startsWith('articles/') || path.startsWith('research/') || path.startsWith('company-research/')
-  return isInContentDir && !path.endsWith('index.md')
-})
-
+// Article-page gating lives in Layout.vue (shared categories.ts); duplicating it here
+// once drifted to a stale `research/` path and hid every topic-research update date.
 // Only show if there's a lastModified date different from publish date
 const showLastModified = computed(() => {
   const lastModified = frontmatter.value.lastModified
@@ -36,7 +27,7 @@ const showLastModified = computed(() => {
 </script>
 
 <template>
-  <div v-if="isArticlePage && showLastModified" class="article-footer">
+  <div v-if="showLastModified" class="article-footer">
     <div class="last-modified">
       <span class="modified-label">最後更新於</span>
       <span class="modified-date">{{ formattedLastModified }}</span>

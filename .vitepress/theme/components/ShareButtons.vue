@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useData } from 'vitepress'
+import { siteUrl } from '../../site.config'
+import { relativePathToUrlPath } from '../config/categories'
 
-const { page, frontmatter, site } = useData()
+const { page, frontmatter } = useData()
 
 const copied = ref(false)
 
-const pageUrl = computed(() => {
-  if (typeof window !== 'undefined') {
-    return window.location.href
-  }
-  return ''
-})
+// Built from the reactive route so SSR HTML carries a real URL and in-site
+// navigation never shares the previous article (window.location is not reactive).
+const pageUrl = computed(() => `${siteUrl}/${relativePathToUrlPath(page.value.relativePath)}`)
 
 const pageTitle = computed(() => frontmatter.value.title || page.value.title || '')
 
