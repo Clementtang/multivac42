@@ -139,21 +139,6 @@ export default defineConfig({
       about: "關於",
     };
 
-    const companyNameMap: Record<string, string> = {
-      airwallex: "Airwallex",
-      anta: "安踏",
-      base: "BASE",
-      hotai: "和泰汽車",
-      "louisa-coffee": "路易莎咖啡",
-      "luckin-coffee": "瑞幸咖啡",
-      "manus-ai": "Manus AI",
-      misc: "其他",
-      smartosc: "SmartOSC",
-      sun: "Sun Group",
-      toast: "Toast",
-      urbox: "UrBox",
-    };
-
     function generateBreadcrumbItems() {
       const items: Array<{
         "@type": string;
@@ -189,27 +174,20 @@ export default defineConfig({
         currentPath += `/${segment}`;
         const isLastSegment = i === segments.length - 1;
 
-        let displayName: string;
+        // 公司研究的公司目錄（如 /company-research/base）沒有索引頁，列進麵包屑會指向 404
+        if (!isLastSegment && i > 0) continue;
 
-        if (pathNameMap[segment]) {
-          displayName = pathNameMap[segment];
-        } else if (
-          i === 1 &&
-          segments[0] === "company-research" &&
-          companyNameMap[segment]
-        ) {
-          displayName = companyNameMap[segment];
-        } else if (isLastSegment) {
-          displayName = title;
-        } else {
-          displayName = segment;
-        }
-
+        const isCategoryIndex =
+          (!isLastSegment && pathNameMap[segment]) ||
+          (isLastSegment && pageData.relativePath.endsWith("index.md"));
         items.push({
           "@type": "ListItem",
           position: position,
-          name: displayName,
-          item: `${siteUrl}${currentPath}`,
+          name: isLastSegment
+            ? pathNameMap[segment] || title
+            : pathNameMap[segment] || segment,
+          // 類別索引頁的 canonical 帶結尾斜線（/articles/）
+          item: `${siteUrl}${currentPath}${isCategoryIndex ? "/" : ""}`,
         });
 
         position++;
@@ -252,12 +230,16 @@ export default defineConfig({
         headline: title,
         description: description,
         // SD-02: 完整 Person Schema
-        author: {
-          "@type": "Person",
-          name: author,
-          url: `${siteUrl}/about`,
-          sameAs: ["https://github.com/Clementtang"],
-        },
+        // 個人連結只屬於站長；署名為其他作者（如 Claude）時不能掛上站長的身分
+        author:
+          author === "Clement Tang"
+            ? {
+                "@type": "Person",
+                name: author,
+                url: `${siteUrl}/about`,
+                sameAs: ["https://github.com/Clementtang"],
+              }
+            : { "@type": "Person", name: author },
         datePublished: date,
         dateModified: pageData.frontmatter.lastModified || date,
         publisher: {

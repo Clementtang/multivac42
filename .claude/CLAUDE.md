@@ -16,7 +16,8 @@ npm run lint           # markdownlint（CI blocking）
 ## 關鍵架構
 
 - `srcDir: "docs"` 設定在 config.ts，build 時不需傳 docs 參數
-- `buildEnd` hook 依序執行：RSS → llms.txt/llms-full.txt/article .md
+- `buildEnd` hook 依序執行：RSS → llms.txt/llms-full.txt/article .md → `verify-output.ts` 逐篇核對產物（缺任一項就讓建置失敗）
+- 缺必填欄位、`tags` 不是陣列、正文為空，都會讓建置失敗並指出檔案。Vercel 部署會卡住，Pensieve CI 仍是綠燈，發布後要看 Vercel 部署狀態
 - 站點常數集中在 `.vitepress/site.config.ts`（siteUrl, siteName, siteDescription, llmsDescription）
 
 ## Frontmatter Schema
@@ -25,11 +26,12 @@ npm run lint           # markdownlint（CI blocking）
 title: "文章標題" # 必填
 description: "描述" # 必填，用於 SEO 和預覽
 date: 2026-01-15 # 必填，ISO 日期
-tags: ["標籤"] # 選填
+lastModified: 2026-02-01 # 選填，與 date 不同時顯示「最後更新於」
+tags: ["標籤"] # 選填，必須是陣列
 author: "Clement Tang" # 選填，預設 Clement Tang
 cover: /og/filename.png # 選填，OG image
 featured: true # 選填，精選文章
-draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags）
+draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags；頁面仍會產生、可直連，也會進 sitemap 與站內搜尋）
 series: series-slug # 選填，系列 ID
 seriesTitle: "系列名稱" # 選填
 seriesIndex: 1 # 選填，系列順序
@@ -39,7 +41,7 @@ seriesIndex: 1 # 選填，系列順序
 
 ## Glob Patterns
 
-所有 content loader 使用統一的 glob：
+四個 content loader（`posts.data.ts`、`tags.data.ts`、`rss.ts`、`llms-generator.ts`）共用 `.vitepress/content.ts` 的 `CONTENT_GLOBS` 與 `isPublishedPost`：
 
 ```
 articles/*.md
@@ -48,7 +50,7 @@ company-research/**/*.md
 ```
 
 不要使用 `research/*.md`（此目錄不存在）。
-修改 glob 時需同步更新：`posts.data.ts`、`tags.data.ts`、`rss.ts`、`llms-generator.ts`。
+新增內容目錄時需同步更新：`content.ts`、`verify-output.ts` 的 `CONTENT_DIRS`、`theme/config/categories.ts`、`scripts/validate-filenames.js`。`verify-output.ts` 刻意獨立掃 `docs`，不要改成重用 loader。
 
 ## 編輯流程（2026-07 起為 CI 自動發布）
 

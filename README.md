@@ -31,9 +31,11 @@ multivac42/
 │   ├── site.config.ts       # 站點常數（siteUrl, siteName, descriptions）
 │   ├── rss.ts               # RSS feed 生成
 │   ├── llms-generator.ts    # llms.txt / llms-full.txt / article .md 生成
-│   ├── config/
-│   │   └── categories.ts    # 文章分類定義
+│   ├── content.ts           # 四個 loader 共用的 glob、草稿排除、必填欄位驗證
+│   ├── verify-output.ts     # 建置最後一步：逐篇核對 HTML、.md、llms.txt、sitemap
 │   └── theme/
+│       ├── config/
+│       │   └── categories.ts # 文章分類定義、路徑轉 URL
 │       ├── components/      # Vue 元件（21 個）
 │       ├── posts.data.ts    # 文章資料載入器（含 draft 過濾）
 │       ├── tags.data.ts     # 標籤資料載入器
@@ -64,13 +66,14 @@ node scripts/validate-filenames.js
 title: 文章標題
 description: 文章描述（用於 SEO 和預覽）
 date: 2026-01-15
+lastModified: 2026-02-01 # 選填，與 date 不同時顯示「最後更新於」
 tags:
   - 標籤1
   - 標籤2
 author: Clement Tang
 cover: /images/cover.jpg # 選填
 featured: true # 選填，精選文章
-draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags）
+draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags；頁面仍會產生、可直連，也會進 sitemap 與站內搜尋）
 series: series-slug # 選填，系列文章 ID
 seriesTitle: 系列名稱 # 選填
 seriesIndex: 1 # 選填，系列順序
