@@ -1,4 +1,5 @@
 import { createContentLoader } from "vitepress";
+import { CONTENT_GLOBS, isPublishedPost } from "../content";
 
 // Frontmatter 欄位型別定義
 interface Frontmatter {
@@ -36,51 +37,44 @@ export interface Post {
 declare const data: Post[];
 export { data };
 
-// 文章載入路徑 - 新增類別時需同步更新
-// 注意：glob patterns 必須為靜態字串，無法從 categories.ts 動態載入
-// 請同時更新 config/categories.ts 的 ARTICLE_CATEGORIES
-export default createContentLoader(
-  ["articles/*.md", "topic-research/*.md", "company-research/**/*.md"],
-  {
-    excerpt: true,
-    includeSrc: true, // Required for word count calculation
-    transform(rawData) {
-      return rawData
-        .filter((page) => !page.url.endsWith("/")) // Filter out index pages
-        .filter((page) => !(page.frontmatter as Frontmatter).draft) // Filter out drafts
-        .map((page) => {
-          const frontmatter = page.frontmatter as Frontmatter;
+// 收錄範圍與驗證規則集中在 .vitepress/content.ts；新增類別時也要同步 config/categories.ts
+export default createContentLoader(CONTENT_GLOBS, {
+  excerpt: true,
+  includeSrc: true, // Required for word count calculation
+  transform(rawData) {
+    return rawData
+      .filter(isPublishedPost)
+      .map((page) => {
+        const frontmatter = page.frontmatter as Frontmatter;
 
-          // Calculate reading time (中文 400 字/分鐘，英文 200 字/分鐘)
-          const content = page.src || "";
-          const chineseChars = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
-          const englishWords = (content.match(/[a-zA-Z]+/g) || []).length;
-          const totalWords = chineseChars + englishWords;
-          const readingTime = Math.max(
-            1,
-            Math.ceil(chineseChars / 400 + englishWords / 200),
-          );
-
-          return {
-            title: frontmatter.title || "Untitled",
-            description: frontmatter.description || "",
-            date: frontmatter.date || new Date().toISOString().split("T")[0],
-            lastModified: frontmatter.lastModified,
-            url: page.url,
-            tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
-            author: frontmatter.author || "Clement Tang",
-            cover: frontmatter.cover,
-            readingTime,
-            wordCount: totalWords,
-            featured: frontmatter.featured || false,
-            series: frontmatter.series,
-            seriesTitle: frontmatter.seriesTitle,
-            seriesIndex: frontmatter.seriesIndex,
-          };
-        })
-        .sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+        // Calculate reading time (中文 400 字/分鐘，英文 200 字/分鐘)
+        const content = page.src || "";
+        const chineseChars = (content.match(/[\u4e00-\u9fa5]/g) || []).length;
+        const englishWords = (content.match(/[a-zA-Z]+/g) || []).length;
+        const totalWords = chineseChars + englishWords;
+        const readingTime = Math.max(
+          1,
+          Math.ceil(chineseChars / 400 + englishWords / 200),
         );
-    },
+
+        return {
+          // 必填欄位已由 isPublishedPost 驗證
+          title: frontmatter.title as string,
+          description: frontmatter.description as string,
+          date: frontmatter.date as string,
+          lastModified: frontmatter.lastModified,
+          url: page.url,
+          tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
+          author: frontmatter.author || "Clement Tang",
+          cover: frontmatter.cover,
+          readingTime,
+          wordCount: totalWords,
+          featured: frontmatter.featured || false,
+          series: frontmatter.series,
+          seriesTitle: frontmatter.seriesTitle,
+          seriesIndex: frontmatter.seriesIndex,
+        };
+      })
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   },
-);
+});

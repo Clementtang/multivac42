@@ -1,6 +1,7 @@
 import { defineConfig, type HeadConfig } from "vitepress";
 import { generateRssFeed } from "./rss";
 import { generateLlmsTxt } from "./llms-generator";
+import { verifyBuildOutput } from "./verify-output";
 import { siteUrl, siteName, siteDescription } from "./site.config";
 import { relativePathToUrlPath } from "./theme/config/categories";
 
@@ -8,6 +9,7 @@ export default defineConfig({
   buildEnd: async (config) => {
     await generateRssFeed(config);
     await generateLlmsTxt(config);
+    verifyBuildOutput(config);
   },
   title: siteName,
   description: siteDescription,

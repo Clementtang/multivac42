@@ -1,8 +1,9 @@
 import { createContentLoader, type SiteConfig } from "vitepress";
-import { writeFileSync, readFileSync, mkdirSync } from "fs";
+import { writeFileSync, mkdirSync } from "fs";
 import path from "path";
 
 import { siteUrl, siteName, llmsDescription } from "./site.config";
+import { CONTENT_GLOBS, isPublishedPost, toIsoDate } from "./content";
 
 interface Article {
   title: string;
@@ -23,37 +24,28 @@ export async function generateLlmsTxt(config: SiteConfig) {
   try {
     const articles: Article[] = [];
 
-    const loader = createContentLoader(
-      ["articles/*.md", "company-research/**/*.md", "topic-research/*.md"],
-      { excerpt: false, render: false },
-    );
+    const loader = createContentLoader(CONTENT_GLOBS, {
+      excerpt: false,
+      render: false,
+      includeSrc: true,
+    });
 
     const rawPosts = await loader.load();
 
-    for (const post of rawPosts) {
-      if (post.url.endsWith("/")) continue;
-      const fm = post.frontmatter || {};
-      if (!fm.title || !fm.date) continue;
-      if (fm.draft) continue;
+    for (const post of rawPosts.filter(isPublishedPost)) {
+      const fm = post.frontmatter;
+      const rawContent = (post.src || "").replace(/^---[\s\S]*?---\n*/, "");
 
-      // Read raw markdown for llms-full.txt
-      const srcPath = path.join(
-        config.srcDir,
-        post.url.replace(/\/$/, "") + ".md",
-      );
-      let rawContent = "";
-      try {
-        rawContent = readFileSync(srcPath, "utf-8");
-        // Strip frontmatter
-        rawContent = rawContent.replace(/^---[\s\S]*?---\n*/, "");
-      } catch {
-        // File not found — skip raw content
+      // An empty body used to be skipped silently, leaving llms.txt pointing at
+      // an .md that was never written. Fail the build instead.
+      if (!rawContent.trim()) {
+        throw new Error(`文章正文為空，無法產生 .md：${post.url}`);
       }
 
       articles.push({
         title: fm.title,
         url: post.url,
-        date: fm.date,
+        date: toIsoDate(fm.date),
         description: fm.description || "",
         category: categorize(post.url),
         rawContent,
@@ -101,9 +93,7 @@ export async function generateLlmsTxt(config: SiteConfig) {
       llmsFullTxt += `- URL: ${siteUrl}${a.url}\n`;
       llmsFullTxt += `- 日期: ${a.date}\n`;
       llmsFullTxt += `- 分類: ${a.category}\n\n`;
-      if (a.rawContent) {
-        llmsFullTxt += a.rawContent.trim() + "\n\n";
-      }
+      llmsFullTxt += a.rawContent.trim() + "\n\n";
       llmsFullTxt += "---\n\n";
     }
 
@@ -114,7 +104,6 @@ export async function generateLlmsTxt(config: SiteConfig) {
     // --- P1: Article-level .md files ---
     let mdCount = 0;
     for (const a of articles) {
-      if (!a.rawContent) continue;
       const mdPath = path.join(outDir, a.url.replace(/\/$/, "") + ".md");
       mkdirSync(path.dirname(mdPath), { recursive: true });
       writeFileSync(mdPath, a.rawContent.trim());

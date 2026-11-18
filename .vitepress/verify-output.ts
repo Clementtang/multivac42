@@ -1,0 +1,66 @@
+import type { SiteConfig } from "vitepress";
+import { existsSync, readFileSync, readdirSync, statSync } from "fs";
+import path from "path";
+
+import { siteUrl } from "./site.config";
+
+// 建置最後一步：從 docs 目錄獨立列出應發布的文章，逐篇確認產物齊全。
+// 刻意不重用 content loader，否則 glob 寫錯時預期清單和產物會一起少算。
+// 背景：曾有文章被靜默排除，線上 404 一週才發現。
+const CONTENT_DIRS = ["articles", "topic-research", "company-research"];
+
+function listMarkdownFiles(dir: string): string[] {
+  if (!existsSync(dir)) {
+    throw new Error(`內容目錄不存在：${dir}`);
+  }
+  return readdirSync(dir).flatMap((name) => {
+    const fullPath = path.join(dir, name);
+    if (statSync(fullPath).isDirectory()) return listMarkdownFiles(fullPath);
+    return name.endsWith(".md") ? [fullPath] : [];
+  });
+}
+
+function isDraft(filePath: string): boolean {
+  const frontmatter = readFileSync(filePath, "utf-8").match(
+    /^---\n([\s\S]*?)\n---/,
+  );
+  return !!frontmatter && /^draft:\s*true\s*$/m.test(frontmatter[1]);
+}
+
+function expectedArticlePaths(srcDir: string): string[] {
+  return CONTENT_DIRS.flatMap((dir) =>
+    listMarkdownFiles(path.join(srcDir, dir)),
+  )
+    .filter((file) => path.basename(file) !== "index.md")
+    .filter((file) => !isDraft(file))
+    .map((file) => path.relative(srcDir, file).replace(/\.md$/, ""));
+}
+
+export function verifyBuildOutput(config: SiteConfig): void {
+  const outDir = config.outDir;
+  const llmsTxt = readFileSync(path.join(outDir, "llms.txt"), "utf-8");
+  const sitemap = readFileSync(path.join(outDir, "sitemap.xml"), "utf-8");
+
+  const problems: string[] = [];
+  const expected = expectedArticlePaths(config.srcDir);
+
+  for (const articlePath of expected) {
+    const url = `${siteUrl}/${articlePath}`;
+    const missing: string[] = [];
+    if (!existsSync(path.join(outDir, `${articlePath}.html`)))
+      missing.push("HTML");
+    const mdFile = path.join(outDir, `${articlePath}.md`);
+    if (!existsSync(mdFile) || statSync(mdFile).size === 0) missing.push(".md");
+    if (!llmsTxt.includes(`(${url})`)) missing.push("llms.txt");
+    if (!sitemap.includes(`<loc>${url}</loc>`)) missing.push("sitemap");
+    if (missing.length > 0)
+      problems.push(`${articlePath}：缺 ${missing.join("、")}`);
+  }
+
+  if (problems.length > 0) {
+    throw new Error(
+      `建置產物檢查失敗（${problems.length} 篇）：\n${problems.join("\n")}`,
+    );
+  }
+  console.log(`✓ Build output verified: ${expected.length} articles`);
+}

@@ -3,6 +3,7 @@ import { writeFileSync } from "fs";
 import path from "path";
 
 import { siteUrl, siteName, siteDescription } from "./site.config";
+import { CONTENT_GLOBS, isPublishedPost } from "./content";
 
 interface Post {
   title: string;
@@ -30,23 +31,15 @@ export async function generateRssFeed(config: SiteConfig) {
     const posts: Post[] = [];
 
     // Load articles
-    const loader = createContentLoader(
-      ["articles/*.md", "topic-research/*.md", "company-research/**/*.md"],
-      {
-        excerpt: true,
-        render: false,
-      },
-    );
+    const loader = createContentLoader(CONTENT_GLOBS, {
+      excerpt: true,
+      render: false,
+    });
 
     const rawPosts = await loader.load();
 
-    for (const post of rawPosts) {
-      if (post.url.endsWith("/")) continue; // Skip index pages
-
-      const frontmatter = post.frontmatter || {};
-      if (!frontmatter.title || !frontmatter.date) continue;
-      if (frontmatter.draft) continue;
-
+    for (const post of rawPosts.filter(isPublishedPost)) {
+      const frontmatter = post.frontmatter;
       posts.push({
         title: frontmatter.title,
         url: post.url,
