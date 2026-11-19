@@ -25,8 +25,7 @@ export default defineConfig({
   sitemap: {
     hostname: siteUrl,
     // 草稿可直連但不主動送給搜尋引擎
-    transformItems: (items) =>
-      items.filter((item) => !isDraftUrl(item.url)),
+    transformItems: (items) => items.filter((item) => !isDraftUrl(item.url)),
   },
 
   // P-01: 圖片懶載入 + F-05: 深色程式碼主題
@@ -97,6 +96,11 @@ export default defineConfig({
       ["meta", { name: "twitter:title", content: title }],
       ["meta", { name: "twitter:description", content: description }],
     ];
+
+    // 草稿已排除於 sitemap，但被其他頁面連到時仍可能被收錄
+    if (pageData.frontmatter.draft) {
+      head.push(["meta", { name: "robots", content: "noindex" }]);
+    }
 
     if (cover) {
       const imageUrl = cover.startsWith("http") ? cover : `${siteUrl}${cover}`;
