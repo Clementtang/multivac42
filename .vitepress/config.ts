@@ -1,4 +1,7 @@
+import { existsSync } from "fs";
+import path from "path";
 import { defineConfig, type HeadConfig } from "vitepress";
+import { isDraftFile } from "./content";
 import { generateRssFeed } from "./rss";
 import { generateLlmsTxt } from "./llms-generator";
 import { verifyBuildOutput } from "./verify-output";
@@ -21,6 +24,9 @@ export default defineConfig({
   // Sitemap for Search Console
   sitemap: {
     hostname: siteUrl,
+    // 草稿可直連但不主動送給搜尋引擎
+    transformItems: (items) =>
+      items.filter((item) => !isDraftUrl(item.url)),
   },
 
   // P-01: 圖片懶載入 + F-05: 深色程式碼主題
@@ -315,6 +321,13 @@ export default defineConfig({
             },
           },
         },
+        // 草稿不進站內搜尋索引；保留 VitePress 預設的 search: false 行為
+        _render(src, env, md) {
+          const html = md.render(src, env);
+          if (env.frontmatter?.draft || env.frontmatter?.search === false)
+            return "";
+          return html;
+        },
         // MiniSearch 設定優化中文搜尋
         miniSearch: {
           searchOptions: {
@@ -332,3 +345,14 @@ export default defineConfig({
     },
   },
 });
+
+// sitemap 的 url 是去掉 .md 的相對路徑；目錄頁為 "dir/"，對應 dir/index.md
+function isDraftUrl(url: string): boolean {
+  const file = path.join(
+    __dirname,
+    "..",
+    "docs",
+    url.endsWith("/") || url === "" ? `${url}index.md` : `${url}.md`,
+  );
+  return existsSync(file) && isDraftFile(file);
+}

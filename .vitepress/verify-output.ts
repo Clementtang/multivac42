@@ -1,8 +1,8 @@
 import type { SiteConfig } from "vitepress";
 import { existsSync, readFileSync, readdirSync, statSync } from "fs";
 import path from "path";
-import matter from "gray-matter";
 
+import { isDraftFile } from "./content";
 import { siteUrl } from "./site.config";
 
 // 建置最後一步：從 docs 目錄獨立列出應發布的文章，逐篇確認產物齊全。
@@ -21,19 +21,14 @@ function listMarkdownFiles(dir: string): string[] {
   });
 }
 
-// 與 content loader 同一個解析器與真值判斷（VitePress 內部即用 gray-matter），
-// 否則 draft: "true"、行尾註解、CRLF、BOM 等寫法兩邊判斷不一致，合法內容也會擋下部署。
-function isDraft(filePath: string): boolean {
-  return Boolean(matter(readFileSync(filePath, "utf-8")).data.draft);
-}
-
-function expectedArticlePaths(srcDir: string): string[] {
+function listArticleFiles(srcDir: string): string[] {
   return CONTENT_DIRS.flatMap((dir) =>
     listMarkdownFiles(path.join(srcDir, dir)),
-  )
-    .filter((file) => path.basename(file) !== "index.md")
-    .filter((file) => !isDraft(file))
-    .map((file) => path.relative(srcDir, file).replace(/\.md$/, ""));
+  ).filter((file) => path.basename(file) !== "index.md");
+}
+
+function toArticlePath(srcDir: string, file: string): string {
+  return path.relative(srcDir, file).replace(/\.md$/, "");
 }
 
 export function verifyBuildOutput(config: SiteConfig): void {
@@ -42,7 +37,13 @@ export function verifyBuildOutput(config: SiteConfig): void {
   const sitemap = readFileSync(path.join(outDir, "sitemap.xml"), "utf-8");
 
   const problems: string[] = [];
-  const expected = expectedArticlePaths(config.srcDir);
+  const articleFiles = listArticleFiles(config.srcDir);
+  const expected = articleFiles
+    .filter((file) => !isDraftFile(file))
+    .map((file) => toArticlePath(config.srcDir, file));
+  const drafts = articleFiles
+    .filter(isDraftFile)
+    .map((file) => toArticlePath(config.srcDir, file));
 
   for (const articlePath of expected) {
     // sitemap 以 new URL() 正規化，非 ASCII 與空白會被 percent-encode；比對時用同一種寫法
@@ -58,6 +59,12 @@ export function verifyBuildOutput(config: SiteConfig): void {
     if (!sitemap.includes(`<loc>${url}</loc>`)) missing.push("sitemap");
     if (missing.length > 0)
       problems.push(`${articlePath}：缺 ${missing.join("、")}`);
+  }
+
+  for (const draftPath of drafts) {
+    const url = new URL(draftPath, `${siteUrl}/`).href;
+    if (sitemap.includes(`<loc>${url}</loc>`))
+      problems.push(`${draftPath}：草稿不應出現在 sitemap`);
   }
 
   if (problems.length > 0) {

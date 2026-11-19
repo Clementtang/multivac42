@@ -1,3 +1,6 @@
+import { readFileSync } from "fs";
+import matter from "gray-matter";
+
 // 四個 content loader（posts.data.ts、tags.data.ts、rss.ts、llms-generator.ts）共用的收錄規則。
 // 過去 glob 與篩選各寫一份，曾漂移成不存在的 research/*.md，文章靜默消失。
 
@@ -44,4 +47,10 @@ function validateFrontmatter({ url, frontmatter }: ContentPage): boolean {
 export function toIsoDate(value: unknown): string {
   if (value instanceof Date) return value.toISOString().slice(0, 10);
   return String(value).slice(0, 10);
+}
+
+// 給沒有 frontmatter 可用的地方（sitemap、建置產物檢查）直接讀檔判斷草稿。
+// 用與 VitePress 內部相同的 gray-matter，draft: "true"、CRLF、BOM 等寫法才會和 loader 判斷一致。
+export function isDraftFile(filePath: string): boolean {
+  return Boolean(matter(readFileSync(filePath, "utf-8")).data.draft);
 }

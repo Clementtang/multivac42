@@ -73,7 +73,7 @@ tags:
 author: Clement Tang
 cover: /images/cover.jpg # 選填
 featured: true # 選填，精選文章
-draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags；頁面仍會產生、可直連，也會進 sitemap 與站內搜尋）
+draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags、sitemap、站內搜尋；頁面仍會產生、可直連）
 series: series-slug # 選填，系列文章 ID
 seriesTitle: 系列名稱 # 選填
 seriesIndex: 1 # 選填，系列順序

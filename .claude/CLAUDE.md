@@ -31,7 +31,7 @@ tags: ["標籤"] # 選填，必須是陣列
 author: "Clement Tang" # 選填，預設 Clement Tang
 cover: /og/filename.png # 選填，OG image
 featured: true # 選填，精選文章
-draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags；頁面仍會產生、可直連，也會進 sitemap 與站內搜尋）
+draft: true # 選填，草稿（不出現在列表、RSS、llms.txt、tags、sitemap、站內搜尋；頁面仍會產生、可直連）
 series: series-slug # 選填，系列 ID
 seriesTitle: "系列名稱" # 選填
 seriesIndex: 1 # 選填，系列順序
